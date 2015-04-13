@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LibNavViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-WX-hbX">
+                    <rect key="frame" x="0.0" y="64" width="320" height="252"/>
+                    <state key="normal" backgroundImage="Lib_jlh.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickJLHButton:" destination="-1" eventType="touchUpInside" id="5wZ-e1-XX1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5W-0s-SS3">
+                    <rect key="frame" x="0.0" y="316" width="320" height="252"/>
+                    <state key="normal" backgroundImage="Lib_spl.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickSPLButton:" destination="-1" eventType="touchUpInside" id="pR0-jn-720"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="e5W-0s-SS3" secondAttribute="trailing" id="D9b-1r-x9F"/>
+                <constraint firstAttribute="bottom" secondItem="e5W-0s-SS3" secondAttribute="bottom" id="DSY-qG-Ujh"/>
+                <constraint firstItem="1cu-WX-hbX" firstAttribute="height" secondItem="e5W-0s-SS3" secondAttribute="height" id="Erx-Om-w8R"/>
+                <constraint firstItem="1cu-WX-hbX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W8Q-SQ-cYH"/>
+                <constraint firstAttribute="trailing" secondItem="1cu-WX-hbX" secondAttribute="trailing" id="hxz-rA-gvN"/>
+                <constraint firstItem="1cu-WX-hbX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="jtd-ZT-17y"/>
+                <constraint firstItem="e5W-0s-SS3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mhQ-eF-KZe"/>
+                <constraint firstItem="e5W-0s-SS3" firstAttribute="top" secondItem="1cu-WX-hbX" secondAttribute="bottom" id="ogC-2a-Zos"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Lib_jlh.png" width="320" height="252"/>
+        <image name="Lib_spl.png" width="320" height="252"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

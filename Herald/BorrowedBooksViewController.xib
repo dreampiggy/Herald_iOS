@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BorrowedBooksViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="noBorrowLabel" destination="6hY-2g-gbz" id="mLn-D3-9Yk"/>
+                <outlet property="tableView" destination="MFc-3H-SHz" id="l4Q-yE-3RU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MFc-3H-SHz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="FT8-1g-uQw"/>
+                        <outlet property="delegate" destination="-1" id="ibZ-Oi-Deq"/>
+                    </connections>
+                </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你现在没有借书哦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hY-2g-gbz">
+                    <rect key="frame" x="64" y="270" width="192" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MFc-3H-SHz" secondAttribute="trailing" id="0Gk-Su-lTN"/>
+                <constraint firstItem="MFc-3H-SHz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8e7-76-GSO"/>
+                <constraint firstAttribute="centerY" secondItem="6hY-2g-gbz" secondAttribute="centerY" constant="-0.5" id="DuE-Je-8Iv"/>
+                <constraint firstAttribute="centerX" secondItem="6hY-2g-gbz" secondAttribute="centerX" id="LdT-pA-aMH"/>
+                <constraint firstAttribute="bottom" secondItem="MFc-3H-SHz" secondAttribute="bottom" id="Rla-hK-x8B"/>
+                <constraint firstItem="MFc-3H-SHz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="USE-rT-HRP"/>
+            </constraints>
+            <point key="canvasLocation" x="272" y="244"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

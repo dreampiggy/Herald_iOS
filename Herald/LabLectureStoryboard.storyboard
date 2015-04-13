@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PIq-6l-B5W">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--人文讲座-->
+        <scene sceneID="0s3-lk-qsM">
+            <objects>
+                <viewController id="Bhf-zU-T1Q" customClass="LectureViewController" customModule="Herald" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A77-ji-xZk"/>
+                        <viewControllerLayoutGuide type="bottom" id="QqR-ka-MSC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fnW-6Y-Zef">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JdH-Tj-Wl5">
+                                <rect key="frame" x="-4" y="28" width="608" height="523"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LectureTableViewCell" rowHeight="120" id="JWU-cI-B5t" customClass="LectureTableViewCell" customModule="Herald" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="608" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JWU-cI-B5t" id="ui1-JU-VCS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lL9-sU-d8E">
+                                                    <rect key="frame" x="8" y="1" width="592" height="20"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hI-O3-9aS">
+                                                    <rect key="frame" x="8" y="92" width="592" height="20"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9hI-O3-9aS" secondAttribute="bottom" constant="-1" id="519-cq-1dX"/>
+                                                <constraint firstItem="lL9-sU-d8E" firstAttribute="trailing" secondItem="ui1-JU-VCS" secondAttribute="trailingMargin" id="C8T-dI-CJx"/>
+                                                <constraint firstItem="9hI-O3-9aS" firstAttribute="leading" secondItem="ui1-JU-VCS" secondAttribute="leadingMargin" id="EBj-z8-16y"/>
+                                                <constraint firstItem="9hI-O3-9aS" firstAttribute="trailing" secondItem="ui1-JU-VCS" secondAttribute="trailingMargin" id="d3j-zB-iPa"/>
+                                                <constraint firstItem="lL9-sU-d8E" firstAttribute="leading" secondItem="ui1-JU-VCS" secondAttribute="leadingMargin" id="lhj-mO-brV"/>
+                                                <constraint firstItem="lL9-sU-d8E" firstAttribute="top" secondItem="ui1-JU-VCS" secondAttribute="topMargin" constant="-7" id="mEb-14-ctJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="LectureDateLabel" destination="lL9-sU-d8E" id="LHv-CB-ytX"/>
+                                            <outlet property="LecturePlaceLabel" destination="9hI-O3-9aS" id="p1d-rN-ZVt"/>
+                                            <outlet property="lectureDateLabel" destination="lL9-sU-d8E" id="00J-do-GdE"/>
+                                            <outlet property="lecturePlaceLabel" destination="9hI-O3-9aS" id="so0-j8-N6c"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有听过人文讲座哦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1Z-dO-eta">
+                                <rect key="frame" x="168" y="286" width="264" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JdH-Tj-Wl5" firstAttribute="top" secondItem="A77-ji-xZk" secondAttribute="bottom" constant="8" symbolic="YES" id="0qj-jD-ubO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JdH-Tj-Wl5" secondAttribute="trailing" constant="-20" id="Mkj-dr-XNx"/>
+                            <constraint firstItem="JdH-Tj-Wl5" firstAttribute="leading" secondItem="fnW-6Y-Zef" secondAttribute="leadingMargin" constant="-20" id="Pza-9u-YRX"/>
+                            <constraint firstAttribute="centerX" secondItem="e1Z-dO-eta" secondAttribute="centerX" id="UBc-yG-gjy"/>
+                            <constraint firstAttribute="centerY" secondItem="e1Z-dO-eta" secondAttribute="centerY" id="he3-qS-Nul"/>
+                            <constraint firstItem="QqR-ka-MSC" firstAttribute="top" secondItem="JdH-Tj-Wl5" secondAttribute="bottom" id="pv8-Dx-eKR"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="人文讲座" image="LectureTabBar.png" id="xAU-Cc-jGj"/>
+                    <connections>
+                        <outlet property="noLectureLabel" destination="e1Z-dO-eta" id="Azz-CU-BTh"/>
+                        <outlet property="tableView" destination="JdH-Tj-Wl5" id="XMv-ch-rR5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUf-8Z-FWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="391"/>
+        </scene>
+        <!--物理实验-->
+        <scene sceneID="LMZ-7l-XIC">
+            <objects>
+                <viewController id="PTk-n1-FIh" customClass="LabTableViewController" customModule="Herald" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ecT-DA-RkN"/>
+                        <viewControllerLayoutGuide type="bottom" id="tpK-x1-djg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4lm-BW-KWU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1xU-g2-4UU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PTk-n1-FIh" id="Kia-6o-5lE"/>
+                                    <outlet property="delegate" destination="PTk-n1-FIh" id="wVX-k7-78c"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tpK-x1-djg" firstAttribute="top" secondItem="1xU-g2-4UU" secondAttribute="bottom" constant="8" symbolic="YES" id="ERM-Vx-g3O"/>
+                            <constraint firstItem="tpK-x1-djg" firstAttribute="top" secondItem="1xU-g2-4UU" secondAttribute="bottom" id="KgL-Zs-dXz"/>
+                            <constraint firstItem="1xU-g2-4UU" firstAttribute="top" secondItem="4lm-BW-KWU" secondAttribute="top" id="StM-fb-nqk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1xU-g2-4UU" secondAttribute="trailing" constant="-16" id="TDW-DS-lY6"/>
+                            <constraint firstItem="1xU-g2-4UU" firstAttribute="leading" secondItem="4lm-BW-KWU" secondAttribute="leadingMargin" constant="-16" id="aEu-2R-gaU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ERM-Vx-g3O"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="物理实验" image="PhyTabBar.png" id="C4x-Mu-aDA"/>
+                    <connections>
+                        <outlet property="tableView" destination="1xU-g2-4UU" id="fyF-Kv-LXb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7d-vQ-cR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="-269"/>
+        </scene>
+        <!--实验讲座-->
+        <scene sceneID="ZJ3-pD-bWF">
+            <objects>
+                <tabBarController storyboardIdentifier="LabLectureTabViewController" title="实验讲座" id="PIq-6l-B5W" userLabel="实验讲座" customClass="LabLectureTabViewController" customModule="Herald" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5Xs-sI-jee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="PTk-n1-FIh" kind="relationship" relationship="viewControllers" id="VUM-n3-juA"/>
+                        <segue destination="Bhf-zU-T1Q" kind="relationship" relationship="viewControllers" id="fSC-s5-bVE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="toZ-v7-yf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-387" y="62"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LectureTabBar.png" width="30" height="30"/>
+        <image name="PhyTabBar.png" width="30" height="30"/>
+    </resources>
+</document>

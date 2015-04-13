@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LibJLHNavViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollView" destination="zPl-as-Y49" id="SFA-hF-6N3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="141-UX-uZA">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <items>
+                        <barButtonItem title="一楼" id="gaJ-Ww-uQf">
+                            <connections>
+                                <action selector="firstFloorClicked:" destination="-1" id="31g-1N-uk6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="L0o-mX-jpk"/>
+                        <barButtonItem title="二楼" id="vs3-kF-6KB">
+                            <connections>
+                                <action selector="secondFloorClicked:" destination="-1" id="rc7-G6-lvt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="NHQ-v5-wWt"/>
+                        <barButtonItem title="三楼" id="1kS-MN-eVs">
+                            <connections>
+                                <action selector="thirdFloorClicked:" destination="-1" id="id5-NQ-lgG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="5gT-5E-F8o"/>
+                        <barButtonItem title="四楼" id="x2c-84-l2H">
+                            <connections>
+                                <action selector="fourthFloorClicked:" destination="-1" id="XPQ-y5-qCY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="4lj-3K-ybt"/>
+                        <barButtonItem title="五楼" id="C36-T1-FU9">
+                            <connections>
+                                <action selector="fifthFloorClicked:" destination="-1" id="sEr-UC-xaG"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPl-as-Y49">
+                    <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zPl-as-Y49" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ATO-nc-Puz"/>
+                <constraint firstAttribute="bottom" secondItem="141-UX-uZA" secondAttribute="bottom" id="XW8-oh-iRb"/>
+                <constraint firstItem="zPl-as-Y49" firstAttribute="trailing" secondItem="141-UX-uZA" secondAttribute="trailing" id="htn-Ax-3MF"/>
+                <constraint firstItem="zPl-as-Y49" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iFK-Wj-mdZ"/>
+                <constraint firstItem="zPl-as-Y49" firstAttribute="leading" secondItem="141-UX-uZA" secondAttribute="leading" id="suN-1i-mGo"/>
+                <constraint firstAttribute="trailing" secondItem="zPl-as-Y49" secondAttribute="trailing" id="vpF-TD-3VK"/>
+                <constraint firstItem="zPl-as-Y49" firstAttribute="bottom" secondItem="141-UX-uZA" secondAttribute="top" id="ybM-oH-xXv"/>
+            </constraints>
+            <point key="canvasLocation" x="272" y="244"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

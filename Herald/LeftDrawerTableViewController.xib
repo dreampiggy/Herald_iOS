@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftDrawerTableViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="headView" destination="XTj-wV-kQh" id="e0K-ou-ny6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="welcomeLabel" destination="JI9-jm-BQY" id="US8-HP-l23"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
+                <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
+            </connections>
+            <point key="canvasLocation" x="302" y="250"/>
+        </tableView>
+        <view contentMode="scaleToFill" id="XTj-wV-kQh">
+            <rect key="frame" x="0.0" y="0.0" width="260" height="214"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Side_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5dF-Pj-5an">
+                    <rect key="frame" x="0.0" y="0.0" width="260" height="152"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="152" id="h0J-Yw-65r"/>
+                    </constraints>
+                </imageView>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4N-Kk-l0R">
+                    <rect key="frame" x="87" y="152" width="1" height="62"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJH-QR-Zey">
+                    <rect key="frame" x="172" y="152" width="1" height="62"/>
+                </view>
+                <button opaque="NO" tag="666" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-r8-0Lp" userLabel="用户认证">
+                    <rect key="frame" x="0.0" y="152" width="130" height="62"/>
+                    <state key="normal" image="NicButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickLoginButton:" destination="-1" eventType="touchUpInside" id="DxD-Sq-5FC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="666" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6v-AA-282" userLabel="个人信息">
+                    <rect key="frame" x="130" y="152" width="130" height="62"/>
+                    <state key="normal" image="InfoButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickInfoButton:" destination="-1" eventType="touchUpInside" id="7vh-aw-fkx"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Side_SchoolBadge.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Yh-ws-e9Y">
+                    <rect key="frame" x="16" y="50" width="88" height="88"/>
+                </imageView>
+                <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zm5-5D-agO">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="G1I-Mb-C9q"/>
+                        <constraint firstAttribute="width" id="vvi-Bg-rL5"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请先登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JI9-jm-BQY">
+                    <rect key="frame" x="130" y="76" width="96" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="CLB-r8-0Lp" secondAttribute="bottom" id="Huv-XI-9Ia"/>
+                <constraint firstAttribute="bottom" secondItem="zm5-5D-agO" secondAttribute="bottom" constant="20" symbolic="YES" id="IcV-Dc-Tpq"/>
+                <constraint firstItem="zm5-5D-agO" firstAttribute="leading" secondItem="CLB-r8-0Lp" secondAttribute="trailing" id="Oov-WQ-Vlo"/>
+                <constraint firstItem="CLB-r8-0Lp" firstAttribute="top" secondItem="5dF-Pj-5an" secondAttribute="bottom" id="P7C-eS-DX3"/>
+                <constraint firstAttribute="bottom" secondItem="R6v-AA-282" secondAttribute="bottom" id="Pa8-G8-lml"/>
+                <constraint firstItem="5dF-Pj-5an" firstAttribute="top" secondItem="XTj-wV-kQh" secondAttribute="top" id="RaE-2A-btj"/>
+                <constraint firstItem="R6v-AA-282" firstAttribute="leading" secondItem="zm5-5D-agO" secondAttribute="trailing" id="TLJ-d1-2lh"/>
+                <constraint firstAttribute="trailing" secondItem="5dF-Pj-5an" secondAttribute="trailing" id="U2I-Ca-bYy"/>
+                <constraint firstAttribute="centerX" secondItem="zm5-5D-agO" secondAttribute="centerX" id="WJV-i0-HVd"/>
+                <constraint firstItem="CLB-r8-0Lp" firstAttribute="leading" secondItem="XTj-wV-kQh" secondAttribute="leading" id="ZX4-Vf-1zC"/>
+                <constraint firstItem="R6v-AA-282" firstAttribute="top" secondItem="5dF-Pj-5an" secondAttribute="bottom" id="aJ1-oq-Irl"/>
+                <constraint firstAttribute="trailing" secondItem="R6v-AA-282" secondAttribute="trailing" id="gjf-QB-Zhk"/>
+                <constraint firstItem="5dF-Pj-5an" firstAttribute="leading" secondItem="XTj-wV-kQh" secondAttribute="leading" id="kP6-9r-liT"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="751" y="158"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="InfoButton.png" width="190" height="108"/>
+        <image name="NicButton.png" width="190" height="108"/>
+        <image name="Side_SchoolBadge.png" width="1024" height="1024"/>
+        <image name="Side_bg.jpg" width="523" height="311"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

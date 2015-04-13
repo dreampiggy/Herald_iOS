@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GradeViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="GPALabel" destination="51J-hg-27X" id="ZR0-gM-NhB"/>
+                <outlet property="tableView" destination="RIr-7e-5Bt" id="9hF-Oa-QG6"/>
+                <outlet property="totalCreditLabel" destination="GFV-Dt-tJy" id="dqO-9w-Nws"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYd-Hg-2cl">
+                    <rect key="frame" x="0.0" y="64" width="320" height="204"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grades_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3XE-PY-K1P">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="绩点" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfP-HD-34k">
+                            <rect key="frame" x="45" y="135" width="87" height="46"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pj-yJ-bmL">
+                            <rect key="frame" x="45" y="26" width="87" height="44"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFV-Dt-tJy">
+                            <rect key="frame" x="175" y="19" width="120" height="58"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51J-hg-27X">
+                            <rect key="frame" x="175" y="126" width="120" height="58"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3XE-PY-K1P" firstAttribute="top" secondItem="NYd-Hg-2cl" secondAttribute="top" id="FQr-8f-cZq"/>
+                        <constraint firstAttribute="height" constant="204" id="Qj4-Ga-leg"/>
+                        <constraint firstAttribute="trailing" secondItem="3XE-PY-K1P" secondAttribute="trailing" id="UM8-kM-gfp"/>
+                        <constraint firstAttribute="bottom" secondItem="3XE-PY-K1P" secondAttribute="bottom" id="UqC-7u-AbL"/>
+                        <constraint firstItem="3XE-PY-K1P" firstAttribute="leading" secondItem="NYd-Hg-2cl" secondAttribute="leading" id="hvm-cc-B75"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RIr-7e-5Bt">
+                    <rect key="frame" x="0.0" y="268" width="320" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="1AG-Vc-1Rm"/>
+                        <outlet property="delegate" destination="-1" id="CDN-Q4-sk8"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="RIr-7e-5Bt" secondAttribute="bottom" id="1EG-0c-jKu"/>
+                <constraint firstItem="RIr-7e-5Bt" firstAttribute="top" secondItem="NYd-Hg-2cl" secondAttribute="bottom" id="4zX-I6-eF3"/>
+                <constraint firstItem="RIr-7e-5Bt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DAw-27-Bhz"/>
+                <constraint firstAttribute="trailing" secondItem="NYd-Hg-2cl" secondAttribute="trailing" id="H2d-jk-mMC"/>
+                <constraint firstItem="NYd-Hg-2cl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Vzq-rS-6Me"/>
+                <constraint firstItem="NYd-Hg-2cl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ceS-PL-hCR"/>
+                <constraint firstAttribute="trailing" secondItem="RIr-7e-5Bt" secondAttribute="trailing" id="l5M-4s-EjJ"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Grades_bg.jpg" width="640" height="390"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

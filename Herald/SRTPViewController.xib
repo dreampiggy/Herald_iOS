@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SRTPViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="levelLabel" destination="Zxw-Ra-FVp" id="Qmq-VJ-4JS"/>
+                <outlet property="stuIDLabel" destination="nUO-dh-EAF" id="5Rb-d9-Nj6"/>
+                <outlet property="tableView" destination="Jtw-3y-CjE" id="cw7-TC-cKv"/>
+                <outlet property="totalCreditLabel" destination="2mq-iK-kcu" id="tTZ-8n-Gnf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOP-K1-8A7">
+                    <rect key="frame" x="0.0" y="64" width="320" height="178"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SRTP_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IQR-qV-sbz">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mq-iK-kcu">
+                            <rect key="frame" x="191" y="70" width="106" height="35"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成绩:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHz-3X-Oka">
+                            <rect key="frame" x="66" y="118" width="61" height="31"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学号:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGP-hK-XGy">
+                            <rect key="frame" x="66" y="22" width="61" height="31"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysW-Iz-Aln">
+                            <rect key="frame" x="51" y="61" width="99" height="49"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUO-dh-EAF">
+                            <rect key="frame" x="191" y="22" width="106" height="35"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxw-Ra-FVp">
+                            <rect key="frame" x="191" y="118" width="106" height="35"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="IQR-qV-sbz" firstAttribute="top" secondItem="SOP-K1-8A7" secondAttribute="top" id="GKA-hi-sXo"/>
+                        <constraint firstItem="IQR-qV-sbz" firstAttribute="leading" secondItem="SOP-K1-8A7" secondAttribute="leading" id="YGU-5z-LZk"/>
+                        <constraint firstAttribute="height" constant="178" id="rxy-lf-rUx"/>
+                        <constraint firstAttribute="trailing" secondItem="IQR-qV-sbz" secondAttribute="trailing" id="ypd-Ks-rKk"/>
+                        <constraint firstAttribute="bottom" secondItem="IQR-qV-sbz" secondAttribute="bottom" constant="-12" id="z96-HR-GXn"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Jtw-3y-CjE">
+                    <rect key="frame" x="0.0" y="242" width="320" height="326"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="5fu-HG-vaS"/>
+                        <outlet property="delegate" destination="-1" id="AnS-IZ-hcl"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="SOP-K1-8A7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HoG-26-Tg7"/>
+                <constraint firstItem="SOP-K1-8A7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Xu9-dI-UCr"/>
+                <constraint firstAttribute="trailing" secondItem="Jtw-3y-CjE" secondAttribute="trailing" id="YwB-Cs-AWk"/>
+                <constraint firstItem="Jtw-3y-CjE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gR6-Et-0cA"/>
+                <constraint firstItem="Jtw-3y-CjE" firstAttribute="top" secondItem="SOP-K1-8A7" secondAttribute="bottom" id="oib-Md-IDq"/>
+                <constraint firstAttribute="trailing" secondItem="SOP-K1-8A7" secondAttribute="trailing" id="tu9-vf-NWN"/>
+                <constraint firstAttribute="bottom" secondItem="Jtw-3y-CjE" secondAttribute="bottom" id="zUy-vX-imh"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SRTP_bg.jpg" width="640" height="390"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

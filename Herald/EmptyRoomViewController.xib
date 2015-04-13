@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyRoomViewController" customModule="Herald" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerView" destination="dYD-jW-gia" id="rMt-tN-XJ1"/>
+                <outlet property="tableView" destination="cOJ-wR-LhJ" id="I1C-bM-7Cs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-jW-gia">
+                    <rect key="frame" x="0.0" y="63" width="320" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Xsd-cw-RBM"/>
+                        <outlet property="delegate" destination="-1" id="3hZ-nY-FDH"/>
+                    </connections>
+                </pickerView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cOJ-wR-LhJ">
+                    <rect key="frame" x="0.0" y="212" width="320" height="356"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="250" constant="356" id="ocC-k3-0GM"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="NKe-XE-IYE"/>
+                        <outlet property="delegate" destination="-1" id="4GS-er-3yJ"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="trailing" secondItem="dYD-jW-gia" secondAttribute="trailing" priority="250" id="GXB-8Y-g3d"/>
+                <constraint firstItem="dYD-jW-gia" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="M5E-1N-hkg"/>
+                <constraint firstAttribute="trailing" secondItem="cOJ-wR-LhJ" secondAttribute="trailing" id="OlJ-6o-kbo"/>
+                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="top" secondItem="dYD-jW-gia" secondAttribute="bottom" priority="250" constant="-13" id="aUE-wg-ZTb"/>
+                <constraint firstAttribute="bottom" secondItem="cOJ-wR-LhJ" secondAttribute="bottom" id="pwa-KO-eNz"/>
+                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="leading" secondItem="dYD-jW-gia" secondAttribute="leading" priority="250" id="sbe-2e-Aej"/>
+            </constraints>
+            <point key="canvasLocation" x="280" y="312"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
