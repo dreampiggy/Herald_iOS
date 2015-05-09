@@ -29,25 +29,25 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.title = self.dataList.objectForKey("name") as! NSString as String
+        self.navigationItem.title = self.dataList.objectForKey("name") as NSString
         
         var barButton = UIBarButtonItem(title: "收起展开", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("collapse"))
         self.navigationItem.rightBarButtonItem = barButton
         
         
-        var imageName:NSString = self.dataList.objectForKey("bigImage") as! NSString
-        self.imageView.image = UIImage(named: imageName as String)
+        var imageName:NSString = self.dataList.objectForKey("bigImage") as NSString
+        self.imageView.image = UIImage(named: imageName)
         
-        self.addressLabel.text = self.dataList.objectForKey("addr") as! NSString as String
+        self.addressLabel.text = self.dataList.objectForKey("addr") as NSString
         self.addressLabel.numberOfLines = 0
         self.addressLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
-        self.contactLabel.emojiText = self.dataList.objectForKey("contact") as! NSString as String
+        self.contactLabel.emojiText = self.dataList.objectForKey("contact") as NSString
         self.contactLabel.emojiDelegate = self
         self.contactLabel.numberOfLines = 0
         self.contactLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
-        self.lowestPriceLabel.text = self.dataList.objectForKey("lowestPrice") as! NSString as String
+        self.lowestPriceLabel.text = self.dataList.objectForKey("lowestPrice") as NSString
         
         
         self.tableView.SKSTableViewDelegate = self
@@ -102,7 +102,7 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
         
         var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
         
-        cell!.textLabel?.text = menuKeys[row] as! NSString as String
+        cell!.textLabel?.text = menuKeys[row] as NSString
         
         return cell!
     }
@@ -110,10 +110,10 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
     func tableView(tableView: SKSTableView!, numberOfSubRowsAtIndexPath indexPath: NSIndexPath!) -> Int {
         
         var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
-        var key:NSString = menuKeys[indexPath.row] as! NSString
-        var menu:NSDictionary = self.dataList.objectForKey("menu") as! NSDictionary
-        var Dic:NSDictionary = menu.objectForKey(key) as! NSDictionary
-        var foodNameArray:NSArray = Dic.objectForKey("foodname") as! NSArray
+        var key:NSString = menuKeys[indexPath.row] as NSString
+        var menu:NSDictionary = self.dataList.objectForKey("menu") as NSDictionary
+        var Dic:NSDictionary = menu.objectForKey(key) as NSDictionary
+        var foodNameArray:NSArray = Dic.objectForKey("foodname") as NSArray
         return foodNameArray.count
         
     }
@@ -132,14 +132,14 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
         }
         
         var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
-        var key:NSString = menuKeys[indexPath.row] as! NSString
-        var menu:NSDictionary = self.dataList.objectForKey("menu") as! NSDictionary
-        var Dic:NSDictionary = menu.objectForKey(key) as! NSDictionary
-        var foodNameArray:NSArray = Dic.objectForKey("foodname") as! NSArray
-        var foodPriceArray:NSArray = Dic.objectForKey("foodprice") as! NSArray
+        var key:NSString = menuKeys[indexPath.row] as NSString
+        var menu:NSDictionary = self.dataList.objectForKey("menu") as NSDictionary
+        var Dic:NSDictionary = menu.objectForKey(key) as NSDictionary
+        var foodNameArray:NSArray = Dic.objectForKey("foodname") as NSArray
+        var foodPriceArray:NSArray = Dic.objectForKey("foodprice") as NSArray
         
-        cell!.textLabel?.text = foodNameArray[indexPath.subRow - 1] as! NSString as String
-        cell!.detailTextLabel?.text = foodPriceArray[indexPath.subRow - 1] as! NSString as String
+        cell!.textLabel?.text = foodNameArray[indexPath.subRow - 1] as NSString
+        cell!.detailTextLabel?.text = foodPriceArray[indexPath.subRow - 1] as NSString
         
         
         cell!.textLabel?.numberOfLines = 0

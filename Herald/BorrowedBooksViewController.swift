@@ -105,13 +105,13 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
         
         var row = indexPath.row
         
-        cell?.bookName.text = self.dataList[row]["title"] as! NSString as String
-        cell?.borrowDate.text = self.dataList[row]["render_date"] as! NSString as String
-        cell?.dueDate.text = self.dataList[row]["due_date"] as! NSString as String
-        cell?.collectionSite.text = self.dataList[row]["place"] as! NSString as String
-        cell?.author.text = self.dataList[row]["author"] as! NSString as String
-        cell?.barCode.text = self.dataList[row]["barcode"] as! NSString as String
-        cell?.renewTime.text = self.dataList[row]["renew_time"] as! NSString as String
+        cell?.bookName.text = self.dataList[row]["title"] as NSString
+        cell?.borrowDate.text = self.dataList[row]["render_date"] as NSString
+        cell?.dueDate.text = self.dataList[row]["due_date"] as NSString
+        cell?.collectionSite.text = self.dataList[row]["place"] as NSString
+        cell?.author.text = self.dataList[row]["author"] as NSString
+        cell?.barCode.text = self.dataList[row]["barcode"] as NSString
+        cell?.renewTime.text = self.dataList[row]["renew_time"] as NSString
         
         cell?.renewButton.tag = row
         cell?.renewButton.addTarget(self, action: Selector("renewButtonClicked:"), forControlEvents: UIControlEvents.TouchUpInside)

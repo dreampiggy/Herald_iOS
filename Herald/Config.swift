@@ -71,7 +71,7 @@ class Config:NSObject
         let settings : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         settings.removeObjectForKey("UUID")
         //encode
-        UUID = AESCrypt.encrypt(UUID as String, password: "UUID")
+        UUID = AESCrypt.encrypt(UUID, password: "UUID")
         
         settings.setObject(UUID, forKey: "UUID")
         settings.synchronize()
@@ -102,7 +102,7 @@ class Config:NSObject
     {
         let settings : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         settings.removeObjectForKey("cardPassword")
-        var encodePassword = AESCrypt.encrypt(cardPassword as String, password: "cardPassword")        
+        var encodePassword = AESCrypt.encrypt(cardPassword, password: "cardPassword")        
         settings.setObject(encodePassword, forKey: "cardPassword")
         settings.synchronize()
     }

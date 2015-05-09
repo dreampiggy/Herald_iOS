@@ -141,7 +141,7 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
         var row = indexPath.row
         
-        var credit = self.dataList[row+1]["credit"] as! NSString
+        var credit = self.dataList[row+1]["credit"] as NSString
         
         if credit.isEqualToString("")
         {
@@ -149,13 +149,13 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         else
         {
-            cell?.creditLabel.text = self.dataList[row+1]["credit"] as! NSString as String
+            cell?.creditLabel.text = self.dataList[row+1]["credit"] as NSString
         }
         
         
-        cell?.projectLabel.text = self.dataList[row+1]["project"] as? NSString as? String
-        cell?.dateLabel.text = self.dataList[row+1]["date"] as? NSString as? String
-        cell?.propertyLabel.text = self.dataList[row+1]["type"] as? NSString as? String
+        cell?.projectLabel.text = self.dataList[row+1]["project"] as? NSString
+        cell?.dateLabel.text = self.dataList[row+1]["date"] as? NSString
+        cell?.propertyLabel.text = self.dataList[row+1]["type"] as? NSString
         
         cell?.projectLabel.numberOfLines = 0
         cell?.projectLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping

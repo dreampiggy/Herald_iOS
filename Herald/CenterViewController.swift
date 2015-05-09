@@ -14,6 +14,7 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate,HttpProtocol{
     var scrollView:UIScrollView!
     var pageControl:UIPageControl!
     var imageView:UIImageView!
+    var eHttp:HttpController = HttpController()
     var imageView1:UIImageView?
     var imageView2:UIImageView?
     var imageView3:UIImageView?
@@ -152,7 +153,7 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate,HttpProtocol{
         
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView!)
     {
         
         let index = fabs(self.scrollView!.contentOffset.x) / self.screenSize.width

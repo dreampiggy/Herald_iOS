@@ -8,12 +8,15 @@
 
 import UIKit
 
-class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,APIGetter {
+class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,HttpProtocol {
 
     @IBOutlet var pickerView: UIPickerView!
 
    
     @IBOutlet var tableView: UITableView!
+    
+    var httpcontroller :HttpController = HttpController()
+    
 
     let schools = ["九龙湖","四牌楼","丁家桥"]
     let weeks = ["第一周","第二周","第三周","第四周","第五周","第六周","第七周","第八周","第九周","第十周","第十一周","第十二周","第十三周","第十四周","第十五周","第十六周","第十七周","第十八周","第十九周","第二十周"]
@@ -30,11 +33,11 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     
     var emptyRooms : NSArray = []
     
-    var API = HeraldAPI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.API.delegate = self
+        self.httpcontroller.delegate = self
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "空闲教室查询"
@@ -52,7 +55,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     
     override func viewWillDisappear(animated: Bool) {
         Tool.dismissHUD()
-        API.cancelAllRequest()
+        httpcontroller.cancelAllRequest()
     }
     
     func searchRoom()
@@ -69,20 +72,24 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         }
         else
         {
-            Tool.showProgressHUD("正在获取教室数据")
-            API.sendAPI("emptyRoom",APIParameter:self.selectedSchool,self.selectedWeek,self.selectedDay,self.selectedFrom,self.selectedTo)
+            let url = "http://herald.seu.edu.cn/api/emptyroom"
+            let parameter: NSDictionary = ["uuid":Config.UUID!,"arg1":self.selectedSchool,"arg2":self.selectedWeek,"arg3":self.selectedDay,"arg4":self.selectedFrom,"arg5":self.selectedTo]
+            
+            self.httpcontroller.postToURLAF(url,parameter: parameter, tag:"emptyRoom")
         }
+        
+        
     }
     
-    
-    func getResult(APIName: String, results: AnyObject) {
-        Tool.showSuccessHUD("获取数据成功")
-        self.emptyRooms = results as! NSArray
+    func didReceiveArrayResults(results: NSArray, tag: String)
+    {
+        
+        var data:NSData = NSJSONSerialization.dataWithJSONObject(results, options: NSJSONWritingOptions.PrettyPrinted, error: nil)!
+        
+        self.emptyRooms = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSArray
+
         self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
-    }
-    
-    func getError(APIName: String, statusCode: Int) {
-        Tool.showErrorHUD("获取数据失败")
+        
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -197,13 +204,13 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
                 self.selectedSchool = "djq"
             }
         case 1:
-            return self.selectedWeek = NSString(format: "%ld", row + 1) as String
+            return self.selectedWeek = NSString(format: "%ld", row + 1)
         case 2:
-            return self.selectedDay = NSString(format: "%ld", row + 1) as String
+            return self.selectedDay = NSString(format: "%ld", row + 1)
         case 3:
-            return self.selectedFrom = NSString(format: "%ld", row + 1) as String
+            return self.selectedFrom = NSString(format: "%ld", row + 1)
         case 4:
-            return self.selectedTo = NSString(format: "%ld", row + 1) as String
+            return self.selectedTo = NSString(format: "%ld", row + 1)
             
         default:
             break
@@ -212,11 +219,14 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.emptyRooms.count / 2
+      
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -225,9 +235,12 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+
         let cellIdentifier:String = "EmptyRoomTableViewCell"
 
+        
         var cell: EmptyRoomTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? EmptyRoomTableViewCell
+        
         
         if nil == cell
         {
@@ -236,11 +249,15 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         }
     
         cell!.selectionStyle = UITableViewCellSelectionStyle.None
+        
         cell?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         
         var row = indexPath.row
+        
+   
         if 0 == row
         {
+    
             cell!.leftRoom.text = self.emptyRooms[0] as? String
             cell!.rightRoom.text = self.emptyRooms[1] as? String
         }
@@ -249,7 +266,11 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
             cell!.leftRoom.text = self.emptyRooms[row * 2] as? String
             cell!.rightRoom.text = self.emptyRooms[row * 2 + 1] as? String
         }
+        
+    
+        
+        
         return cell!
     }
-    
+
 }

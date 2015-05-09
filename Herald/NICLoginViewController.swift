@@ -15,19 +15,27 @@ protocol LoginProtocol
     func logoutSuccess(tag:NSString)
 }
 
-class NICLoginViewController: XHLoginViewController3 ,APIGetter{
-    
+
+
+
+class NICLoginViewController: XHLoginViewController3 ,HttpProtocol{
+
+    //先声公开API的appid
+    var appid = "9f9ce5c3605178daadc2d85ce9f8e064"
+
     var delegate:LoginProtocol?
+    
+    var httpController:HttpController = HttpController()
     
     var screenSize:CGSize = UIScreen.mainScreen().bounds.size
     
-    var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.API.delegate = self
+        self.httpController.delegate = self
+        
         self.navigationItem.title = "信息门户验证"
         
         let backButton:UIBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("back"))
@@ -57,7 +65,7 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
     }
 
     override func viewWillDisappear(animated: Bool) {
-        API.cancelAllRequest()
+        httpController.cancelAllRequest()
     }
     
     
@@ -88,9 +96,8 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
         else
         {
             Tool.showProgressHUD("正在验证信息门户信息")
-            let userName = self.usernameField.text ?? ""
-            let password = self.passwordField.text ?? ""
-            API.sendAPI("userLogin", APIParameter: userName,password)
+            let parameter:NSDictionary = ["user":self.usernameField!.text,"password":self.passwordField!.text,"appid":appid]
+            self.httpController.postToURL("http://herald.seu.edu.cn/uc/auth", parameter: parameter, tag: "NICLogin")
         }
     }
     
@@ -118,16 +125,20 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
     }
     
     // 触摸其他地方的时候  隐藏键盘
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
         
         self.usernameField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
     }
+    func didReceiveErrorResult(code: Int, tag: String) {
+        Tool.showErrorHUD("一卡通认证失败，请重新确认")
+    }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func didReceiveDataResults(results: NSData, tag: String)
+    {
         Tool.showSuccessHUD("登录成功!\n新用户请点击\"个人资料\"")
-        let returnUUID = NSString(data: results as! NSData, encoding: NSUTF8StringEncoding)
+        let returnUUID = NSString(data: results, encoding: NSUTF8StringEncoding)
         let returnCardID = usernameField.text
         let returnPassword = passwordField.text
         Config.saveUUID(returnUUID!)
@@ -135,10 +146,6 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
         Config.saveCardPassword(returnPassword)
         self.delegate?.loginSuccess("NICLogin")
         back()
-    }
-    
-    func getError(APIName: String, statusCode: Int) {
-        Tool.showErrorHUD("一卡通认证失败，请重新确认")
     }
 
 }

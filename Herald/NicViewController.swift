@@ -52,14 +52,14 @@ class NicViewController: UIViewController, APIGetter {
         if let content:NSDictionary = results as? NSDictionary{
             firstSend = false
             Tool.showSuccessHUD("获取信息成功")
-            leftMoney = content.valueForKey("left") as! String
+            leftMoney = content.valueForKey("left") as String
             
             //ugly way to set value....
-            var webValue = content.valueForKey("web") as! NSDictionary
+            var webValue = content.valueForKey("web") as NSDictionary
             var webStruct = networkInfo(state: webValue.valueForKey("state") as? String, used: webValue.valueForKey("used") as? String)
-            var brasAValue = content.valueForKey("a") as! NSDictionary
+            var brasAValue = content.valueForKey("a") as NSDictionary
             var brasAStruct = networkInfo(state: brasAValue.valueForKey("state") as? String, used: brasAValue.valueForKey("used") as? String)
-            var brasBValue = content.valueForKey("b") as! NSDictionary
+            var brasBValue = content.valueForKey("b") as NSDictionary
             var brasBStruct = networkInfo(state: brasBValue.valueForKey("state") as? String, used: brasBValue.valueForKey("used") as? String)
             networkArray.append(webStruct)
             networkArray.append(brasAStruct)

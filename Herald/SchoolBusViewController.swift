@@ -31,23 +31,23 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     }
     
     func getResult(APIName: String, results: AnyObject) {
-        results as! NSDictionary
+        results as NSDictionary
         Tool.showSuccessHUD("获取数据成功")
         //Fuck to change this type...Any good ways?
-        var tempWeekend:NSDictionary = results["weekend"] as! NSDictionary
+        var tempWeekend:NSDictionary = results["weekend"] as NSDictionary
         for busType in tempWeekend.allKeys{
-            var tempWeekendType = tempWeekend[busType as! String] as! [NSDictionary]
+            var tempWeekendType = tempWeekend[busType as String] as [NSDictionary]
             for var i = 0;i < tempWeekendType.count;++i{
-                var finalTempDictionary = ["place":busType as! String,"bus":tempWeekendType[i]["bus"] as! String,"time":tempWeekendType[i]["time"] as! String]
+                var finalTempDictionary = ["place":busType as String,"bus":tempWeekendType[i]["bus"] as String,"time":tempWeekendType[i]["time"] as String]
                 weekendInfo.append(finalTempDictionary)
             }
         }
         
-        var tempWeekday:NSDictionary = results["weekday"] as! NSDictionary
+        var tempWeekday:NSDictionary = results["weekday"] as NSDictionary
         for busType in tempWeekday.allKeys{
-            var tempWeekdayType = tempWeekday[busType as! String] as! [NSDictionary]
+            var tempWeekdayType = tempWeekday[busType as String] as [NSDictionary]
             for var i = 0;i < tempWeekdayType.count;++i{
-                var finalTempDictionary = ["place":busType as! String,"bus":tempWeekdayType[i]["bus"] as! String,"time":tempWeekdayType[i]["time"] as! String]
+                var finalTempDictionary = ["place":busType as String,"bus":tempWeekdayType[i]["bus"] as String,"time":tempWeekdayType[i]["time"] as String]
                 weekdayInfo.append(finalTempDictionary)
             }
         }
