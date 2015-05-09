@@ -32,7 +32,7 @@ class LectureViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func getResult(APIName: String, results: AnyObject) {
-        results as NSDictionary
+        results as! NSDictionary
         Tool.showSuccessHUD("获取数据成功")
         lectureArray = results["detial"] as? [NSDictionary]
         if(lectureArray?.count == 0){

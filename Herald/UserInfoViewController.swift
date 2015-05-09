@@ -8,21 +8,16 @@
 
 import UIKit
 
-class UserInfoViewController: XHLoginViewController4,HttpProtocol {
-    
-    
-    
-    var httpController:HttpController = HttpController()
+class UserInfoViewController: XHLoginViewController4,APIGetter {
     
     var delegate:LoginProtocol?
     
+    var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        self.httpController.delegate = self
-        
+        self.API.delegate = self
         self.navigationItem.title = "用户信息"
         
         var color = UIColor(red: 28/255, green: 150/255, blue: 111/255, alpha: 1)
@@ -49,7 +44,7 @@ class UserInfoViewController: XHLoginViewController4,HttpProtocol {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        httpController.cancelAllRequest()
+        API.cancelAllRequest()
     }
     
     func submit()
@@ -79,8 +74,11 @@ class UserInfoViewController: XHLoginViewController4,HttpProtocol {
     
     func sendAPI(){
         if let studentID = Config.studentID{
-            let parameter:NSDictionary = ["cardnum":Config.cardID!,"password":Config.cardPassword!,"number":Config.studentID!,"pe_password":pePasswordField.text,"lib_username":libraryUserField.text,"lib_password":libraryPasswordFiled.text,"card_query_password":cardPasswordField.text]
-            self.httpController.postToURL("http://herald.seu.edu.cn/uc/update", parameter: parameter, tag: "userUpdate")
+            let pePassword = pePasswordField.text ?? ""
+            let libraryUser = libraryUserField.text ?? ""
+            let libraryPassword = libraryPasswordFiled.text ?? ""
+            let cardPassword = cardPasswordField.text ?? ""
+            API.sendAPI("userUpdate", APIParameter: pePassword,libraryUser,libraryPassword,cardPassword)
         }
         else{
             Tool.showErrorHUD("服务器忙碌中……请稍候重试")
@@ -96,7 +94,7 @@ class UserInfoViewController: XHLoginViewController4,HttpProtocol {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
     {
         
         self.cardPasswordField.resignFirstResponder()
@@ -106,17 +104,13 @@ class UserInfoViewController: XHLoginViewController4,HttpProtocol {
     }
     
     func getStudentNumFromJWC(){
-        let tag = "getStudentNum"
-        var parameter:NSDictionary = ["queryStudentId":Config.cardID ?? ""]
-        let url = "http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action"
-        httpController.postToURL(url, parameter: parameter, tag: tag)
+        API.sendAPI("getStudentNum")
     }
     
-    
-    func didReceiveStringResults(results: NSString, tag: String) {
-        switch tag{
+    func getResult(APIName: String, results: AnyObject) {
+        switch APIName{
         case "userUpdate":
-            if results == "OK"{
+            if results as! String == "OK"{
                 Tool.showSuccessHUD("用户信息更新成功")
                 back()
             }
@@ -125,7 +119,7 @@ class UserInfoViewController: XHLoginViewController4,HttpProtocol {
             }
         case "getStudentNum":
             let jwcRex:NSRegularExpression = NSRegularExpression(pattern: "学号:(\\w+)", options: NSRegularExpressionOptions.allZeros, error: nil)!
-            let matchStudentNumber = jwcRex.firstMatchInString(results, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, results.length))
+            let matchStudentNumber = jwcRex.firstMatchInString(results as! String, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, results.length))
             if (matchStudentNumber != nil){
                 let matchResult = results.substringWithRange(matchStudentNumber!.range)
                 let index = advance(matchResult.startIndex, 3)
@@ -134,6 +128,10 @@ class UserInfoViewController: XHLoginViewController4,HttpProtocol {
             }
         default:break
         }
+    }
+    
+    func getError(APIName: String, statusCode: Int) {
+        Tool.showErrorHUD("用户信息更新失败")
     }
 
 }

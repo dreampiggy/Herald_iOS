@@ -43,8 +43,8 @@ class GradeViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         
         if let cacheGPA = Config.GPA{
             self.dataClassify(cacheGPA)
-            self.GPALabel.text = NSString(format: "%.3f", self.GPA)
-            self.totalCreditLabel.text = NSString(format: "%.1f", self.totalCredit)
+            self.GPALabel.text = NSString(format: "%.3f", self.GPA) as String
+            self.totalCreditLabel.text = NSString(format: "%.1f", self.totalCredit) as String
             
             self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
         }
@@ -69,16 +69,16 @@ class GradeViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         var termCount = 0
         
     
-        self.termList[termCount] = data[1]["semester"] as NSString
+        self.termList[termCount] = data[1]["semester"] as! NSString
         termCount += 1
         
         for i in 2..<data.count
         {
-            var termCurrent = data[i]["semester"] as NSString
-            var termExisted = self.termList[termCount - 1] as NSString
-            if !termCurrent.isEqualToString(termExisted)
+            var termCurrent = data[i]["semester"] as! NSString
+            var termExisted = self.termList[termCount - 1] as! NSString
+            if !termCurrent.isEqualToString(termExisted as String)
             {
-                self.termList.addObject(data[i]["semester"] as NSString)
+                self.termList.addObject(data[i]["semester"] as! NSString)
                 termCount += 1
             }
         }
@@ -96,26 +96,26 @@ class GradeViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         
         for i in 1..<data.count
         {
-            var termCurrent :NSString = data[i]["semester"] as NSString
-            if termCurrent.isEqualToString(self.termList[termNum] as NSString)
+            var termCurrent :NSString = data[i]["semester"] as! NSString
+            if termCurrent.isEqualToString(self.termList[termNum] as! NSString as String)
             {
                 self.courseList[termNum].addObject(data[i])
                 //需要先转成NSString  否则会出现动态转换错误 崩溃
-                var credit:NSString = data[i]["credit"] as NSString
+                var credit:NSString = data[i]["credit"] as! NSString
                 self.totalCredit += credit.floatValue
             }
             else
             {
                 termNum += 1
                 self.courseList[termNum].addObject(data[i])
-                var credit:NSString = data[i]["credit"] as NSString
+                var credit:NSString = data[i]["credit"] as! NSString
                 self.totalCredit += credit.floatValue
             }
         
         }
         
         //需要先转成NSString  否则会出现动态转换错误 崩溃
-        var gpa = data[0]["gpa"] as NSString
+        var gpa = data[0]["gpa"] as! NSString
         self.GPA = gpa.floatValue
     }
     
@@ -133,8 +133,8 @@ class GradeViewController: UIViewController ,UITableViewDataSource,UITableViewDe
             self.dataClassify(GPAToCache)
         }
         
-        self.GPALabel.text = NSString(format: "%.3f", self.GPA)
-        self.totalCreditLabel.text = NSString(format: "%.1f", self.totalCredit)
+        self.GPALabel.text = NSString(format: "%.3f", self.GPA) as String
+        self.totalCreditLabel.text = NSString(format: "%.1f", self.totalCredit) as String
         
         self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }

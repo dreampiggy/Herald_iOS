@@ -142,7 +142,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         allInfoList = []//清空
         if let allContent = contentDictionary{
             for (_,infoArray) in allContent{
-                allInfoList.addObjectsFromArray(infoArray as Array<AnyObject>)
+                allInfoList.addObjectsFromArray(infoArray as! Array<AnyObject>)
             }
         }
     }
@@ -210,7 +210,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         var academicDetailVC = AcademicDetailViewController()
-        academicDetailVC.initWebView(self.currentList[row]["href"] as NSString)
+        academicDetailVC.initWebView(self.currentList[row]["href"] as! NSString as String)
         self.navigationController!.pushViewController(academicDetailVC, animated: true)
     }
     //现在API只返回网页形式的教务信息，没有文字信息

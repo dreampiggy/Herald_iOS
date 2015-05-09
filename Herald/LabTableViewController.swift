@@ -58,7 +58,7 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
             return ""
         }
         else{
-            let phyTypeName:String = sectionArray[section] as String
+            let phyTypeName:String = sectionArray[section] as! String
             return phyTypeName
         }
     }
@@ -72,7 +72,7 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
             return 0
         }
         else{
-            let phyTypeName:String = sectionArray[section] as String
+            let phyTypeName:String = sectionArray[section] as! String
             if let phyTypeDic = labDictionary?.valueForKey(phyTypeName) as? NSArray{
                 return phyTypeDic.count
             }
@@ -94,7 +94,7 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
             cell = nibArray.objectAtIndex(0) as? LabTableViewCell
         }
         
-        var phtTypeName:String = sectionArray[section] as String
+        var phtTypeName:String = sectionArray[section] as! String
         if let labDetailDic:[NSDictionary] = labDictionary![phtTypeName] as? [NSDictionary]{
             cell?.nameLabel.text = labDetailDic[row]["name"] as? String ?? ""
             cell?.gradeLabel.text = labDetailDic[row]["Grade"] as? String ?? ""
