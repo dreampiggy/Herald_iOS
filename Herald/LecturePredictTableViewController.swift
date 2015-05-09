@@ -91,7 +91,7 @@ class LecturePredictTableViewController: UIViewController, UITableViewDataSource
         var lectureDetailVC = LecturePredictDetailViewController()
         if let detailInfoArray = detailArray{
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            lectureDetailVC.initWebView(detailInfoArray[row].valueForKey("detail") as String)
+            lectureDetailVC.initWebView(detailInfoArray[row].valueForKey("detail") as! String)
             self.navigationController!.pushViewController(lectureDetailVC, animated: true)
         }
     }

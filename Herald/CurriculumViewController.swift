@@ -161,7 +161,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
         if (self.currentCurriculum != nil && self.currentCurriculum?.count != 0){//有课表信息
             cell?.nameofLesson.text = self.currentCurriculum![row][0] as? String
             cell?.placeofLesson.text = self.currentCurriculum![row][2] as? String
-            var week:NSString = self.currentCurriculum![row][1] as NSString
+            var week:NSString = self.currentCurriculum![row][1] as! NSString
             
             var last = 0
             for i in 4..<10
@@ -176,13 +176,13 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
             var weekRange:NSRange = NSMakeRange(1, last-1)
             week = week.substringWithRange(weekRange)
             
-            cell?.weekofLesson.text = week
+            cell?.weekofLesson.text = week as String
             
-            var time:NSString = self.currentCurriculum![row][1] as NSString
+            var time:NSString = self.currentCurriculum![row][1] as! NSString
             
             time = time.substringFromIndex(last+1)
             
-            cell?.timeofLesson.text = time
+            cell?.timeofLesson.text = time as String
             
             //设置自动换行
             cell?.nameofLesson.lineBreakMode = NSLineBreakMode.ByWordWrapping

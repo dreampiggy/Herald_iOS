@@ -36,7 +36,7 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             self.API.delegate = self
-            API.sendAPI("searchBook",APIParameter: searchText)
+            API.sendAPI("searchBook",APIParameter: searchText as? String)
         }
     }
     
@@ -69,7 +69,7 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
     func refreshData()
     {
         Tool.showProgressHUD("正在重新获取")
-        API.sendAPI("searchBook",APIParameter: searchText)
+        API.sendAPI("searchBook",APIParameter: searchText as? String)
     }
     
     
@@ -104,12 +104,12 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         
         var row = indexPath.row
 
-        cell?.bookName.text = self.dataList[row]["name"] as NSString    //书名
-        cell?.publisher.text = self.dataList[row]["publish"] as NSString    //发行商
-        cell?.author.text = self.dataList[row]["author"] as NSString    //作者
-        cell?.docType.text = self.dataList[row]["type"] as NSString     //书籍分类
-        cell?.storeNum.text = self.dataList[row]["all"] as NSString   //馆藏书目本数
-        cell?.lendableNum.text = self.dataList[row]["left"] as NSString     //可借书目本数
+        cell?.bookName.text = self.dataList[row]["name"] as! NSString as String    //书名
+        cell?.publisher.text = self.dataList[row]["publish"] as! NSString as String    //发行商
+        cell?.author.text = self.dataList[row]["author"] as! NSString as String    //作者
+        cell?.docType.text = self.dataList[row]["type"] as! NSString as String     //书籍分类
+        cell?.storeNum.text = self.dataList[row]["all"] as! NSString as String   //馆藏书目本数
+        cell?.lendableNum.text = self.dataList[row]["left"] as! NSString as String     //可借书目本数
 
         cell?.bookName.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell?.bookName.numberOfLines = 0

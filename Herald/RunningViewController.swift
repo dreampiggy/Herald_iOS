@@ -45,11 +45,11 @@ class RunningViewController: UIViewController,APIGetter {
     }
     
     func getResult(APIName: String, results: AnyObject) {
-        var runContent:NSString = results as NSString
+        var runContent:NSString = results as! NSString
         if (runContent.integerValue >= 0 && runContent.integerValue <= 100){
             Tool.showSuccessHUD("更新成功")
             self.gaugeView?.value = runContent.floatValue
-            self.tickerLabel?.text = runContent
+            self.tickerLabel?.text = runContent as String
         }
     }
     
@@ -104,7 +104,7 @@ class RunningViewController: UIViewController,APIGetter {
     {
         var YYNum = Float(arc4random_uniform(60))
         self.gaugeView?.value = YYNum
-        self.tickerLabel?.text = NSString(format: "%.0f", YYNum)
+        self.tickerLabel?.text = NSString(format: "%.0f", YYNum) as String
     }
     
     func refreshData()

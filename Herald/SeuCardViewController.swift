@@ -11,7 +11,6 @@ import UIKit
 class SeuCardViewController: UIViewController, APIGetter {
 
     var firstSend = true
-    var httpController:HttpController = HttpController()
     
     var APIResult:NSDictionary?{
         didSet{

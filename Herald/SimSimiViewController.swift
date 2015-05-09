@@ -8,25 +8,23 @@
 
 import UIKit
 
-class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HttpProtocol {
+class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APIGetter {
 
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var toolBar: UIToolbar!
     
     @IBOutlet var textField: UITextField!
-    
-    var httpController:HttpController = HttpController()
+
     
     
     var totalChatList :NSMutableArray = [["who":"simsimi","message":"Hi~"],["who":"simsimi","message":"我是东大小黄鸡哦"],["who":"simsimi","message":"我可以无休止地陪你聊天"],["who":"simsimi","message":"但是我也可能会说错话"],["who":"simsimi","message":"你可不要怪我呀"]]
     
+    var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.httpController.delegate = self
         
+        self.API.delegate = self
         self.navigationItem.title = "东大小黄鸡"
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 239/255, blue: 80/255, alpha: 1)
@@ -45,7 +43,7 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
     }
     
     override func viewWillDisappear(animated: Bool) {
-        httpController.cancelAllRequest()
+        API.cancelAllRequest()
     }
     
     func setupLeftMenuButton()
@@ -66,7 +64,7 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         self.textField.resignFirstResponder()
     }
@@ -83,52 +81,13 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
             self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
         }
         
-        let url = "http://herald.seu.edu.cn/api/simsimi"
-        let parameter:NSDictionary = ["uuid":Config.UUID!, "msg":self.textField.text]
+        let message = self.textField.text ?? ""
 
-        self.httpController.postToURL(url, parameter: parameter, tag: "Simsimi")
+        API.sendAPI("simsimi", APIParameter: message)
         
         self.textField.text = ""
         self.textField.resignFirstResponder()
         return true
-    }
-    
-    func didReceiveStringResults(results: NSString, tag: String) {
-        var res = ""
-        if results.isEqualToString("error")
-        {
-        res = "我听不懂你在说什么呀"
-        }
-        else
-        {
-            res = results.stringByReplacingOccurrencesOfString("<br>", withString: "\n")
-        }
-        
-        var localdic = ["who":"Simsimi","message":res]
-        self.totalChatList.addObject(localdic)
-        self.tableView.reloadData()
-        
-        if self.totalChatList.count > 0
-        {
-            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
-            self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
-        }
-        
-    }
-    
-    func didReceiveErrorResult(code: Int, tag: String) {
-        var res = ""
-        res = "服务器提了一个问题，小黄鸡正在紧张处理中……"
-        var localdic = ["who":"Simsimi","message":res]
-        self.totalChatList.addObject(localdic)
-        self.tableView.reloadData()
-        
-        if self.totalChatList.count > 0
-        {
-            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
-            self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
-        }
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -145,10 +104,10 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         var row = indexPath.row
-        var str:NSString = self.totalChatList[row].objectForKey("message") as NSString
+        var str:NSString = self.totalChatList[row].objectForKey("message") as! NSString
         
         var calLabel = UILabel()
-        calLabel.text = str
+        calLabel.text = str as String
         calLabel.numberOfLines = 0
         calLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         calLabel.font = UIFont(name: "System", size: 10)
@@ -198,7 +157,7 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
     
         
         var calLabel = UILabel()
-        calLabel.text = text
+        calLabel.text = text as String
         calLabel.numberOfLines = 0
         calLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         calLabel.font = UIFont(name: "System", size: 10)
@@ -250,9 +209,42 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
         self.textField.resignFirstResponder()
     }
     
+    func getResult(APIName: String, results: AnyObject) {
+        var res = ""
+        if results.isEqualToString("error")
+        {
+            res = "我听不懂你在说什么呀"
+        }
+        else
+        {
+            res = results.stringByReplacingOccurrencesOfString("<br>", withString: "\n")
+        }
+        
+        var localdic = ["who":"Simsimi","message":res]
+        self.totalChatList.addObject(localdic)
+        self.tableView.reloadData()
+        
+        if self.totalChatList.count > 0
+        {
+            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
+            self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        }
+    }
     
-    
-    
+    func getError(APIName: String, statusCode: Int) {
+        var res = ""
+        res = "服务器提了一个问题，小黄鸡正在紧张处理中……"
+        var localdic = ["who":"Simsimi","message":res]
+        self.totalChatList.addObject(localdic)
+        self.tableView.reloadData()
+        
+        if self.totalChatList.count > 0
+        {
+            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
+            self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

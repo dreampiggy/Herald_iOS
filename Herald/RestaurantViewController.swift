@@ -84,9 +84,9 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
         
         
         
-        cell!.textLabel?.text = self.dataList[row].objectForKey("name") as NSString
+        cell!.textLabel?.text = self.dataList[row].objectForKey("name") as! NSString as String
         
-        cell!.detailTextLabel?.text = self.dataList[row].objectForKey("addr") as NSString
+        cell!.detailTextLabel?.text = self.dataList[row].objectForKey("addr") as! NSString as String
         
         cell!.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell!.detailTextLabel?.numberOfLines = 0
@@ -94,8 +94,8 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
     
         cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        var imageName:NSString = self.dataList[row].objectForKey("image") as NSString
-        cell!.imageView?.image = UIImage(named: imageName)
+        var imageName:NSString = self.dataList[row].objectForKey("image") as! NSString
+        cell!.imageView?.image = UIImage(named: imageName as String)
         
         
         return cell!
@@ -103,7 +103,7 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var passDataList:NSDictionary = self.dataList[indexPath.row] as NSDictionary
+        var passDataList:NSDictionary = self.dataList[indexPath.row] as! NSDictionary
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let restaurantDetailVC = RestaurantDetailViewController(nibName: "RestaurantDetailViewController", bundle: nil)
         restaurantDetailVC.dataList = passDataList

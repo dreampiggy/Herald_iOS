@@ -28,6 +28,7 @@
 		3241767C1AD0560400121CEF /* LecturePredictTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241767A1AD0560400121CEF /* LecturePredictTableViewController.swift */; };
 		3241767D1AD0560400121CEF /* LecturePredictTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3241767B1AD0560400121CEF /* LecturePredictTableViewController.xib */; };
 		3241767F1AD0561100121CEF /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241767E1AD0561100121CEF /* LectureViewController.swift */; };
+		3258E6BD1AFE2E5E00C2574F /* HttpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258E6BC1AFE2E5E00C2574F /* HttpProtocol.swift */; };
 		32641A491ACF207900C85001 /* NicSeuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32641A481ACF207900C85001 /* NicSeuTabViewController.swift */; };
 		327F54601ADAD2750061839A /* LecturePredictDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F545F1ADAD2750061839A /* LecturePredictDetailViewController.swift */; };
 		32880B521AD9412F00D988DB /* SchoolBus.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B511AD9412F00D988DB /* SchoolBus.png */; };
@@ -158,7 +159,6 @@
 		7B76652A19C1412100E27153 /* XHLoginViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7664E219C1412100E27153 /* XHLoginViewController4.m */; };
 		7B76653619C1415C00E27153 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B76653019C1415C00E27153 /* Images.xcassets */; };
 		7B76654519C1422F00E27153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76653819C1422F00E27153 /* AppDelegate.swift */; };
-		7B76654619C1422F00E27153 /* HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76653919C1422F00E27153 /* HttpController.swift */; };
 		7B76654719C1422F00E27153 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76653A19C1422F00E27153 /* Config.swift */; };
 		7B76654819C1422F00E27153 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76653B19C1422F00E27153 /* Tool.swift */; };
 		7B76654B19C1422F00E27153 /* LeftDrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76653E19C1422F00E27153 /* LeftDrawerTableViewController.swift */; };
@@ -458,6 +458,7 @@
 		3241767A1AD0560400121CEF /* LecturePredictTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturePredictTableViewController.swift; sourceTree = "<group>"; };
 		3241767B1AD0560400121CEF /* LecturePredictTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LecturePredictTableViewController.xib; sourceTree = "<group>"; };
 		3241767E1AD0561100121CEF /* LectureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
+		3258E6BC1AFE2E5E00C2574F /* HttpProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpProtocol.swift; sourceTree = "<group>"; };
 		32641A481ACF207900C85001 /* NicSeuTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicSeuTabViewController.swift; sourceTree = "<group>"; };
 		327F545F1ADAD2750061839A /* LecturePredictDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturePredictDetailViewController.swift; sourceTree = "<group>"; };
 		32880B511AD9412F00D988DB /* SchoolBus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SchoolBus.png; sourceTree = "<group>"; };
@@ -664,7 +665,6 @@
 		7B76653019C1415C00E27153 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7B76653719C1419700E27153 /* Herald-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Herald-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B76653819C1422F00E27153 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B76653919C1422F00E27153 /* HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpController.swift; sourceTree = "<group>"; };
 		7B76653A19C1422F00E27153 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7B76653B19C1422F00E27153 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		7B76653E19C1422F00E27153 /* LeftDrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerTableViewController.swift; sourceTree = "<group>"; };
@@ -1211,7 +1211,7 @@
 			isa = PBXGroup;
 			children = (
 				7B76653819C1422F00E27153 /* AppDelegate.swift */,
-				7B76653919C1422F00E27153 /* HttpController.swift */,
+				3258E6BC1AFE2E5E00C2574F /* HttpProtocol.swift */,
 				7B76653A19C1422F00E27153 /* Config.swift */,
 				7B76653B19C1422F00E27153 /* Tool.swift */,
 				7B4D6F2E19C1904B0084D86E /* CenterViewController.swift */,
@@ -2220,12 +2220,12 @@
 				3241765E1AD0530700121CEF /* SeuCardTableViewController.swift in Sources */,
 				7B76659E19C1424800E27153 /* SRTPViewController.swift in Sources */,
 				7B76650119C1412100E27153 /* MJRefreshFooterView.m in Sources */,
+				3258E6BD1AFE2E5E00C2574F /* HttpProtocol.swift in Sources */,
 				7B7664FC19C1412100E27153 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				7B7F297B19C918DE000C3263 /* MCFireworksButton.m in Sources */,
 				7B76652819C1412100E27153 /* WMGaugeView.m in Sources */,
 				7B7664EA19C1412100E27153 /* AFHTTPSessionManager.m in Sources */,
 				7B76651119C1412100E27153 /* SDWebImageCompat.m in Sources */,
-				7B76654619C1422F00E27153 /* HttpController.swift in Sources */,
 				321AB0611AC65797006727FC /* NSData+Base64.m in Sources */,
 				7B7664FA19C1412100E27153 /* IQToolbar.m in Sources */,
 				7B76651819C1412100E27153 /* UIImage+GIF.m in Sources */,
