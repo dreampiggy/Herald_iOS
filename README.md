@@ -1,9 +1,9 @@
 # Herald_iOS
->先声iOS客户端
+> 先声iOS客户端
 
 # 编译环境
 	OS X 10.10.2
-	Xcode 6.2
+	Xcode 6.3.1
 
 # 支持平台
 	iOS 7.0 以上
@@ -17,7 +17,7 @@
 	暂只支持竖屏模式
 
 # 语言
-	Swift 和 Objective-C
+	Swift (1.2以上) 和 Objective-C
 	基础功能全部使用Swift
 	在第三方库的使用或者第三方库的自定义上，使用Objective-C
 
@@ -59,16 +59,21 @@
 	 
 	6. 其他工具类或者代理类：  
 	AppDelegate.swift 应用入口代理  
-	HttpController.swift 低层封装AFNetworking的一个代理类  
-	Tool.swift 高层封装网络请求、视图控制器初始化的代理类，也包括了加载动画效果的封装  
-	Config.swift 包括了所有需要存储在用户本地UserDefault的控制类  
+	HttpProtocol.swift 一个对AFNetworking的返回对象进行各种代理方法的接口    
+	Tool.swift 加载动画效果的封装，以及一个便携初始化普通VC的方法initNavigationAPI()
+	Config.swift 包括了所有需要存储在用户本地UserDefault的控制类    
+	API.swift    
+	核心API封装类，对于普通的VC，首先要声明实现APIGetter接口，然后定义一个HeraldAPI全局对象，并且设置代理为自己，即可以使用相应的API，包括：    
+	sendAPI()   //通过API标签tag和参数列表String...来调用响应API请求    
+	getResult()   //获得结果    
+	getError()    //错误处理
 
 3. Pictures/ 图片资源
 4. Supporting Files/ 存放Info.plist配置文件
 
 # 更新日志
 
->2.5.1
+> 3.0.0
 
 1、配合先声服务端接口进行改动，所有现有功能可用  
 2、加入了校园网流量查询，一卡通余额查询，一卡通详单查询  
