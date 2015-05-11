@@ -67,6 +67,7 @@
 		32880B9D1AD96DAA00D988DB /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B981AD96DAA00D988DB /* image3.png */; };
 		32880B9E1AD96DAA00D988DB /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B991AD96DAA00D988DB /* image4.png */; };
 		32880B9F1AD96DAA00D988DB /* image5.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B9A1AD96DAA00D988DB /* image5.png */; };
+		328B66AF1B00D4F400D33231 /* APIList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 328B66AE1B00D4F400D33231 /* APIList.plist */; };
 		329A97481AFE4E1400F18BFB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329A97471AFE4E1400F18BFB /* API.swift */; };
 		32A488911ACB16C1006BAA63 /* SchoolLife_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A488901ACB16C1006BAA63 /* SchoolLife_bg.png */; };
 		32B6E94F1AD37288009D3556 /* LectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6E94E1AD37288009D3556 /* LectureTableViewCell.swift */; };
@@ -517,6 +518,7 @@
 		32880B981AD96DAA00D988DB /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
 		32880B991AD96DAA00D988DB /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
 		32880B9A1AD96DAA00D988DB /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
+		328B66AE1B00D4F400D33231 /* APIList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIList.plist; sourceTree = "<group>"; };
 		329A97471AFE4E1400F18BFB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		32A488901ACB16C1006BAA63 /* SchoolLife_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SchoolLife_bg.png; sourceTree = "<group>"; };
 		32B6E94E1AD37288009D3556 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewCell.swift; sourceTree = "<group>"; };
@@ -1299,6 +1301,7 @@
 			isa = PBXGroup;
 			children = (
 				7B76641B19C1406C00E27153 /* Info.plist */,
+				328B66AE1B00D4F400D33231 /* APIList.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2137,6 +2140,7 @@
 				7BBC048D19C51B100014EF44 /* Expression_102@2x.png in Resources */,
 				7BBC04C219C51B100014EF44 /* Expression_55@2x.png in Resources */,
 				7B76661219C1426400E27153 /* jlhLib1_726_476.jpg in Resources */,
+				328B66AF1B00D4F400D33231 /* APIList.plist in Resources */,
 				7BBC054219C67C4C0014EF44 /* Pic_rgtcg.jpg in Resources */,
 				7BBC053D19C67C4C0014EF44 /* Pic_lzlm.jpg in Resources */,
 				7B76660E19C1426400E27153 /* SRTP_bg.jpg in Resources */,

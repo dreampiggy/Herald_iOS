@@ -18,7 +18,7 @@
 
 # 语言
 	Swift (1.2以上) 和 Objective-C
-	基础功能全部使用Swift
+	大部分功能使用Swift
 	在第三方库的使用或者第三方库的自定义上，使用Objective-C
 
 # 项目目录简介
@@ -58,8 +58,7 @@
 	SettingsViewController.swift 设置页面 
 	 
 	6. 其他工具类或者代理类：  
-	AppDelegate.swift 应用入口代理  
-	HttpProtocol.swift 一个对AFNetworking的返回对象进行各种代理方法的接口    
+	AppDelegate.swift 应用入口代理 
 	Tool.swift 加载动画效果的封装，以及一个便携初始化普通VC的方法initNavigationAPI()
 	Config.swift 包括了所有需要存储在用户本地UserDefault的控制类    
 	API.swift    
@@ -69,7 +68,9 @@
 	getError()    //错误处理
 
 3. Pictures/ 图片资源
-4. Supporting Files/ 存放Info.plist配置文件
+4. Supporting Files/ 存放属性表    
+	API List.plist 核心API列表的数据，用XML存储，确保URL是正确，参数列表里面，uuid或者appid一定放在最后一个，并且所有参数顺序和代码中传入参数顺序一致即可。加入新的API请在这里改动，并在对应的VC中加入调用参数和方法，API.swift不需要做任何改动！    
+	Info.plist 项目配置文件
 
 # 更新日志
 

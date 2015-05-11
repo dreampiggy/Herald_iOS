@@ -39,8 +39,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         // Do any additional setup after loading the view.
         self.navigationItem.title = "空闲教室查询"
         var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = color
-       
+        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
         
         let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: Selector("searchRoom"))
         self.navigationItem.rightBarButtonItem = searchButton
@@ -77,7 +76,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     
     func getResult(APIName: String, results: AnyObject) {
         Tool.showSuccessHUD("获取数据成功")
-        self.emptyRooms = results as! NSArray
+        self.emptyRooms = results as? NSArray ?? []
         self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     

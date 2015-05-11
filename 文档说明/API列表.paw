@@ -143,7 +143,7 @@
     </object>
     <object type="LMREQUEST" id="z112">
         <attribute name="uuid" type="string">2CC11D47-2EA9-4BA8-9345-FF8320EFEF2B</attribute>
-        <attribute name="url" type="string">http://herald.seu.edu.cn/uc/auth?user=213133443\u2600appid=9f9ce5c3605178daadc2d85ce9f8e064\u2600password=dddd</attribute>
+        <attribute name="url" type="string">http://herald.seu.edu.cn/uc/auth?user=213133443\u2600appid=9f9ce5c3605178daadc2d85ce9f8e064\u2600password=lizhuoli941126</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>

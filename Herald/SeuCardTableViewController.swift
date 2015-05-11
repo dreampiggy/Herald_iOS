@@ -23,7 +23,7 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
         initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             self.API.delegate = self
-            API.sendAPI("cardDetail")
+            API.sendAPI("cardDetail",APIParameter: "30")
         }
     }
     

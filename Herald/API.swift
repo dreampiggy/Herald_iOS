@@ -13,226 +13,128 @@ import Foundation
     func getError(APIName:String, statusCode:Int)
 }
 
-enum APIType{
-    
-}
-
 class HeraldAPI{
     
     //先声公开API的appid
-    var appid = "9f9ce5c3605178daadc2d85ce9f8e064"
+    let appid = "9f9ce5c3605178daadc2d85ce9f8e064"
     
+    //代理模式，在VC使用的时候实例化一个代理，即let API = HeraldAPI(); API.delegate = self
     var delegate:APIGetter?
+    
+    //manager是AFNetworking的一个管理者，需要首先初始化一个
     var manager:AFHTTPRequestOperationManager
+    
+    //apiList是从APIList.plist属性表中获取的字典
+    var apiList:NSDictionary?
     
     init(){
         manager = AFHTTPRequestOperationManager()
+        let bundle = NSBundle.mainBundle()
+        let plistPath = bundle.pathForResource("APIList", ofType: "plist") ?? ""
+        if let plistContent = NSDictionary(contentsOfFile: plistPath){
+            apiList = plistContent["API List"] as? NSDictionary
+        }
     }
     
     func sendAPI(APIName:String, APIParameter:String...){
-        
-        let userURL = "http://herald.seu.edu.cn/uc/"
-        let baseURL = "http://herald.seu.edu.cn/api/"
+        //发送API，要确保APIParameter数组按照API Info.plist表中规定的先后顺序
+        if apiList == nil{
+            return;
+        }
         let uuid = Config.UUID ?? ""
-        let baseParameter:NSMutableDictionary = ["uuid":uuid]
-        
-        switch APIName{
-        case "userLogin":
-            let url = userURL + "auth"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["user":APIParameter[0] ?? ""])
-            parameter.addEntriesFromDictionary(["password":APIParameter[1] ?? ""])
-            parameter.addEntriesFromDictionary(["appid":appid])
-            self.postToURL(url, parameter: parameter, tag: APIName)
-        case "userUpdate":
-            let url = userURL + "update"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["cardnum":Config.cardID ?? ""])
-            parameter.addEntriesFromDictionary(["password":Config.cardPassword ?? ""])
-            parameter.addEntriesFromDictionary(["number":Config.studentID ?? ""])
-            parameter.addEntriesFromDictionary(["pe_password":APIParameter[0] ?? ""])
-            parameter.addEntriesFromDictionary(["lib_username":APIParameter[1] ?? ""])
-            parameter.addEntriesFromDictionary(["lib_password":APIParameter[2] ?? ""])
-            parameter.addEntriesFromDictionary(["card_query_password":APIParameter[3] ?? ""])
-            self.postToURL(url, parameter: parameter, tag: APIName)
-        case "getStudentNum":
-            let url = "http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action"
-            let parameter:NSMutableDictionary = ["queryStudentId":Config.cardID ?? ""]
-            self.postToURL(url, parameter: parameter, tag: APIName)
-        case "simsimi":
-            let url = baseURL + "simsimi"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["msg":APIParameter[0] ?? ""])
-            self.postToURL(url, parameter: parameter, tag: APIName)
-        case "emptyRoom":
-            let url = baseURL + "emptyroom"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["arg1":APIParameter[0] ?? ""])
-            parameter.addEntriesFromDictionary(["arg2":APIParameter[1] ?? ""])
-            parameter.addEntriesFromDictionary(["arg3":APIParameter[2] ?? ""])
-            parameter.addEntriesFromDictionary(["arg4":APIParameter[3] ?? ""])
-            parameter.addEntriesFromDictionary(["arg5":APIParameter[4] ?? ""])
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "pe":
-            let url = baseURL + "pe"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "curriculum":
-            let url = baseURL + "curriculum"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "jwc":
-            let url = baseURL + "jwc"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "srtp":
-            let url = baseURL + "srtp"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "nic":
-            let url = baseURL + "nic"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "card":
-            let url = baseURL + "card"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "cardDetail":
-            let url = baseURL + "card"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["timedelta":"30"])
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "phylab":
-            let url = baseURL + "phylab"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "lecture":
-            let url = baseURL + "lecture"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "lectureNotice":
-            let url = baseURL + "lecturenotice"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "searchBook":
-            let url = baseURL + "search"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["book":APIParameter[0]])
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "library":
-            let url = baseURL + "library"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "libraryRenew":
-            let url = baseURL + "renew"
-            let parameter = baseParameter
-            parameter.addEntriesFromDictionary(["barcode":APIParameter[0]])
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "schoolbus":
-            let url = baseURL + "schoolbus"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        case "gpa":
-            let url = baseURL + "gpa"
-            let parameter = baseParameter
-            self.postToURLAF(url, parameter: parameter, tag: APIName)
-        default:
-            break
+        if let apiName = apiList?[APIName] as? NSDictionary{
+            let apiURL = apiName["URL"] as? String ?? ""
+            let apiParamArray = apiName["Param"] as? [String] ?? ["uuid"]//从API列表中读到的参数列表
+            var apiParameter = APIParameter//方法调用的传入参数列表
+            
+            for param in apiParamArray{
+                if param == "uuid"{
+                    apiParameter.append(uuid)
+                    break
+                }
+                if param == "appid"{
+                    apiParameter.append(appid)
+                    break
+                }
+            }
+            
+            let apiParamDic = NSDictionary(objects: apiParameter, forKeys: apiParamArray)//将从plist属性表中的读取到的参数数的值作为key，将方法传入的参数作为value，传入要发送的参数字典
+            self.postRequest(apiURL, parameter: apiParamDic, tag: APIName)
         }
     }
     
-    func didReceiveJSONResults(results: NSDictionary, tag: String){
-        if let resultsData: AnyObject = results["content"]{
-            self.delegate?.getResult(tag, results: resultsData)
+    //对请求结果进行代理
+    func didReceiveResults(results: AnyObject, tag: String){
+        if let resultsForDic = results as? NSDictionary{
+            if let resultsData: AnyObject = results["content"]{
+                self.delegate?.getResult(tag, results: resultsData)
+            }
+            else{
+                didReceiveError(500, tag: tag)//所有只要以JSON API返回的，都把结果存在content中，故其他情况按错误处理
+            }
+        }
+        else if let resultsForArray = results as? NSArray{
+            self.delegate?.getResult(tag, results: resultsForArray)
+        }
+        else if let resultsForString = results as? NSString{
+            self.delegate?.getResult(tag, results: resultsForString)
+        }
+        else{
+            didReceiveError(500, tag: tag)
         }
     }
     
-    func didReceivePlainResults(results: AnyObject,tag: String){
-        let resultsArray = results as? NSArray ?? []
-        let resultsString = results as? NSString ?? ""
-        switch tag{
-        case "emptyRoom":
-            self.delegate?.getResult(tag, results: resultsArray)
-        default:
-            self.delegate?.getResult(tag, results: resultsString)
-        }
-    }
-    
-    func didReceiveErrorResult(code: Int, tag: String) {
+    //对错误进行代理
+    func didReceiveError(code: Int, tag: String) {
         self.delegate?.getError(tag, statusCode: code)
     }
     
-    //accept text/html MIME with plain information
-    func postToURL(url:String,parameter:NSMutableDictionary,tag:String)
+    //POST请求，接收MIME类型为text/html，只处理非JSON返回格式的数据
+    func postRequest(url:String,parameter:NSDictionary,tag:String)
     {
-        println("a post come!")
-        println(parameter)
-        println("ok")
-        let nsurl:NSURL = NSURL(string: url)!
+        println("\nRequest:\n\(parameter)\n***********\n")
+        let nsurl = NSURL(string: url)
         
-        manager.responseSerializer = AFHTTPResponseSerializer()
-        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html") as Set<NSObject>//only use text/html MIME to ensure not json text 
+        manager.responseSerializer = AFHTTPResponseSerializer()//使用自定义的Serializer，手动对返回数据进行判断
         manager.POST(url, parameters: parameter,
             success: {(operation :AFHTTPRequestOperation!,responseObject :AnyObject!) ->Void in
-                println("\n<Raw>***********\n")
-                println(responseObject)
-                println("\n</Raw>***********\n")
                 if let receiveData = responseObject as? NSData{
-                    if let receiveString = NSString(data: receiveData,encoding: NSUTF8StringEncoding){
-                        self.didReceivePlainResults(receiveString, tag: tag)
-                    }//use utf-8 to decode nsdata to nsstring
-                    else if let receiveArray = responseObject as? NSArray{
-                        self.didReceivePlainResults(receiveArray, tag: tag)
+                    //按照NSDictionary -> NSArray -> NSString的顺序进行过滤
+                    if let receiveDic = NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary{
+                        println("\nResponse(Dictionary):\n\(receiveDic)\n***********\n")
+                        if receiveDic["code"] as? String == "500"{//部分API状态码虽然为200，但是返回content为空，code为500
+                            self.didReceiveError(500, tag: tag)
+                        }
+                        else{
+                            self.didReceiveResults(receiveDic, tag: tag)
+                        }
+                    }
+                    else if let receiveArray = NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSArray{
+                        println("\nResponse(Array):\n\(receiveArray)\n***********\n")
+                        self.didReceiveResults(receiveArray, tag: tag)
+                    }
+                    else if let receiveString = NSString(data: receiveData,encoding: NSUTF8StringEncoding){
+                        println("\nResponse(String):\n\(receiveString)\n***********\n")
+                        self.didReceiveResults(receiveString, tag: tag)
+                    }//默认使用UTF-8编码
+                    else{
+                        self.didReceiveError(500, tag: tag)
                     }
                 }
             },
             failure: {(operation :AFHTTPRequestOperation!, error :NSError!) ->Void in
-                var codeStatue = 500
+                var codeStatue = 500//默认错误HTTP状态码为500
                 if(operation.response != nil){
                     var codeStatue:Int = operation.response.statusCode
                 }
-                self.didReceiveErrorResult(codeStatue, tag: tag)
+                self.didReceiveError(codeStatue, tag: tag)
                 println(error)
             }
         )
     }
     
-    //accept any MIME with JSON information
-    func postToURLAF(url:String , parameter:NSMutableDictionary,tag:String)
-    {
-        println("a post to json come!")
-        println(parameter)
-        println("ok")
-        let nsurl:NSURL = NSURL(string: url)!
-        
-        manager.responseSerializer.acceptableContentTypes = nil
-        manager.POST(url, parameters: parameter,
-            success: {(operation :AFHTTPRequestOperation!,responseObject :AnyObject!) ->Void in
-                println("\n<Raw>***********\n")
-                println(responseObject)
-                println("\n</Raw>***********\n")
-                
-                if let responseData = responseObject as? NSDictionary{
-                    self.didReceiveJSONResults(responseData, tag: tag)
-                }
-                else{
-                    self.didReceivePlainResults(responseObject, tag: tag)
-                }
-            },
-            failure: {(operation :AFHTTPRequestOperation!, error :NSError!) ->Void in
-                var codeStatue = 500
-                if(operation.response != nil){
-                    var codeStatue:Int = operation.response.statusCode
-                }
-                self.didReceiveErrorResult(codeStatue, tag: tag)
-                println(error)
-            }
-        )
-    }
-    
-    //cancel all the request
+    //取消所有请求
     func cancelAllRequest(){
         manager.operationQueue.cancelAllOperations()
     }
-    
 }

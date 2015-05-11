@@ -78,7 +78,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
             let libraryUser = libraryUserField.text ?? ""
             let libraryPassword = libraryPasswordFiled.text ?? ""
             let cardPassword = cardPasswordField.text ?? ""
-            API.sendAPI("userUpdate", APIParameter: pePassword,libraryUser,libraryPassword,cardPassword)
+            API.sendAPI("userUpdate", APIParameter: Config.cardID ?? "",Config.cardPassword ?? "",Config.studentID ?? "",pePassword,libraryUser,libraryPassword,cardPassword)
         }
         else{
             Tool.showErrorHUD("服务器忙碌中……请稍候重试")
@@ -104,7 +104,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
     }
     
     func getStudentNumFromJWC(){
-        API.sendAPI("getStudentNum")
+        API.sendAPI("getStudentNum", APIParameter: Config.cardID ?? "")
     }
     
     func getResult(APIName: String, results: AnyObject) {
