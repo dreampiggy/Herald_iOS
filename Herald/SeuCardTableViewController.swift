@@ -40,10 +40,14 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func getResult(APIName: String, results: AnyObject) {
-        results as! NSDictionary
-        Tool.showSuccessHUD("获取一卡通信息成功")
-        detailArray = results["detial"] as? [NSDictionary]
-        tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
+        if let resultsData = results as? NSDictionary{
+            Tool.showSuccessHUD("获取一卡通信息成功")
+            detailArray = resultsData["detial"] as? [NSDictionary]
+            tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
+        }
+        else{
+            Tool.showErrorHUD("获取数据失败")
+        }
     }
     
     func getError(APIName: String, statusCode: Int) {

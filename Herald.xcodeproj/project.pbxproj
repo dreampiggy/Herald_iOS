@@ -78,7 +78,6 @@
 		32E9E2BB1AD7F6E70058064B /* LabTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E9E2B91AD7F6E70058064B /* LabTableViewController.swift */; };
 		32EBFA3E1ACB011E00330C85 /* SchoolBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBFA3D1ACB011E00330C85 /* SchoolBusViewController.swift */; };
 		32EBFA401ACB014900330C85 /* SchoolBusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EBFA3F1ACB014900330C85 /* SchoolBusViewController.xib */; };
-		32F1A4241AFE49C50067EB7D /* HttpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1A4231AFE49C50067EB7D /* HttpProtocol.swift */; };
 		7B1522A319C1BFE8004D69F0 /* Appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B15229F19C1BFE8004D69F0 /* Appointment.png */; };
 		7B1522A419C1BFE8004D69F0 /* BorrowedBooks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B1522A019C1BFE8004D69F0 /* BorrowedBooks.png */; };
 		7B1522A519C1BFE8004D69F0 /* LibNavPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B1522A119C1BFE8004D69F0 /* LibNavPic.png */; };
@@ -529,7 +528,6 @@
 		32E9E2B91AD7F6E70058064B /* LabTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabTableViewController.swift; sourceTree = "<group>"; };
 		32EBFA3D1ACB011E00330C85 /* SchoolBusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolBusViewController.swift; sourceTree = "<group>"; };
 		32EBFA3F1ACB014900330C85 /* SchoolBusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolBusViewController.xib; sourceTree = "<group>"; };
-		32F1A4231AFE49C50067EB7D /* HttpProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpProtocol.swift; sourceTree = "<group>"; };
 		7B15229F19C1BFE8004D69F0 /* Appointment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appointment.png; sourceTree = "<group>"; };
 		7B1522A019C1BFE8004D69F0 /* BorrowedBooks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BorrowedBooks.png; sourceTree = "<group>"; };
 		7B1522A119C1BFE8004D69F0 /* LibNavPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LibNavPic.png; sourceTree = "<group>"; };
@@ -1272,7 +1270,6 @@
 			isa = PBXGroup;
 			children = (
 				7B76653819C1422F00E27153 /* AppDelegate.swift */,
-				32F1A4231AFE49C50067EB7D /* HttpProtocol.swift */,
 				329A97471AFE4E1400F18BFB /* API.swift */,
 				3276CF5E1AFE4A2500D6E63E /* Tool.swift */,
 				7B76653A19C1422F00E27153 /* Config.swift */,
@@ -2230,7 +2227,6 @@
 				320C09C21AFE583300A7A4A5 /* AFSecurityPolicy.m in Sources */,
 				7B76650119C1412100E27153 /* MJRefreshFooterView.m in Sources */,
 				320C09C11AFE583300A7A4A5 /* AFNetworkReachabilityManager.m in Sources */,
-				32F1A4241AFE49C50067EB7D /* HttpProtocol.swift in Sources */,
 				7B7664FC19C1412100E27153 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				7B7F297B19C918DE000C3263 /* MCFireworksButton.m in Sources */,
 				7B76651119C1412100E27153 /* SDWebImageCompat.m in Sources */,

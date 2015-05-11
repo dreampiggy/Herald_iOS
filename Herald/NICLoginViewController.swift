@@ -125,15 +125,20 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
     }
     
     func getResult(APIName: String, results: AnyObject) {
-        Tool.showSuccessHUD("登录成功!\n新用户请点击\"个人资料\"")
-        let returnUUID = NSString(data: results as! NSData, encoding: NSUTF8StringEncoding)
-        let returnCardID = usernameField.text
-        let returnPassword = passwordField.text
-        Config.saveUUID(returnUUID!)
-        Config.saveCardID(returnCardID)
-        Config.saveCardPassword(returnPassword)
-        self.delegate?.loginSuccess("NICLogin")
-        back()
+        if let returnUUID = results as? NSString{
+            Tool.showSuccessHUD("登录成功!\n新用户请点击\"个人资料\"")
+            let returnCardID = usernameField.text
+            let returnPassword = passwordField.text
+            println(returnUUID)
+            Config.saveUUID(returnUUID)
+            Config.saveCardID(returnCardID)
+            Config.saveCardPassword(returnPassword)
+            self.delegate?.loginSuccess("NICLogin")
+            back()
+        }
+        else{
+            Tool.showErrorHUD("一卡通认证服务器出了一点问题，请稍候再试")
+        }
     }
     
     func getError(APIName: String, statusCode: Int) {

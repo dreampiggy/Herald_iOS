@@ -17,7 +17,7 @@ enum APIType{
     
 }
 
-class HeraldAPI:HttpProtocol{
+class HeraldAPI{
     
     //先声公开API的appid
     var appid = "9f9ce5c3605178daadc2d85ce9f8e064"
@@ -141,71 +141,20 @@ class HeraldAPI:HttpProtocol{
         }
     }
     
-    func didReceiveDicResults(results: NSDictionary, tag: String) {
-        switch tag{
-        case "pe":
-            self.delegate?.getResult(tag, results: results["content"] as! NSString)
-        case "curriculum":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "jwc":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "srtp":
-            self.delegate?.getResult(tag, results: results["content"] as! NSArray)
-        case "nic":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "card":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "cardDetail":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "lecture":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "phylab":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "lectureNotice":
-            self.delegate?.getResult(tag, results: results["content"] as! [NSDictionary])
-        case "searchBook":
-            self.delegate?.getResult(tag, results: results["content"] as! NSArray)
-        case "library":
-            self.delegate?.getResult(tag, results: results["content"] as! NSArray)
-        case "libraryRenew":
-            self.delegate?.getResult(tag, results: results["content"] as! String)
-        case "schoolbus":
-            self.delegate?.getResult(tag, results: results["content"] as! NSDictionary)
-        case "gpa":
-            self.delegate?.getResult(tag, results: results["content"] as! NSArray)
-        default:
-            break
+    func didReceiveJSONResults(results: NSDictionary, tag: String){
+        if let resultsData: AnyObject = results["content"]{
+            self.delegate?.getResult(tag, results: resultsData)
         }
     }
     
-    func didReceiveArrayResults(results: NSArray, tag: String) {
+    func didReceivePlainResults(results: AnyObject,tag: String){
+        let resultsArray = results as? NSArray ?? []
+        let resultsString = results as? NSString ?? ""
         switch tag{
         case "emptyRoom":
-            self.delegate?.getResult(tag, results: results)
+            self.delegate?.getResult(tag, results: resultsArray)
         default:
-            break
-        }
-    }
-    
-    func didReceiveDataResults(results: NSData, tag: String) {
-        switch tag{
-        case "userLogin":
-            self.delegate?.getResult(tag, results: results)
-        default:
-            break
-        }
-    }
-    
-    func didReceiveStringResults(results: NSString, tag: String) {
-        switch tag{
-        case "userUpdate":
-            self.delegate?.getResult(tag, results: results)
-        case "getStudentNum":
-            self.delegate?.getResult(tag, results: results)
-        case "simsimi":
-            self.delegate?.getResult(tag, results: results)
-        default:
-            break
+            self.delegate?.getResult(tag, results: resultsString)
         }
     }
     
@@ -213,7 +162,7 @@ class HeraldAPI:HttpProtocol{
         self.delegate?.getError(tag, statusCode: code)
     }
     
-    //accept text/html with text contentType
+    //accept text/html MIME with plain information
     func postToURL(url:String,parameter:NSMutableDictionary,tag:String)
     {
         println("a post come!")
@@ -222,19 +171,20 @@ class HeraldAPI:HttpProtocol{
         let nsurl:NSURL = NSURL(string: url)!
         
         manager.responseSerializer = AFHTTPResponseSerializer()
-        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html") as Set<NSObject>
+        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html") as Set<NSObject>//only use text/html MIME to ensure not json text 
         manager.POST(url, parameters: parameter,
             success: {(operation :AFHTTPRequestOperation!,responseObject :AnyObject!) ->Void in
                 println("\n<Raw>***********\n")
                 println(responseObject)
                 println("\n</Raw>***********\n")
-                var receiveData = responseObject as! NSData
-                var receiveString = NSString(data: receiveData,encoding: NSUTF8StringEncoding)//use utf-8 to decode nsdata
-                
-                self.didReceiveArrayResults(responseObject as? NSArray ?? NSArray(),tag:tag)
-                self.didReceiveDicResults(responseObject as? NSDictionary ?? NSDictionary(),tag:tag)
-                self.didReceiveDataResults(responseObject as? NSData ?? NSData(),tag:tag)
-                self.didReceiveStringResults(receiveString ?? "",tag:tag)
+                if let receiveData = responseObject as? NSData{
+                    if let receiveString = NSString(data: receiveData,encoding: NSUTF8StringEncoding){
+                        self.didReceivePlainResults(receiveString, tag: tag)
+                    }//use utf-8 to decode nsdata to nsstring
+                    else if let receiveArray = responseObject as? NSArray{
+                        self.didReceivePlainResults(receiveArray, tag: tag)
+                    }
+                }
             },
             failure: {(operation :AFHTTPRequestOperation!, error :NSError!) ->Void in
                 var codeStatue = 500
@@ -247,7 +197,7 @@ class HeraldAPI:HttpProtocol{
         )
     }
     
-    //accept text/html with json contentType
+    //accept any MIME with JSON information
     func postToURLAF(url:String , parameter:NSMutableDictionary,tag:String)
     {
         println("a post to json come!")
@@ -255,16 +205,19 @@ class HeraldAPI:HttpProtocol{
         println("ok")
         let nsurl:NSURL = NSURL(string: url)!
         
-        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html") as Set<NSObject>
+        manager.responseSerializer.acceptableContentTypes = nil
         manager.POST(url, parameters: parameter,
             success: {(operation :AFHTTPRequestOperation!,responseObject :AnyObject!) ->Void in
                 println("\n<Raw>***********\n")
                 println(responseObject)
                 println("\n</Raw>***********\n")
-                self.didReceiveArrayResults(responseObject as? NSArray ?? NSArray(),tag:tag)
-                self.didReceiveDicResults(responseObject as? NSDictionary ?? NSDictionary(),tag:tag)
-                self.didReceiveDataResults(responseObject as? NSData ?? NSData(),tag:tag)
-                self.didReceiveStringResults(responseObject as? NSString ?? NSString(),tag:tag)
+                
+                if let responseData = responseObject as? NSDictionary{
+                    self.didReceiveJSONResults(responseData, tag: tag)
+                }
+                else{
+                    self.didReceivePlainResults(responseObject, tag: tag)
+                }
             },
             failure: {(operation :AFHTTPRequestOperation!, error :NSError!) ->Void in
                 var codeStatue = 500

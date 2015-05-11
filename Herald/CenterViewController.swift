@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CenterViewController: UIViewController ,UIScrollViewDelegate,HttpProtocol{
+class CenterViewController: UIViewController ,UIScrollViewDelegate{
 
     
     var scrollView:UIScrollView!
