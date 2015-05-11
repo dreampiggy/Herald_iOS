@@ -46,7 +46,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         self.tableView.addFooterWithTarget(self, action: Selector("footerRefreshing"))
         var initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
-            Tool.showProgressHUD("正在查询一卡通信息")
+            Tool.showProgressHUD("正在查询教务信息")
             self.API.delegate = self
             API.sendAPI("jwc")
         }
