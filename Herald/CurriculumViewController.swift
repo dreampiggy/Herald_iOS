@@ -57,9 +57,9 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取成功")
-        if let curriculumToCache = results as? NSDictionary{
+        if let curriculumToCache = results["content"].dictionaryObject{
             Config.saveCurriculum(curriculumToCache)
             totalCurriculum = curriculumToCache
         }

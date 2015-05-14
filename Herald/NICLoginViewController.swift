@@ -124,8 +124,8 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
         self.passwordField.resignFirstResponder()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        if let returnUUID = results as? NSString{
+    func getResult(APIName: String, results: JSON) {
+        if let returnUUID = results.string{
             Tool.showSuccessHUD("登录成功!\n新用户请点击\"个人资料\"")
             let returnCardID = usernameField.text
             let returnPassword = passwordField.text

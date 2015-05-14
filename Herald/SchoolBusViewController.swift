@@ -30,11 +30,10 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        results as! NSDictionary
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
         //Fuck to change this type...Any good ways?
-        var tempWeekend:NSDictionary = results["weekend"] as! NSDictionary
+        var tempWeekend:NSDictionary = results["content"]["weekend"].dictionaryObject ?? NSDictionary()
         for busType in tempWeekend.allKeys{
             var tempWeekendType = tempWeekend[busType as! String] as! [NSDictionary]
             for var i = 0;i < tempWeekendType.count;++i{
@@ -43,7 +42,7 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
             }
         }
         
-        var tempWeekday:NSDictionary = results["weekday"] as! NSDictionary
+        var tempWeekday:NSDictionary = results["content"]["weekday"].dictionaryObject ?? NSDictionary()
         for busType in tempWeekday.allKeys{
             var tempWeekdayType = tempWeekday[busType as! String] as! [NSDictionary]
             for var i = 0;i < tempWeekdayType.count;++i{

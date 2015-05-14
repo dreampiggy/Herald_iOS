@@ -74,9 +74,9 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     }
     
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
-        self.emptyRooms = results as? NSArray ?? []
+        self.emptyRooms = results.arrayObject ?? []
         self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     

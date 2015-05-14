@@ -48,8 +48,8 @@ class NicViewController: UIViewController, APIGetter {
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        if let content:NSDictionary = results as? NSDictionary{
+    func getResult(APIName: String, results: JSON) {
+        if let content:NSDictionary = results["content"].dictionaryObject{
             firstSend = false
             Tool.showSuccessHUD("获取信息成功")
             leftMoney = content.valueForKey("left") as! String

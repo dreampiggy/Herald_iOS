@@ -126,9 +126,9 @@ class GradeViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         API.sendAPI("gpa")
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取成功")
-        if let GPAToCache = results as? NSArray{
+        if let GPAToCache = results["content"].arrayObject{
             Config.saveGPA(GPAToCache)
             self.dataClassify(GPAToCache)
         }

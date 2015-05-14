@@ -45,9 +45,9 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取成功")
-        if let content:NSArray = results as? NSArray{
+        if let content:NSArray = results["content"].arrayObject{
             self.stuIDLabel.text = content[0]["card number"] as? String
             self.totalCreditLabel.text = content[0]["total"] as? String
             self.levelLabel.text = content[0]["score"] as? String

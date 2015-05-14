@@ -38,10 +38,10 @@ class SeuCardViewController: UIViewController, APIGetter {
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         firstSend = false
         Tool.showSuccessHUD("获取数据成功")
-        APIResult = results as? NSDictionary
+        APIResult = results["content"].dictionaryObject
     }
     
     func getError(APIName: String, statusCode: Int) {

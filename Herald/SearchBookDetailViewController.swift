@@ -52,8 +52,8 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        if let content:NSArray = results as? NSArray{
+    func getResult(APIName: String, results: JSON) {
+        if let content:NSArray = results["content"].arrayObject{
             Tool.showSuccessHUD("获取数据成功")
             for item in content{
                 self.dataList.addObject(item)

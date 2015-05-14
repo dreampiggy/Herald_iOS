@@ -43,10 +43,10 @@ class LecturePredictTableViewController: UIViewController, UITableViewDataSource
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
         tableView.hidden = false
-        detailArray = results as? [NSDictionary]
+        detailArray = results["content"].arrayObject as? [NSDictionary]
         tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     

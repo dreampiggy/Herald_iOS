@@ -107,10 +107,11 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
         API.sendAPI("getStudentNum", APIParameter: Config.cardID ?? "")
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
+        var results = results.stringValue as NSString
         switch APIName{
         case "userUpdate":
-            if results as! String == "OK"{
+            if results == "OK"{
                 Tool.showSuccessHUD("用户信息更新成功")
                 back()
             }

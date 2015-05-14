@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc protocol APIGetter{
-    func getResult(APIName:String, results:AnyObject)
+protocol APIGetter{
+    func getResult(APIName:String, results:JSON)
     func getError(APIName:String, statusCode:Int)
 }
 
@@ -65,23 +65,8 @@ class HeraldAPI{
     
     //对请求结果进行代理
     func didReceiveResults(results: AnyObject, tag: String){
-        if let resultsForDic = results as? NSDictionary{
-            if let resultsData: AnyObject = results["content"]{
-                self.delegate?.getResult(tag, results: resultsData)
-            }
-            else{
-                didReceiveError(500, tag: tag)//所有只要以JSON API返回的，都把结果存在content中，故其他情况按错误处理
-            }
-        }
-        else if let resultsForArray = results as? NSArray{
-            self.delegate?.getResult(tag, results: resultsForArray)
-        }
-        else if let resultsForString = results as? NSString{
-            self.delegate?.getResult(tag, results: resultsForString)
-        }
-        else{
-            didReceiveError(500, tag: tag)
-        }
+        let json = JSON(results)//一个非常好的东西，能方便操作JSON，甚至对不是JSON格式（比如字符串，数组），保留了这个类型本身
+        self.delegate?.getResult(tag, results: json)
     }
     
     //对错误进行代理

@@ -209,15 +209,15 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
         self.textField.resignFirstResponder()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         var res = ""
-        if results.isEqualToString("error")
+        if results.stringValue == "error"
         {
             res = "我听不懂你在说什么呀"
         }
         else
         {
-            res = results.stringByReplacingOccurrencesOfString("<br>", withString: "\n")
+            res = results.stringValue.stringByReplacingOccurrencesOfString("<br>", withString: "\n")
         }
         
         var localdic = ["who":"Simsimi","message":res]

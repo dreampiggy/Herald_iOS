@@ -57,9 +57,9 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取成功")
-        contentDictionary = results as? NSDictionary
+        contentDictionary = results["content"].dictionaryObject
         getAllInformation()
         if firstLoad{
             upSegmentedControlPressed()

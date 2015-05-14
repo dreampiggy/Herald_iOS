@@ -34,9 +34,9 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
-        labDictionary = results as? NSDictionary
+        labDictionary = results["content"].dictionaryObject
         sectionArray = labDictionary?.allKeys as [AnyObject]!
         tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }

@@ -44,8 +44,8 @@ class RunningViewController: UIViewController,APIGetter {
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        var runContent:NSString = results as! NSString
+    func getResult(APIName: String, results: JSON) {
+        var runContent:NSString = results["content"].string ?? "0"
         if (runContent.integerValue >= 0 && runContent.integerValue <= 100){
             Tool.showSuccessHUD("更新成功")
             self.gaugeView?.value = runContent.floatValue

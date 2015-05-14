@@ -31,10 +31,9 @@ class LectureViewController: UIViewController, UITableViewDataSource, UITableVie
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        results as! NSDictionary
+    func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
-        lectureArray = results["detial"] as? [NSDictionary]
+        lectureArray = results["content"]["detial"].arrayObject as? [NSDictionary]
         if(lectureArray?.count == 0){
             tableView.hidden = true
             noLectureLabel.hidden = false

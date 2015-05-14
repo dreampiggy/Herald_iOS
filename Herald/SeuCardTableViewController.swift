@@ -39,8 +39,8 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
-        if let resultsData = results as? NSDictionary{
+    func getResult(APIName: String, results: JSON) {
+        if let resultsData = results["content"].dictionaryObject{
             Tool.showSuccessHUD("获取一卡通信息成功")
             detailArray = resultsData["detial"] as? [NSDictionary]
             tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)

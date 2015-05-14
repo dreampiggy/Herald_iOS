@@ -76,6 +76,7 @@
 		32C3D5321AFE4A8200EA41C2 /* NICLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3D5301AFE4A8200EA41C2 /* NICLoginViewController.swift */; };
 		32C3D5331AFE4A8200EA41C2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3D5311AFE4A8200EA41C2 /* UserInfoViewController.swift */; };
 		32CF313219FC91D70081CDC8 /* crt1.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CF313119FC91D70081CDC8 /* crt1.o */; };
+		32DBB7E11B049CAE0025A823 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DBB7E01B049CAE0025A823 /* SwiftyJSON.swift */; };
 		32E9E2BB1AD7F6E70058064B /* LabTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E9E2B91AD7F6E70058064B /* LabTableViewController.swift */; };
 		32EBFA3E1ACB011E00330C85 /* SchoolBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBFA3D1ACB011E00330C85 /* SchoolBusViewController.swift */; };
 		32EBFA401ACB014900330C85 /* SchoolBusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EBFA3F1ACB014900330C85 /* SchoolBusViewController.xib */; };
@@ -527,6 +528,7 @@
 		32C3D5301AFE4A8200EA41C2 /* NICLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NICLoginViewController.swift; sourceTree = "<group>"; };
 		32C3D5311AFE4A8200EA41C2 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		32CF313119FC91D70081CDC8 /* crt1.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = crt1.o; path = usr/lib/crt1.o; sourceTree = SDKROOT; };
+		32DBB7E01B049CAE0025A823 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		32E9E2B91AD7F6E70058064B /* LabTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabTableViewController.swift; sourceTree = "<group>"; };
 		32EBFA3D1ACB011E00330C85 /* SchoolBusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolBusViewController.swift; sourceTree = "<group>"; };
 		32EBFA3F1ACB014900330C85 /* SchoolBusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolBusViewController.xib; sourceTree = "<group>"; };
@@ -1071,6 +1073,14 @@
 			name = MainPage;
 			sourceTree = "<group>";
 		};
+		32DBB7DF1B049C960025A823 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				32DBB7E01B049CAE0025A823 /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
+			sourceTree = "<group>";
+		};
 		7B1522C719C28694004D69F0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,6 +1336,7 @@
 		7B76644019C1409D00E27153 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				32DBB7DF1B049C960025A823 /* SwiftyJSON */,
 				321AB0571AC65797006727FC /* AESCrypt-ObjCEncode */,
 				320C09AA1AFE583300A7A4A5 /* AFNetworking */,
 				320C09C71AFE583B00A7A4A5 /* UIKit+AFNetworking */,
@@ -2209,6 +2220,7 @@
 				7B7665A219C1424800E27153 /* RestaurantViewController.swift in Sources */,
 				7B76650E19C1412100E27153 /* MKAnnotationView+WebCache.m in Sources */,
 				329A97481AFE4E1400F18BFB /* API.swift in Sources */,
+				32DBB7E11B049CAE0025A823 /* SwiftyJSON.swift in Sources */,
 				7B76659B19C1424800E27153 /* AcademicTableViewCell.swift in Sources */,
 				7B7664FB19C1412100E27153 /* IQUIView+Hierarchy.m in Sources */,
 				320C09BE1AFE583300A7A4A5 /* AFHTTPRequestOperation.m in Sources */,

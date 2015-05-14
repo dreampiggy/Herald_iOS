@@ -37,10 +37,10 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
         API.cancelAllRequest()
     }
     
-    func getResult(APIName: String, results: AnyObject) {
+    func getResult(APIName: String, results: JSON) {
         switch APIName{
         case "library":
-            if let resultsArray = results as? NSArray
+            if let resultsArray = results["content"].arrayObject
             {
                 Tool.showSuccessHUD("获取成功")
                 self.dataList = resultsArray
@@ -55,7 +55,7 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
                 }
             }
         case "libraryRenew":
-            if "success" == results as? String{
+            if "success" == results.string{
                 Tool.showSuccessHUD("续借成功")
             }
             else{
