@@ -27,7 +27,6 @@ class LectureViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillDisappear(animated: Bool) {
-        Tool.dismissHUD()
         API.cancelAllRequest()
     }
     

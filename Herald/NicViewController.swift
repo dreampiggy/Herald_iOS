@@ -18,8 +18,6 @@ class NicViewController: UIViewController, APIGetter {
     }
     var networkArray = [networkInfo?]()
     
-    var leftMoney = "0.00 元"
-    
     @IBOutlet weak var nicMoneyLabel: UILabel!
     @IBOutlet weak var networkInfoText: UITextView!
     @IBOutlet weak var networkSegmentedControl: UISegmentedControl!
@@ -44,30 +42,34 @@ class NicViewController: UIViewController, APIGetter {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        Tool.dismissHUD()
         API.cancelAllRequest()
     }
     
     func getResult(APIName: String, results: JSON) {
-        if let content:NSDictionary = results["content"].dictionaryObject{
-            firstSend = false
-            Tool.showSuccessHUD("获取信息成功")
-            leftMoney = content.valueForKey("left") as! String
-            
-            //ugly way to set value....
-            var webValue = content.valueForKey("web") as! NSDictionary
-            var webStruct = networkInfo(state: webValue.valueForKey("state") as? String, used: webValue.valueForKey("used") as? String)
-            var brasAValue = content.valueForKey("a") as! NSDictionary
-            var brasAStruct = networkInfo(state: brasAValue.valueForKey("state") as? String, used: brasAValue.valueForKey("used") as? String)
-            var brasBValue = content.valueForKey("b") as! NSDictionary
-            var brasBStruct = networkInfo(state: brasBValue.valueForKey("state") as? String, used: brasBValue.valueForKey("used") as? String)
-            networkArray.append(webStruct)
-            networkArray.append(brasAStruct)
-            networkArray.append(brasBStruct)
-            //
-            nicMoneyLabel.text = leftMoney
-            drawNetworkInfo(networkSegmentedControl.selectedSegmentIndex)
-        }
+        Tool.showSuccessHUD("获取信息成功")
+        
+        let leftMoney = results["content"]["left"].string ?? "0.00 元"
+        
+        let webState = results["content"]["web"]["state"].string ?? "未知"
+        let webUsed = results["content"]["web"]["used"].string ?? "未知"
+        let webStruct = networkInfo(state: webState, used: webUsed)
+
+        let brasAState = results["content"]["a"]["state"].string ?? "未知"
+        let brasAUsed = results["content"]["a"]["used"].string ?? "未知"
+        let brasAStruct = networkInfo(state: brasAState, used: brasAUsed)
+        
+        let brasBState = results["content"]["b"]["state"].string ?? "未知"
+        let brasBUsed = results["content"]["b"]["used"].string ?? "未知"
+        let brasBStruct = networkInfo(state: brasBState, used: brasBUsed)
+        
+        networkArray.append(webStruct)
+        networkArray.append(brasAStruct)
+        networkArray.append(brasBStruct)
+        
+        firstSend = false
+        nicMoneyLabel.text = leftMoney
+        
+        drawNetworkInfo(networkSegmentedControl.selectedSegmentIndex)
     }
     
     func getError(APIName: String, statusCode: Int) {

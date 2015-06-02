@@ -34,13 +34,12 @@ class SeuCardViewController: UIViewController, APIGetter {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        Tool.dismissHUD()
         API.cancelAllRequest()
     }
     
     func getResult(APIName: String, results: JSON) {
-        firstSend = false
         Tool.showSuccessHUD("获取数据成功")
+        firstSend = false
         APIResult = results["content"].dictionaryObject
     }
     

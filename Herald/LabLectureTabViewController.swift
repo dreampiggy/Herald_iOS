@@ -24,6 +24,11 @@ class LabLectureTabViewController: UITabBarController,UITabBarControllerDelegate
         self.delegate = self
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        Tool.dismissHUD()
+    }
+    
     func tabBarController(tabBarController: UITabBarController,
         didSelectViewController viewController: UIViewController){
             let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: viewController, action: Selector("refreshData"))

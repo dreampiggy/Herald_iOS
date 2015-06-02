@@ -12,6 +12,7 @@ class NicSeuTabViewController: UITabBarController,UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
@@ -22,6 +23,11 @@ class NicSeuTabViewController: UITabBarController,UITabBarControllerDelegate {
         self.navigationItem.rightBarButtonItem = refreshButton
         
         self.delegate = self
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        Tool.dismissHUD()
     }
     
     func tabBarController(tabBarController: UITabBarController,

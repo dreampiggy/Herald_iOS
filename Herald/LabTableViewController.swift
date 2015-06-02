@@ -28,16 +28,16 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    
     override func viewWillDisappear(animated: Bool) {
-        Tool.dismissHUD()
         API.cancelAllRequest()
     }
     
     func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
-        labDictionary = results["content"].dictionaryObject
-        sectionArray = labDictionary?.allKeys as [AnyObject]!
+        if let contentDictionary:NSDictionary = results["content"].dictionaryObject{
+            labDictionary = contentDictionary
+            sectionArray = contentDictionary.allKeys as [AnyObject]
+        }
         tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     

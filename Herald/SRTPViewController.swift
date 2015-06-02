@@ -47,13 +47,14 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取成功")
-        if let content:NSArray = results["content"].arrayObject{
-            self.stuIDLabel.text = content[0]["card number"] as? String
-            self.totalCreditLabel.text = content[0]["total"] as? String
-            self.levelLabel.text = content[0]["score"] as? String
-            self.dataList = content
-            self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
-        }
+        
+        self.dataList = results["content"].arrayObject ?? []
+        
+        self.stuIDLabel.text = results["content"][0]["card number"].stringValue
+        self.totalCreditLabel.text = results["content"][0]["total"].stringValue
+        self.levelLabel.text = results["content"][0]["score"].stringValue
+        
+        self.tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     
     func getError(APIName: String, statusCode: Int) {

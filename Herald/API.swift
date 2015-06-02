@@ -87,8 +87,13 @@ class HeraldAPI{
                     //按照NSDictionary -> NSArray -> NSString的顺序进行过滤
                     if let receiveDic = NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary{
                         println("\nResponse(Dictionary):\n\(receiveDic)\n***********\n")
-                        if receiveDic["code"] as? String == "500"{//部分API状态码虽然为200，但是返回content为空，code为500
-                            self.didReceiveError(500, tag: tag)
+                        if let statusCode = receiveDic["code"] as? Int {//部分API状态码虽然为200，但是返回content为空，code为500
+                            if statusCode == 200{
+                                self.didReceiveResults(receiveDic, tag: tag)
+                            }
+                            else{
+                                self.didReceiveError(500, tag: tag)
+                            }
                         }
                         else{
                             self.didReceiveResults(receiveDic, tag: tag)

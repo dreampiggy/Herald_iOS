@@ -11,8 +11,8 @@ import UIKit
 class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, APIGetter{
     
     @IBOutlet weak var tableView: UITableView!
-    var weekendInfo:[Dictionary<String,String>] = []
-    var weekdayInfo:[Dictionary<String,String>] = []
+    var weekendInfo:[Dictionary<String,String?>] = []
+    var weekdayInfo:[Dictionary<String,String?>] = []
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,24 +32,17 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     
     func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
-        //Fuck to change this type...Any good ways?
-        var tempWeekend:NSDictionary = results["content"]["weekend"].dictionaryObject ?? NSDictionary()
-        for busType in tempWeekend.allKeys{
-            var tempWeekendType = tempWeekend[busType as! String] as! [NSDictionary]
-            for var i = 0;i < tempWeekendType.count;++i{
-                var finalTempDictionary = ["place":busType as! String,"bus":tempWeekendType[i]["bus"] as! String,"time":tempWeekendType[i]["time"] as! String]
-                weekendInfo.append(finalTempDictionary)
-            }
-        }
+        //这是我暂时想到的相对简单的写法……
+        var weekendIn = results["content"]["weekend"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        var weekendOut = results["content"]["weekend"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        var weekdayIn = results["content"]["weekday"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        var weekdayOut = results["content"]["weekday"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
         
-        var tempWeekday:NSDictionary = results["content"]["weekday"].dictionaryObject ?? NSDictionary()
-        for busType in tempWeekday.allKeys{
-            var tempWeekdayType = tempWeekday[busType as! String] as! [NSDictionary]
-            for var i = 0;i < tempWeekdayType.count;++i{
-                var finalTempDictionary = ["place":busType as! String,"bus":tempWeekdayType[i]["bus"] as! String,"time":tempWeekdayType[i]["time"] as! String]
-                weekdayInfo.append(finalTempDictionary)
-            }
-        }
+        weekendInfo += weekendIn
+        weekendInfo += weekendOut
+        weekdayInfo += weekdayIn
+        weekdayInfo += weekdayOut
+        
         tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     
@@ -110,14 +103,13 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
         case 0:
             cell?.placeLabel.text = weekdayInfo[row]["place"] ?? ""
             cell?.busLabel.text = weekdayInfo[row]["bus"] ?? ""
-            cell?.timeLabel.text = "时间: " + weekdayInfo[row]["time"]!
+            cell?.timeLabel.text = "时间: " + weekdayInfo[row]["time"]!! ?? ""
         case 1:
             cell?.placeLabel.text = weekendInfo[row]["place"] ?? ""
             cell?.busLabel.text = weekendInfo[row]["bus"] ?? ""
-            cell?.timeLabel.text = "时间: " + weekendInfo[row]["time"]!
+            cell?.timeLabel.text = "时间: " + weekendInfo[row]["time"]!! ?? ""
         default:break
         }
-        
         
         return cell!
     }
