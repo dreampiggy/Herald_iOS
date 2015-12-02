@@ -12,7 +12,7 @@ class LabLectureTabViewController: UITabBarController,UITabBarControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         self.selectedIndex = 0;//默认选中第一个Tab

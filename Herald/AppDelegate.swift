@@ -29,11 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         
-        var leftSideDrawerViewController:LeftDrawerTableViewController = LeftDrawerTableViewController(nibName: "LeftDrawerTableViewController", bundle: nil)
+        let leftSideDrawerViewController:LeftDrawerTableViewController = LeftDrawerTableViewController(nibName: "LeftDrawerTableViewController", bundle: nil)
         
-        var centerViewController:CenterViewController = CenterViewController()
+        let centerViewController:CenterViewController = CenterViewController()
         
-        var navigationController:CommonNavViewController = CommonNavViewController(rootViewController: centerViewController)
+        let navigationController:CommonNavViewController = CommonNavViewController(rootViewController: centerViewController)
         
         
         self.drawerController = MMDrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideDrawerViewController)

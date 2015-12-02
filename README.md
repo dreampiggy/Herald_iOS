@@ -1,9 +1,13 @@
 # Herald_iOS
 > 先声iOS客户端
 
+##### 注：
+1. 由于服务器被水表，所以新的API不再用域名，而直接用URL：`115.28.27.150`
+2. 用Swift 2.1语法重写了，在Xcode7.1.1下编译，如果需要历史版本，查看`swift1.2`branch
+
 # 编译环境
-	OS X 10.10.2
-	Xcode 6.3.1
+	OS X 10.11.1
+	Xcode 7.1.1
 
 # 支持平台
 	iOS 7.0 以上
@@ -14,11 +18,13 @@
 	iPhone 5S
 	iPhone 6
 	iPhone 6 Plus
+	iPhone 6S
+	iPhone 6S Plus
 	只支持竖屏模式
 
 # 语言
-	Swift (1.2以上) 和 Objective-C
-	大部分功能使用Swift
+	Swift (2.1以上) 和 Objective-C
+	所有业务，核心代码使用Swift
 	在第三方库的使用或者第三方库的自定义上，使用Objective-C
 
 # 项目目录简介

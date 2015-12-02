@@ -7,7 +7,7 @@
 		<key>gpa</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/gpa</string>
+			<string>http://115.28.27.150/api/gpa</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -16,7 +16,7 @@
 		<key>schoolbus</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/schoolbus</string>
+			<string>http://115.28.27.150/api/schoolbus</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -25,7 +25,7 @@
 		<key>libraryRenew</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/renew</string>
+			<string>http://115.28.27.150/api/renew</string>
 			<key>Param</key>
 			<array>
 				<string>barcode</string>
@@ -35,7 +35,7 @@
 		<key>library</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/library</string>
+			<string>http://115.28.27.150/api/library</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -44,7 +44,7 @@
 		<key>searchBook</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/search</string>
+			<string>http://115.28.27.150/api/search</string>
 			<key>Param</key>
 			<array>
 				<string>book</string>
@@ -54,7 +54,7 @@
 		<key>lectureNotice</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/lecturenotice</string>
+			<string>http://115.28.27.150/api/lecturenotice</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -63,7 +63,7 @@
 		<key>lecture</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/lecture</string>
+			<string>http://115.28.27.150/api/lecture</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -72,7 +72,7 @@
 		<key>phylab</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/phylab</string>
+			<string>http://115.28.27.150/api/phylab</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -81,7 +81,7 @@
 		<key>cardDetail</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/card</string>
+			<string>http://115.28.27.150/api/card</string>
 			<key>Param</key>
 			<array>
 				<string>timedelta</string>
@@ -91,7 +91,7 @@
 		<key>card</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/card</string>
+			<string>http://115.28.27.150/api/card</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -100,7 +100,7 @@
 		<key>nic</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/nic</string>
+			<string>http://115.28.27.150/api/nic</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -109,7 +109,7 @@
 		<key>srtp</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/srtp</string>
+			<string>http://115.28.27.150/api/srtp</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -118,7 +118,7 @@
 		<key>jwc</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/jwc</string>
+			<string>http://115.28.27.150/api/jwc</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -127,7 +127,7 @@
 		<key>curriculum</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/curriculum</string>
+			<string>http://115.28.27.150/api/curriculum</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -136,7 +136,7 @@
 		<key>pe</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/pe</string>
+			<string>http://115.28.27.150/api/pe</string>
 			<key>Param</key>
 			<array>
 				<string>uuid</string>
@@ -145,7 +145,7 @@
 		<key>emptyRoom</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/emptyroom</string>
+			<string>http://115.28.27.150/api/emptyroom</string>
 			<key>Param</key>
 			<array>
 				<string>arg1</string>
@@ -159,7 +159,7 @@
 		<key>simsimi</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/api/simsimi</string>
+			<string>http://115.28.27.150/api/simsimi</string>
 			<key>Param</key>
 			<array>
 				<string>msg</string>
@@ -178,7 +178,7 @@
 		<key>userLogin</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/uc/auth</string>
+			<string>http://115.28.27.150/uc/auth</string>
 			<key>Param</key>
 			<array>
 				<string>user</string>
@@ -189,7 +189,7 @@
 		<key>userUpdate</key>
 		<dict>
 			<key>URL</key>
-			<string>http://herald.seu.edu.cn/uc/update</string>
+			<string>http://115.28.27.150/uc/update</string>
 			<key>Param</key>
 			<array>
 				<string>cardnum</string>
@@ -204,6 +204,8 @@
 		</dict>
 	</dict>
 	<key>UpdateURL</key>
-	<string>http://herald.seu.edu.cn/</string>
+	<string>http://115.28.27.150/update</string>
+	<key>IndexURL</key>
+	<string>http://115.28.27.150/</string>
 </dict>
 </plist>

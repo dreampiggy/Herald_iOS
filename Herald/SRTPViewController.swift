@@ -27,12 +27,12 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "SRTP详情"
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询SRTP信息")
             self.API.delegate = self
@@ -96,20 +96,20 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        var headerView = UIView(frame: CGRectMake(0, 0, 320, 30))
+        let headerView = UIView(frame: CGRectMake(0, 0, 320, 30))
         headerView.backgroundColor = UIColor(patternImage: UIImage(named: "SRTP_header.jpg")!)
         
-        var creditLabel = UILabel(frame: CGRectMake(15, 0, 40, 30))
+        let creditLabel = UILabel(frame: CGRectMake(15, 0, 40, 30))
         creditLabel.textColor = UIColor.darkGrayColor()
         creditLabel.font = UIFont(name: "System", size: 13)
         creditLabel.text = "学分"
         
-        var projectLabel = UILabel(frame: CGRectMake(135, 0, 80, 30))
+        let projectLabel = UILabel(frame: CGRectMake(135, 0, 80, 30))
         projectLabel.textColor = UIColor.darkGrayColor()
         projectLabel.font = UIFont(name: "System", size: 13)
         projectLabel.text = "项目"
         
-        var propertyLabel = UILabel(frame: CGRectMake(255, 0, 40, 30))
+        let propertyLabel = UILabel(frame: CGRectMake(255, 0, 40, 30))
         propertyLabel.textColor = UIColor.darkGrayColor()
         propertyLabel.font = UIFont(name: "System", size: 13)
         propertyLabel.text = "性质"
@@ -136,13 +136,13 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         if nil == cell
         {
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SRTPTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SRTPTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? SRTPTableViewCell
         }
 
-        var row = indexPath.row
+        let row = indexPath.row
         
-        var credit = self.dataList[row+1]["credit"] as! NSString
+        let credit = self.dataList[row+1]["credit"] as! NSString
         
         if credit.isEqualToString("")
         {

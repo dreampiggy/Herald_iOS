@@ -18,7 +18,7 @@ class LibraryViewController: UIViewController {
         self.navigationItem.title = "东大图书馆"
         self.setupLeftMenuButton()
         
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
     }
 

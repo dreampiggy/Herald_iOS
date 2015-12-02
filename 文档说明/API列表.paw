@@ -5,12 +5,12 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>57FDE429-41EA-4768-B51E-B90DF0AC3387</UUID>
-        <nextObjectID>164</nextObjectID>
+        <nextObjectID>168</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
                     <key>NSPersistenceFrameworkVersion</key>
-                    <integer>526</integer>
+                    <integer>640</integer>
                     <key>NSStoreModelVersionHashes</key>
                     <dict>
                         <key>LMCookieJar</key>
@@ -75,14 +75,14 @@
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Default Environment</attribute>
         <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z106"></relationship>
-        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE"></relationship>
+        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z167"></relationship>
     </object>
     <object type="LMENVIRONMENTDOMAIN" id="z106">
         <attribute name="uuid" type="string">BC4637DD-DF0E-4CC6-A210-82F31014DE67</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Default Domain</attribute>
         <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z103"></relationship>
-        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE"></relationship>
+        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE" idrefs="z168"></relationship>
     </object>
     <object type="LMREQUEST" id="z107">
         <attribute name="uuid" type="string">826F4D68-42A6-4D7F-AB17-8FD46722B2B0</attribute>
@@ -143,7 +143,7 @@
     </object>
     <object type="LMREQUEST" id="z112">
         <attribute name="uuid" type="string">2CC11D47-2EA9-4BA8-9345-FF8320EFEF2B</attribute>
-        <attribute name="url" type="string">http://herald.seu.edu.cn/uc/auth?user=213133443\u2600appid=9f9ce5c3605178daadc2d85ce9f8e064\u2600password=lizhuoli941126</attribute>
+        <attribute name="url" type="string">http://115.28.27.150/uc/auth?user=213133443\u2600appid=9f9ce5c3605178daadc2d85ce9f8e064\u2600password=lizhuoli941126</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -715,5 +715,17 @@
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z163"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z167">
+        <attribute name="value" type="string"></attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z103"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z168"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z168">
+        <attribute name="uuid" type="string">F4C0FC4D-869B-4217-B930-CD11C7F997E1</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z106"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z167"></relationship>
     </object>
 </database>

@@ -20,7 +20,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
         self.API.delegate = self
         self.navigationItem.title = "用户信息"
         
-        var color = UIColor(red: 28/255, green: 150/255, blue: 111/255, alpha: 1)
+        let color = UIColor(red: 28/255, green: 150/255, blue: 111/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         let backButton:UIBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("back"))
@@ -61,7 +61,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
         {
             Tool.showErrorHUD("请检查网络连接")
         }
-        else if self.cardPasswordField!.text.isEmpty || self.pePasswordField!.text.isEmpty || self.libraryPasswordFiled!.text.isEmpty || self.libraryUserField!.text.isEmpty
+        else if self.cardPasswordField!.text == nil || self.pePasswordField!.text == nil || self.libraryPasswordFiled!.text == nil || self.libraryUserField!.text == nil
         {
             Tool.showErrorHUD("要输入完整的信息哦")
         }
@@ -73,7 +73,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
     }
     
     func sendAPI(){
-        if let studentID = Config.studentID{
+        if Config.studentID != nil {
             let pePassword = pePasswordField.text ?? ""
             let libraryUser = libraryUserField.text ?? ""
             let libraryPassword = libraryPasswordFiled.text ?? ""
@@ -94,7 +94,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         
         self.cardPasswordField.resignFirstResponder()
@@ -108,7 +108,7 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
     }
     
     func getResult(APIName: String, results: JSON) {
-        var results = results.stringValue as NSString
+        let results = results.stringValue as NSString
         switch APIName{
         case "userUpdate":
             if results == "OK"{
@@ -119,11 +119,11 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
                 Tool.showErrorHUD("用户信息更新失败")
             }
         case "getStudentNum":
-            let jwcRex:NSRegularExpression = NSRegularExpression(pattern: "学号:(\\w+)", options: NSRegularExpressionOptions.allZeros, error: nil)!
-            let matchStudentNumber = jwcRex.firstMatchInString(results as! String, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, results.length))
+            let jwcRex:NSRegularExpression = try! NSRegularExpression(pattern: "学号:(\\w+)", options: NSRegularExpressionOptions())
+            let matchStudentNumber = jwcRex.firstMatchInString(results as String, options: NSMatchingOptions(), range: NSMakeRange(0, results.length))
             if (matchStudentNumber != nil){
                 let matchResult = results.substringWithRange(matchStudentNumber!.range)
-                let index = advance(matchResult.startIndex, 3)
+                let index = matchResult.startIndex.advancedBy(3)
                 let finalStudentID = matchResult.substringFromIndex(index)
                 Config.saveStudentID(finalStudentID)
             }

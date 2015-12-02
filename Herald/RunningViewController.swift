@@ -20,7 +20,7 @@ class RunningViewController: UIViewController,APIGetter {
         super.viewDidLoad()
         
         self.navigationItem.title = "跑操查询"
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
@@ -30,7 +30,7 @@ class RunningViewController: UIViewController,APIGetter {
         self.view.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         self.gaugeView?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在获取跑操数据")
             self.API.delegate = self
@@ -45,7 +45,7 @@ class RunningViewController: UIViewController,APIGetter {
     }
     
     func getResult(APIName: String, results: JSON) {
-        var runContent:NSString = results["content"].string ?? "0"
+        let runContent:NSString = results["content"].string ?? "0"
         if (runContent.integerValue >= 0 && runContent.integerValue <= 100){
             Tool.showSuccessHUD("更新成功")
             self.gaugeView?.value = runContent.floatValue
@@ -61,9 +61,7 @@ class RunningViewController: UIViewController,APIGetter {
     {
         self.navigationItem.title = "跑操查询"
         
-        var btnRefresh:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData:"))
-        
-        var font:UIFont = UIFont.boldSystemFontOfSize(35)
+        let font:UIFont = UIFont.boldSystemFontOfSize(35)
         self.tickerLabel = ADTickerLabel(frame: CGRectMake((self.screenSize.width+font.lineHeight)/2, 410, 0, font.lineHeight))
         self.tickerLabel!.font = font
         self.tickerLabel!.characterWidth = 20
@@ -88,11 +86,11 @@ class RunningViewController: UIViewController,APIGetter {
         self.gaugeView!.needleScrewStyle = WMGaugeViewNeedleScrewStylePlain;
         self.gaugeView!.needleScrewRadius = 0.05;
         
-        var YYRippleButton = BTRippleButtton(image: UIImage(named: "RunningYY"), andFrame: CGRectMake((self.screenSize.width - 70)/2, 300, 70, 70), andTarget: Selector("YY"), andID: self)
+        let YYRippleButton = BTRippleButtton(image: UIImage(named: "RunningYY"), andFrame: CGRectMake((self.screenSize.width - 70)/2, 300, 70, 70), andTarget: Selector("YY"), andID: self)
         YYRippleButton.setRippeEffectEnabled(true)
         YYRippleButton.setRippleEffectWithColor(UIColor(red: 240/255, green:159/255, blue:10/255, alpha:1))
         
-        var YYLabel = UILabel(frame: CGRectMake((self.screenSize.width - 100/2)/2-5, 330, 100, 100))
+        let YYLabel = UILabel(frame: CGRectMake((self.screenSize.width - 100/2)/2-5, 330, 100, 100))
         YYLabel.text = "YY一下"
         YYLabel.textColor = UIColor.whiteColor()
         
@@ -102,7 +100,7 @@ class RunningViewController: UIViewController,APIGetter {
     
     func YY()
     {
-        var YYNum = Float(arc4random_uniform(60))
+        let YYNum = Float(arc4random_uniform(60))
         self.gaugeView?.value = YYNum
         self.tickerLabel?.text = NSString(format: "%.0f", YYNum) as String
     }

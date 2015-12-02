@@ -32,7 +32,7 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
         super.viewDidLoad()
 
         self.tableView.tableHeaderView = headView
-        var color = UIColor(red: 156/255, green: 187/255, blue: 216/255, alpha: 1)
+        let color = UIColor(red: 156/255, green: 187/255, blue: 216/255, alpha: 1)
         self.tableView.backgroundColor = color
         if (Config.UUID != nil && Config.UUID != ""){
             self.welcomeLabel.text = "欢迎回来"
@@ -70,8 +70,6 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
     
     @IBAction func clickLoginButton(sender: UIButton)
     {
-        var button:UIButton = sender
-        var tag:Int = button.tag
         let NICloginVC : NICLoginViewController = NICLoginViewController()
         NICloginVC.delegate = self
     
@@ -82,8 +80,6 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
     }
     
     @IBAction func clickInfoButton(sender: UIButton) {
-        var button:UIButton = sender
-        var tag:Int = button.tag
         let UserInfoVC : UserInfoViewController = UserInfoViewController()
         UserInfoVC.delegate = self
         
@@ -116,7 +112,7 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
         
         let cellIdentifier:String = "reuseIdentifier"
    
-        var cell:UITableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
 
         
         // Configure the cell...
@@ -126,7 +122,7 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        var color = UIColor(red: 156/255, green: 187/255, blue: 216/255, alpha: 1)
+        let color = UIColor(red: 156/255, green: 187/255, blue: 216/255, alpha: 1)
         cell!.backgroundColor = color
         
         switch indexPath.row

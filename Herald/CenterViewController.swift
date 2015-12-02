@@ -33,11 +33,6 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
         self.setupLeftMenuButton()
         
         self.setupScrollPic()
-        
-//        self.eHttp.delegate = self
-//        
-//        self.eHttp.requestFromURLAF("http://herald.seu.edu.cn/EzHerald/picturejson/", tag: "images")
-//        
     }
     
     func setupLeftMenuButton()
@@ -88,12 +83,12 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
     
     func setupScrollPic()
     {
-        var color = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        let color = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         self.scrollView = UIScrollView(frame: CGRectMake(0, 64, self.screenSize.width, self.screenSize.height/2.5))
         self.scrollView.delegate = self
         
-        var scrollSize:CGSize = CGSizeMake(self.screenSize.width * 5, 0)
+        let scrollSize:CGSize = CGSizeMake(self.screenSize.width * 5, 0)
         
         self.scrollView.contentSize = scrollSize
         self.scrollView.showsHorizontalScrollIndicator = false
@@ -101,9 +96,9 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
         self.scrollView.maximumZoomScale = 2.0
         self.scrollView.bounces = false
         
-        var pageControlSize:CGSize = CGSizeMake(120, 40)
+        let pageControlSize:CGSize = CGSizeMake(120, 40)
         
-        var framePageControl:CGRect = CGRectMake((self.scrollView.frame.width-pageControlSize.width)/2, self.screenSize.height/2.25, pageControlSize.width, pageControlSize.height)
+        let framePageControl:CGRect = CGRectMake((self.scrollView.frame.width-pageControlSize.width)/2, self.screenSize.height/2.25, pageControlSize.width, pageControlSize.height)
         
         self.pageControl = UIPageControl(frame: framePageControl)
         self.pageControl.hidesForSinglePage = true
@@ -117,8 +112,8 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
         var count:CGFloat = 0
         for i in 0..<5
         {
-            var nameCounter = String(i + 1)
-            var imageName:String = "image" + nameCounter + ".png"
+            let nameCounter = String(i + 1)
+            let imageName:String = "image" + nameCounter + ".png"
             //get the image1.png to image5.png
             let xPosition  = self.screenSize.width * count
             imageArray[i] = UIImageView(frame: CGRectMake(xPosition, -64, self.screenSize.width, self.scrollView!.frame.height))
@@ -141,11 +136,11 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
         self.view.addSubview(self.pageControl)
         self.view.addSubview(self.imageView)
         
-        var schoolLifeButton = UIButton(frame: CGRectMake(0, 0, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
+        let schoolLifeButton = UIButton(frame: CGRectMake(0, 0, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
         schoolLifeButton.addTarget(self, action: Selector("schoolLifeClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.imageView.addSubview(schoolLifeButton)
         
-        var libraryButton = UIButton(frame: CGRectMake(self.imageView.frame.width / 2, 0, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
+        let libraryButton = UIButton(frame: CGRectMake(self.imageView.frame.width / 2, 0, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
         libraryButton.addTarget(self, action: Selector("libraryClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.imageView.addSubview(libraryButton)
 
@@ -165,7 +160,7 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
     
     func schoolLifeClicked()
     {
-        var mydrawerController = self.mm_drawerController
+        let mydrawerController = self.mm_drawerController
         let schoolLifeViewController:SchoolLifeViewController = SchoolLifeViewController(nibName: "SchoolLifeViewController", bundle: nil)
         let navSchoolLifeViewController = CommonNavViewController(rootViewController: schoolLifeViewController)
 
@@ -179,7 +174,7 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
 
     func libraryClicked()
     {
-        var mydrawerController = self.mm_drawerController
+        let mydrawerController = self.mm_drawerController
         let LibraryVC = LibraryViewController(nibName: "LibraryViewController", bundle: nil)
         let navLibraryViewController = CommonNavViewController(rootViewController: LibraryVC)
     

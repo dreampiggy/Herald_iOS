@@ -20,7 +20,7 @@ class LibNavViewController: UIViewController {
         
         self.navigationItem.title = "本馆导航"
         
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
     }
 

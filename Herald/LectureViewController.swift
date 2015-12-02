@@ -17,8 +17,8 @@ class LectureViewController: UIViewController, UITableViewDataSource, UITableVie
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询人文讲座")
             self.API.delegate = self
@@ -58,11 +58,11 @@ class LectureViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier:String = "LectureTableViewCell"
-        var row = indexPath.row
+        let row = indexPath.row
         
         var cell: LectureTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? LectureTableViewCell
         if cell == nil{
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("LectureTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("LectureTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? LectureTableViewCell
         }
         

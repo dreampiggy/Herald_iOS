@@ -17,7 +17,7 @@ class Config:NSObject
     {
         let settings : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         //decode
-        var temp = settings.objectForKey("UUID") as? String
+        let temp = settings.objectForKey("UUID") as? String
         return AESCrypt.decrypt(temp, password: "UUID")
     }
     
@@ -36,7 +36,7 @@ class Config:NSObject
     class var cardPassword:String?
     {
         let settings : NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var temp = settings.objectForKey("cardPassword") as? String
+        let temp = settings.objectForKey("cardPassword") as? String
         return AESCrypt.decrypt(temp, password: "cardPassword")
     }
     
@@ -102,7 +102,7 @@ class Config:NSObject
     {
         let settings : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         settings.removeObjectForKey("cardPassword")
-        var encodePassword = AESCrypt.encrypt(cardPassword as String, password: "cardPassword")        
+        let encodePassword = AESCrypt.encrypt(cardPassword as String, password: "cardPassword")        
         settings.setObject(encodePassword, forKey: "cardPassword")
         settings.synchronize()
     }

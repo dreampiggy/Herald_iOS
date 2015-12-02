@@ -16,8 +16,8 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询校车信息")
             self.API.delegate = self
@@ -33,10 +33,10 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
         //这是我暂时想到的相对简单的写法……
-        var weekendIn = results["content"]["weekend"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
-        var weekendOut = results["content"]["weekend"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
-        var weekdayIn = results["content"]["weekday"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
-        var weekdayOut = results["content"]["weekday"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekendIn = results["content"]["weekend"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekendOut = results["content"]["weekend"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekdayIn = results["content"]["weekday"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekdayOut = results["content"]["weekday"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
         
         weekendInfo += weekendIn
         weekendInfo += weekendOut
@@ -87,12 +87,12 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier:String = "SchoolBusTableViewCell"
-        var row = indexPath.row
-        var section = indexPath.section
+        let row = indexPath.row
+        let section = indexPath.section
         
         var cell: SchoolBusTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SchoolBusTableViewCell
         if cell == nil{
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SchoolBusTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SchoolBusTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? SchoolBusTableViewCell
         }
         if(weekendInfo.count == 0 || weekdayInfo.count == 0){

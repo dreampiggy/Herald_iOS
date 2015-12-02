@@ -24,7 +24,10 @@ class HeraldAPI{
     //manager是AFNetworking的一个管理者，需要首先初始化一个
     var manager:AFHTTPRequestOperationManager
     
-    //apiList是从APIList.plist属性表中获取的字典
+    //plist是APIList.plist的根字典
+    var plist:NSDictionary?
+    
+    //apiList是从APIList.plist中API List的字典，存储API的URL，Query等记录
     var apiList:NSDictionary?
     
     init(){
@@ -32,8 +35,14 @@ class HeraldAPI{
         let bundle = NSBundle.mainBundle()
         let plistPath = bundle.pathForResource("APIList", ofType: "plist") ?? ""
         if let plistContent = NSDictionary(contentsOfFile: plistPath){
+            plist = plistContent
             apiList = plistContent["API List"] as? NSDictionary
         }
+    }
+    
+    //单独获取属性表的根路径下的Key对应的值
+    func getValue(key:String) -> String? {
+        return plist?[key] as? String ?? nil
     }
     
     func sendAPI(APIName:String, APIParameter:String...){
@@ -77,16 +86,15 @@ class HeraldAPI{
     //POST请求，接收MIME类型为text/html，只处理非JSON返回格式的数据
     func postRequest(url:String,parameter:NSDictionary,tag:String)
     {
-        println("\nRequest:\n\(parameter)\n***********\n")
-        let nsurl = NSURL(string: url)
+        print("\nRequest:\n\(parameter)\n***********\n")
         
         manager.responseSerializer = AFHTTPResponseSerializer()//使用自定义的Serializer，手动对返回数据进行判断
         manager.POST(url, parameters: parameter,
             success: {(operation :AFHTTPRequestOperation!,responseObject :AnyObject!) ->Void in
                 if let receiveData = responseObject as? NSData{
                     //按照NSDictionary -> NSArray -> NSString的顺序进行过滤
-                    if let receiveDic = NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary{
-                        println("\nResponse(Dictionary):\n\(receiveDic)\n***********\n")
+                    if let receiveDic = (try? NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary{
+                        print("\nResponse(Dictionary):\n\(receiveDic)\n***********\n")
                         if let statusCode = receiveDic["code"] as? Int {//部分API状态码虽然为200，但是返回content为空，code为500
                             if statusCode == 200{
                                 self.didReceiveResults(receiveDic, tag: tag)
@@ -99,12 +107,12 @@ class HeraldAPI{
                             self.didReceiveResults(receiveDic, tag: tag)
                         }
                     }
-                    else if let receiveArray = NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSArray{
-                        println("\nResponse(Array):\n\(receiveArray)\n***********\n")
+                    else if let receiveArray = (try? NSJSONSerialization.JSONObjectWithData(receiveData, options: NSJSONReadingOptions.MutableContainers)) as? NSArray{
+                        print("\nResponse(Array):\n\(receiveArray)\n***********\n")
                         self.didReceiveResults(receiveArray, tag: tag)
                     }
                     else if let receiveString = NSString(data: receiveData,encoding: NSUTF8StringEncoding){
-                        println("\nResponse(String):\n\(receiveString)\n***********\n")
+                        print("\nResponse(String):\n\(receiveString)\n***********\n")
                         self.didReceiveResults(receiveString, tag: tag)
                     }//默认使用UTF-8编码
                     else{
@@ -112,13 +120,13 @@ class HeraldAPI{
                     }
                 }
             },
-            failure: {(operation :AFHTTPRequestOperation!, error :NSError!) ->Void in
+            failure: {(operation :AFHTTPRequestOperation?, error :NSError) ->Void in
                 var codeStatue = 500//默认错误HTTP状态码为500
-                if(operation.response != nil){
-                    var codeStatue:Int = operation.response.statusCode
+                if let code = operation?.response?.statusCode {
+                    codeStatue = code
                 }
                 self.didReceiveError(codeStatue, tag: tag)
-                println(error)
+                print(error)
             }
         )
     }

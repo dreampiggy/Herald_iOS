@@ -29,7 +29,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "课表查询"
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
         let refreshButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshCurriculum"))
         self.navigationItem.rightBarButtonItem = refreshButton
@@ -40,7 +40,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
         self.daySegmentControl.addTarget(self, action: Selector("daySegmentedControlPressed"), forControlEvents: UIControlEvents.ValueChanged)
         self.daySegmentControl.selectedSegmentIndex = 0
         
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         self.API.delegate = self
         if let cacheResult = Config.curriculum{
             totalCurriculum = cacheResult
@@ -78,7 +78,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
 
     func daySegmentedControlPressed()
     {
-        var selectedIndex = self.daySegmentControl.selectedSegmentIndex
+        let selectedIndex = self.daySegmentControl.selectedSegmentIndex
         switch selectedIndex
         {
         case 0:
@@ -151,12 +151,12 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
         
         if nil == cell
         {
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("CurriculumTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("CurriculumTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? CurriculumTableViewCell
         }
         
         
-        var row = indexPath.row
+        let row = indexPath.row
         
         if (self.currentCurriculum != nil && self.currentCurriculum?.count != 0){//有课表信息
             cell?.nameofLesson.text = self.currentCurriculum![row][0] as? String
@@ -173,7 +173,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
                 }
             }
             
-            var weekRange:NSRange = NSMakeRange(1, last-1)
+            let weekRange:NSRange = NSMakeRange(1, last-1)
             week = week.substringWithRange(weekRange)
             
             cell?.weekofLesson.text = week as String

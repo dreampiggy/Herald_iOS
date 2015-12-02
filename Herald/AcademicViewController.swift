@@ -30,7 +30,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         super.viewDidLoad()
         
         self.navigationItem.title = "教务信息"
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
         self.view.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         self.tableView.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
@@ -44,7 +44,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         
         //设置表格刷新
         self.tableView.addFooterWithTarget(self, action: Selector("footerRefreshing"))
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询教务信息")
             self.API.delegate = self
@@ -75,7 +75,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
     
     func upSegmentedControlPressed()
     {
-        var selectedIndex = self.upSegmentControl.selectedSegmentIndex
+        let selectedIndex = self.upSegmentControl.selectedSegmentIndex
         if contentDictionary == nil{
             Tool.showErrorHUD("没有数据哦")
             return
@@ -108,7 +108,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
     
     func downSegmentedControlPressed()
     {
-        var selectedIndex = self.downSegmentControl.selectedSegmentIndex
+        let selectedIndex = self.downSegmentControl.selectedSegmentIndex
         switch selectedIndex
             {
         case 0:
@@ -184,12 +184,12 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         
         if nil == cell
         {
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("AcademicTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("AcademicTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? AcademicTableViewCell
 
         }
         
-        var row = indexPath.row
+        let row = indexPath.row
         
         
         cell?.headLineLabel.text = self.currentList[row]["title"] as? String
@@ -206,10 +206,10 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
-        var row = indexPath.row
+        let row = indexPath.row
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        var academicDetailVC = AcademicDetailViewController()
+        let academicDetailVC = AcademicDetailViewController()
         academicDetailVC.initWebView(self.currentList[row]["href"] as! NSString as String)
         self.navigationController!.pushViewController(academicDetailVC, animated: true)
     }

@@ -19,7 +19,7 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             self.API.delegate = self
@@ -57,19 +57,18 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 120
     }
-
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return detailArray?.count ?? 0
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier:String = "SeuCardTableViewCell"
-        var row = indexPath.row
+        let row = indexPath.row
         
         var cell: SeuCardTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SeuCardTableViewCell
         if cell == nil{
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SeuCardTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SeuCardTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? SeuCardTableViewCell
         }
         

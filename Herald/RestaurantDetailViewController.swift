@@ -31,11 +31,11 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
         // Do any additional setup after loading the view.
         self.navigationItem.title = self.dataList.objectForKey("name") as! NSString as String
         
-        var barButton = UIBarButtonItem(title: "收起展开", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("collapse"))
+        let barButton = UIBarButtonItem(title: "收起展开", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("collapse"))
         self.navigationItem.rightBarButtonItem = barButton
         
         
-        var imageName:NSString = self.dataList.objectForKey("bigImage") as! NSString
+        let imageName:NSString = self.dataList.objectForKey("bigImage") as! NSString
         self.imageView.image = UIImage(named: imageName as String)
         
         self.addressLabel.text = self.dataList.objectForKey("addr") as! NSString as String
@@ -68,7 +68,7 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
             UIApplication.sharedApplication().openURL(NSURL(string: url)!)
             
         default:
-            println("click emojiLabel error")
+            print("click emojiLabel error")
         }
     }
 
@@ -83,13 +83,13 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
+        let menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
         return menuKeys.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cellIdentifier = "SKSTableViewCell"
+        let cellIdentifier = "SKSTableViewCell"
         var cell:SKSTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SKSTableViewCell
         
         if cell == nil
@@ -97,10 +97,10 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
             cell = SKSTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        var row = indexPath.row
+        let row = indexPath.row
         cell!.expandable = true
         
-        var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
+        let menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
         
         cell!.textLabel?.text = menuKeys[row] as! NSString as String
         
@@ -109,11 +109,11 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
     
     func tableView(tableView: SKSTableView!, numberOfSubRowsAtIndexPath indexPath: NSIndexPath!) -> Int {
         
-        var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
-        var key:NSString = menuKeys[indexPath.row] as! NSString
-        var menu:NSDictionary = self.dataList.objectForKey("menu") as! NSDictionary
-        var Dic:NSDictionary = menu.objectForKey(key) as! NSDictionary
-        var foodNameArray:NSArray = Dic.objectForKey("foodname") as! NSArray
+        let menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
+        let key:NSString = menuKeys[indexPath.row] as! NSString
+        let menu:NSDictionary = self.dataList.objectForKey("menu") as! NSDictionary
+        let Dic:NSDictionary = menu.objectForKey(key) as! NSDictionary
+        let foodNameArray:NSArray = Dic.objectForKey("foodname") as! NSArray
         return foodNameArray.count
         
     }
@@ -124,19 +124,19 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
     
     func tableView(tableView: SKSTableView!, cellForSubRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
-        var cellIdentifier = "SKSTableViewSubCell"
-        var cell:UITableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        let cellIdentifier = "SKSTableViewSubCell"
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         if cell == nil
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier)
         }
         
-        var menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
-        var key:NSString = menuKeys[indexPath.row] as! NSString
-        var menu:NSDictionary = self.dataList.objectForKey("menu") as! NSDictionary
-        var Dic:NSDictionary = menu.objectForKey(key) as! NSDictionary
-        var foodNameArray:NSArray = Dic.objectForKey("foodname") as! NSArray
-        var foodPriceArray:NSArray = Dic.objectForKey("foodprice") as! NSArray
+        let menuKeys:NSArray = self.dataList["menu"]!.allKeys as NSArray
+        let key:NSString = menuKeys[indexPath.row] as! NSString
+        let menu:NSDictionary = self.dataList.objectForKey("menu") as! NSDictionary
+        let Dic:NSDictionary = menu.objectForKey(key) as! NSDictionary
+        let foodNameArray:NSArray = Dic.objectForKey("foodname") as! NSArray
+        let foodPriceArray:NSArray = Dic.objectForKey("foodprice") as! NSArray
         
         cell!.textLabel?.text = foodNameArray[indexPath.subRow - 1] as! NSString as String
         cell!.detailTextLabel?.text = foodPriceArray[indexPath.subRow - 1] as! NSString as String

@@ -66,7 +66,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
         case 1:
             return 1
         default:
-            println("error")
+            print("error")
             return 0
             
         }
@@ -97,7 +97,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                 cell.textLabel?.text = "联系我们"
                 cell.imageView?.image = UIImage(named: "ContactMe.png")
             default:
-                println("cell for row error")
+                print("cell for row error")
             }
             
         case 1:
@@ -108,10 +108,10 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                 cell.imageView?.image = UIImage(named: "RateUs.png")
 
             default:
-                println("cell for row error")
+                print("cell for row error")
             }
         default:
-            println("cell for row error")
+            print("cell for row error")
             
         }
         
@@ -129,13 +129,15 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                 {
             case 0:
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
-                var url:NSURL = NSURL(string: "http://herald.seu.edu.cn/index")!
-                UIApplication.sharedApplication().openURL(url)
+                let api = HeraldAPI()
+                if let urlString = api.getValue("IndexURL"),url = NSURL(string: urlString) {
+                    UIApplication.sharedApplication().openURL(url)
+                }
             case 1:
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 self.sendEmail()
             default:
-                println("cell for row error")
+                print("cell for row error")
             }
             
         case 1:
@@ -145,10 +147,10 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                 self.rateUS()
                 
             default:
-                println("cell for row error")
+                print("cell for row error")
             }
         default:
-            println("cell for row error")
+            print("cell for row error")
             
         }
 
@@ -159,7 +161,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
     {
         if mailController != nil{
             self.mailController!.mailComposeDelegate = self
-            self.mailController!.setToRecipients([NSString(string: "364987469@qq.com")])
+            self.mailController!.setToRecipients([NSString(string: "364987469@qq.com") as String])
             self.mailController!.setSubject("给先声的建议")
             self.presentViewController(self.mailController!, animated: true, completion: nil)
         }
@@ -168,7 +170,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
         }
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -184,18 +186,18 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
     
     func rateUS()
     {
-        var storeProductVC = SKStoreProductViewController()
+        let storeProductVC = SKStoreProductViewController()
         storeProductVC.delegate = self
         
         Tool.showProgressHUD("正在打开Appstore")
-        storeProductVC.loadProductWithParameters([SKStoreProductParameterITunesItemIdentifier:"871801426"], completionBlock: { (result:Bool, error :NSError!) -> Void in
+        storeProductVC.loadProductWithParameters([SKStoreProductParameterITunesItemIdentifier:"871801426"], completionBlock: { (result:Bool, error :NSError?) -> Void in
             
             Tool.dismissHUD()
             self.presentViewController(storeProductVC, animated: true, completion: nil)
         })
     }
     
-    func productViewControllerDidFinish(viewController: SKStoreProductViewController!) {
+    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

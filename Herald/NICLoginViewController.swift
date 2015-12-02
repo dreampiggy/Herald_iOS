@@ -41,7 +41,7 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
             self.navigationItem.rightBarButtonItem = navLogoutButton
         }
         
-        var color = UIColor(red: 28/255, green: 150/255, blue: 111/255, alpha: 1)
+        let color = UIColor(red: 28/255, green: 150/255, blue: 111/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         self.loginButton.addTarget(self, action: Selector("login"), forControlEvents: UIControlEvents.TouchUpInside)
@@ -80,7 +80,7 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
         {
             Tool.showErrorHUD("请检查网络连接")
         }
-        else if self.usernameField!.text.isEmpty || self.passwordField!.text.isEmpty
+        else if self.usernameField!.text == nil || self.passwordField!.text == nil
         {
             Tool.showErrorHUD("请输入一卡通和统一认证密码")
         }
@@ -117,7 +117,7 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
     }
     
     // 触摸其他地方的时候  隐藏键盘
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         
         self.usernameField.resignFirstResponder()
@@ -125,11 +125,9 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
     }
     
     func getResult(APIName: String, results: JSON) {
-        if let returnUUID = results.string{
+        if let returnUUID = results.string, returnCardID = usernameField.text, returnPassword = passwordField.text{
             Tool.showSuccessHUD("登录成功!\n新用户请点击\"个人资料\"")
-            let returnCardID = usernameField.text
-            let returnPassword = passwordField.text
-            println(returnUUID)
+            print(returnUUID)
             Config.saveUUID(returnUUID)
             Config.saveCardID(returnCardID)
             Config.saveCardPassword(returnPassword)

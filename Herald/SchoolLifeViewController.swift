@@ -16,7 +16,7 @@ class SchoolLifeViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.navigationItem.title = "校园生活"
-        var color = UIColor(red: 73/255, green: 185/255, blue: 161/255, alpha: 1)
+        let color = UIColor(red: 73/255, green: 185/255, blue: 161/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         self.setupLeftMenuButton()
@@ -62,14 +62,14 @@ class SchoolLifeViewController: UIViewController {
     
     @IBAction func nicSeuButton(sender: AnyObject) {
         let nicSeuSB = UIStoryboard(name: "NicSeuStoryboard", bundle: nil)
-        let nicSeuVC = nicSeuSB.instantiateViewControllerWithIdentifier("NicSeuTabViewController") as? UIViewController
-        self.navigationController!.pushViewController(nicSeuVC!, animated: true)
+        let nicSeuVC = nicSeuSB.instantiateViewControllerWithIdentifier("NicSeuTabViewController") as UIViewController
+        self.navigationController!.pushViewController(nicSeuVC, animated: true)
     }
     
     @IBAction func labLectureButton(sender: AnyObject) {
         let labLectureSB = UIStoryboard(name: "LabLectureStoryboard", bundle: nil)
-        let labLectureVC = labLectureSB.instantiateViewControllerWithIdentifier("LabLectureTabViewController") as? UIViewController
-        self.navigationController!.pushViewController(labLectureVC!, animated: true)
+        let labLectureVC = labLectureSB.instantiateViewControllerWithIdentifier("LabLectureTabViewController") as UIViewController
+        self.navigationController!.pushViewController(labLectureVC, animated: true)
     }
     
     @IBAction func academicNewsButton(sender: AnyObject)

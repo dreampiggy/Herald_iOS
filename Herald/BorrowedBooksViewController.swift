@@ -22,8 +22,8 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询图书借阅情况")
             self.API.delegate = self
@@ -99,11 +99,11 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
         
         if nil == cell
         {
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("BorrowedBooksTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("BorrowedBooksTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? BorrowedBooksTableViewCell
         }
         
-        var row = indexPath.row
+        let row = indexPath.row
         
         cell?.bookName.text = self.dataList[row]["title"] as! NSString as String
         cell?.borrowDate.text = self.dataList[row]["render_date"] as! NSString as String
@@ -117,7 +117,7 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
         cell?.renewButton.addTarget(self, action: Selector("renewButtonClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 0.3)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 0.3)
         cell?.backgroundColor = color
         
         return cell!
@@ -126,8 +126,8 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
     
     func renewButtonClicked(sender: UIButton)
     {
-        var row = sender.tag
-        var barcode:String? = self.dataList[row]["barcode"] as? String
+        let row = sender.tag
+        let barcode:String? = self.dataList[row]["barcode"] as? String
         Tool.showProgressHUD("正在续借图书")
         API.sendAPI("libraryRenew", APIParameter: barcode ?? "")
     }

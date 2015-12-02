@@ -64,20 +64,21 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         self.textField.resignFirstResponder()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        var localdic = ["who":"myself","message":self.textField.text]
+        let localdic = ["who":"myself","message":self.textField.text ?? ""]
+        
         self.totalChatList.addObject(localdic)
         self.tableView.reloadData()
         
         if self.totalChatList.count > 0
         {
-            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
+            let index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
             self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
         }
         
@@ -103,17 +104,17 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        var row = indexPath.row
-        var str:NSString = self.totalChatList[row].objectForKey("message") as! NSString
+        let row = indexPath.row
+        let str:NSString = self.totalChatList[row].objectForKey("message") as! NSString
         
-        var calLabel = UILabel()
+        let calLabel = UILabel()
         calLabel.text = str as String
         calLabel.numberOfLines = 0
         calLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         calLabel.font = UIFont(name: "System", size: 10)
         
-        var maxSize = CGSizeMake(200, 9999)
-        var size:CGSize = calLabel.sizeThatFits(maxSize)
+        let maxSize = CGSizeMake(200, 9999)
+        let size:CGSize = calLabel.sizeThatFits(maxSize)
         
         return size.height + 40
         
@@ -122,9 +123,9 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cellIdentifier = "reuseIdentifier"
-        var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
-        var row = indexPath.row
+        let cellIdentifier = "reuseIdentifier"
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+        let row = indexPath.row
         
         //清除上一次视图
         
@@ -137,39 +138,39 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
         }
         
         //头像
-        var imageViewHead = UIImageView()
+        let imageViewHead = UIImageView()
         imageViewHead.tag = 1001
         
         //气泡
-        var imageViewBubble = UIImageView()
+        let imageViewBubble = UIImageView()
         imageViewBubble.tag = 1001
         
         //文字
         
-        var label = UILabel()
+        let label = UILabel()
         label.tag = 1003
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
         label.text = self.totalChatList[row]["message"] as? String
         
         //计算文字内容宽度高度
-        var text:NSString = label.text!
+        let text:NSString = label.text ?? ""
     
         
-        var calLabel = UILabel()
+        let calLabel = UILabel()
         calLabel.text = text as String
         calLabel.numberOfLines = 0
         calLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         calLabel.font = UIFont(name: "System", size: 10)
         
-        var maxSize = CGSizeMake(200, 9999)
-        var size:CGSize = calLabel.sizeThatFits(maxSize)
+        let maxSize = CGSizeMake(200, 9999)
+        let size:CGSize = calLabel.sizeThatFits(maxSize)
         
         //设置头像文字气泡,需要判断是自己还是Simsimi
         
         if self.totalChatList[row].objectForKey("who")!.isEqualToString("myself")
         {
-            var screenSize:CGSize = UIScreen.mainScreen().bounds.size
+            let screenSize:CGSize = UIScreen.mainScreen().bounds.size
             
             imageViewHead.image = UIImage(named: "Side_SchoolBadge.png")
             imageViewHead.frame = CGRectMake(screenSize.width-45, 0, 40, 40)
@@ -187,7 +188,7 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
         }
         
         
-        var insets:UIEdgeInsets = UIEdgeInsetsMake(50, 50, 50, 50)
+        let insets:UIEdgeInsets = UIEdgeInsetsMake(50, 50, 50, 50)
         // 指定为拉伸模式，伸缩后重新赋值
         imageViewBubble.image = imageViewBubble.image?.resizableImageWithCapInsets(insets, resizingMode: UIImageResizingMode.Stretch)
         
@@ -220,13 +221,13 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
             res = results.stringValue.stringByReplacingOccurrencesOfString("<br>", withString: "\n")
         }
         
-        var localdic = ["who":"Simsimi","message":res]
+        let localdic = ["who":"Simsimi","message":res]
         self.totalChatList.addObject(localdic)
         self.tableView.reloadData()
         
         if self.totalChatList.count > 0
         {
-            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
+            let index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
             self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
     }
@@ -234,13 +235,13 @@ class SimSimiViewController: UIViewController,UITextFieldDelegate,UITableViewDat
     func getError(APIName: String, statusCode: Int) {
         var res = ""
         res = "服务器提了一个问题，小黄鸡正在紧张处理中……"
-        var localdic = ["who":"Simsimi","message":res]
+        let localdic = ["who":"Simsimi","message":res]
         self.totalChatList.addObject(localdic)
         self.tableView.reloadData()
         
         if self.totalChatList.count > 0
         {
-            var index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
+            let index = NSIndexPath(forRow: self.totalChatList.count - 1, inSection: 0)
             self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
         

@@ -38,8 +38,8 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "空闲教室查询"
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        Tool.initNavigationAPI(self,navBarColor: color)
         
         let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: Selector("searchRoom"))
         self.navigationItem.rightBarButtonItem = searchButton
@@ -62,7 +62,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         {
             Tool.showErrorHUD("请检查网络连接")
         }
-        else if self.selectedFrom.toInt() >= self.selectedTo.toInt()
+        else if Int(self.selectedFrom) >= Int(self.selectedTo)
         {
             Tool.showErrorHUD("开始节数必须大于结束节数")
         }
@@ -128,7 +128,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         }
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView) -> UIView
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
     {
         var myView:UILabel?
         switch component
@@ -230,14 +230,14 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         
         if nil == cell
         {
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("EmptyRoomTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("EmptyRoomTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? EmptyRoomTableViewCell
         }
     
         cell!.selectionStyle = UITableViewCellSelectionStyle.None
         cell?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         
-        var row = indexPath.row
+        let row = indexPath.row
         if 0 == row
         {
             cell!.leftRoom.text = self.emptyRooms[0] as? String

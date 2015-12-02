@@ -23,7 +23,7 @@ class NicViewController: UIViewController, APIGetter {
     @IBOutlet weak var networkSegmentedControl: UISegmentedControl!
     
     @IBAction func networkSegmentedSelected(sender: UISegmentedControl) {
-        var selectedNetworkType = sender.selectedSegmentIndex
+        let selectedNetworkType = sender.selectedSegmentIndex
         drawNetworkInfo(selectedNetworkType)
     }
     
@@ -31,9 +31,9 @@ class NicViewController: UIViewController, APIGetter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询校园网信息")
             self.API.delegate = self
@@ -78,7 +78,7 @@ class NicViewController: UIViewController, APIGetter {
     
     func drawNetworkInfo(networkType:Int){
         if !networkArray.isEmpty{
-            var networkInfo = "\n状态：\n" + networkArray[networkType]!.state! + "\n\n已使用：\n" + networkArray[networkType]!.used!
+            let networkInfo = "\n状态：\n" + networkArray[networkType]!.state! + "\n\n已使用：\n" + networkArray[networkType]!.used!
             networkInfoText.text = networkInfo
         }
         else{

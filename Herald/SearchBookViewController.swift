@@ -20,7 +20,7 @@ class SearchBookViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.title = "书籍查询"
         
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
         self.view.backgroundColor = color
         
         
@@ -32,7 +32,7 @@ class SearchBookViewController: UIViewController {
         self.textField.returnKeyType = UIReturnKeyType.Search
         
         
-        var searchRippleButton = BTRippleButtton(image: UIImage(named: "SearchBook.jpeg"), andFrame: CGRectMake((self.screenSize.width - 80)/2, self.screenSize.height/3.3, 80, 80), andTarget: Selector("search"), andID: self)
+        let searchRippleButton = BTRippleButtton(image: UIImage(named: "SearchBook.jpeg"), andFrame: CGRectMake((self.screenSize.width - 80)/2, self.screenSize.height/3.3, 80, 80), andTarget: Selector("search"), andID: self)
         searchRippleButton.setRippeEffectEnabled(true)
         searchRippleButton.setRippleEffectWithColor(UIColor(red: 240/255, green:159/255, blue:10/255, alpha:1))
         
@@ -47,7 +47,7 @@ class SearchBookViewController: UIViewController {
 
     func search()
     {
-        var text = self.textField.text
+        let text = self.textField.text
         
         let DetailVC = SearchBookDetailViewController(nibName: "SearchBookDetailViewController", bundle: nil)
         DetailVC.searchText = text

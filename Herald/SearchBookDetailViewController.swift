@@ -29,7 +29,7 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         
         self.navigationItem.title = "查询结果"
         
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
@@ -98,11 +98,11 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         
         if nil == cell
         {
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SearchBookDetailTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SearchBookDetailTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? SearchBookDetailTableViewCell
         }
         
-        var row = indexPath.row
+        let row = indexPath.row
 
         cell?.bookName.text = self.dataList[row]["name"] as! NSString as String    //书名
         cell?.publisher.text = self.dataList[row]["publish"] as! NSString as String    //发行商
@@ -120,7 +120,7 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         cell?.author.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell?.author.numberOfLines = 0
         
-        var color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 0.3)
+        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 0.3)
         cell?.backgroundColor = color
         
         return cell!

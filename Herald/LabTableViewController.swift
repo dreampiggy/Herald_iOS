@@ -19,8 +19,8 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        var initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             Tool.showProgressHUD("正在查询物理实验信息")
             self.API.delegate = self
@@ -85,16 +85,16 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cellIdentifier:String = "LabTableViewCell"
-        var row = indexPath.row
-        var section = indexPath.section
+        let row = indexPath.row
+        let section = indexPath.section
         
         var cell: LabTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? LabTableViewCell
         if cell == nil{
-            var nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("LabTableViewCell", owner: self, options: nil)
+            let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("LabTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? LabTableViewCell
         }
         
-        var phtTypeName:String = sectionArray[section] as! String
+        let phtTypeName:String = sectionArray[section] as! String
         if let labDetailDic:[NSDictionary] = labDictionary![phtTypeName] as? [NSDictionary]{
             cell?.nameLabel.text = labDetailDic[row]["name"] as? String ?? ""
             cell?.gradeLabel.text = labDetailDic[row]["Grade"] as? String ?? ""

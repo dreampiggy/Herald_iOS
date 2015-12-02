@@ -21,13 +21,13 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
         // Do any additional setup after loading the view.
         self.navigationItem.title = "外卖"
         
-        var color = UIColor(red: 240/255, green: 100/255, blue: 25/255, alpha: 1)
+        let color = UIColor(red: 240/255, green: 100/255, blue: 25/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         self.setupLeftMenuButton()
         
         
-        var plistPath = NSBundle.mainBundle().pathForResource("TakeAway", ofType: "plist")
+        let plistPath = NSBundle.mainBundle().pathForResource("TakeAway", ofType: "plist")
         self.dataList = NSArray(contentsOfFile: plistPath!)!
     }
 
@@ -72,7 +72,7 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
         
         let cellIdentifier:String = "reuseIdentifier"
         
-        var cell:UITableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
 
         // Configure the cell...
         
@@ -80,7 +80,7 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
-        var row = indexPath.row
+        let row = indexPath.row
         
         
         
@@ -94,7 +94,7 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
     
         cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        var imageName:NSString = self.dataList[row].objectForKey("image") as! NSString
+        let imageName:NSString = self.dataList[row].objectForKey("image") as! NSString
         cell!.imageView?.image = UIImage(named: imageName as String)
         
         
@@ -103,7 +103,7 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var passDataList:NSDictionary = self.dataList[indexPath.row] as! NSDictionary
+        let passDataList:NSDictionary = self.dataList[indexPath.row] as! NSDictionary
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let restaurantDetailVC = RestaurantDetailViewController(nibName: "RestaurantDetailViewController", bundle: nil)
         restaurantDetailVC.dataList = passDataList
