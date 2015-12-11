@@ -103,7 +103,6 @@
                             </state>
                             <connections>
                                 <action selector="academicNewsButton:" destination="-1" eventType="touchUpInside" id="fFz-fl-5bw"/>
-                                <action selector="nicButton:" destination="-1" eventType="touchUpInside" id="v8U-qd-xzB"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgE-a5-fno">

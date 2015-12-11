@@ -63,6 +63,13 @@ class LabTableViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 255/255, green: 194/255, blue: 133/255, alpha: 1)
+        let header:UITableViewHeaderFooterView? = view as? UITableViewHeaderFooterView
+        header?.textLabel?.textColor = UIColor.whiteColor()
+        
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 180
     }

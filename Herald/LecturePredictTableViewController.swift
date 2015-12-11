@@ -45,14 +45,12 @@ class LecturePredictTableViewController: UIViewController, UITableViewDataSource
     
     func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
-        tableView.hidden = false
         detailArray = results["content"].arrayObject as? [NSDictionary]
         tableView.reloadDataAnimateWithWave(WaveAnimation.RightToLeftWaveAnimation)
     }
     
     func getError(APIName: String, statusCode: Int) {
         Tool.showErrorHUD("获取数据失败")
-        tableView.hidden = true
         noLectureLabel.hidden = false
     }
     
@@ -86,6 +84,7 @@ class LecturePredictTableViewController: UIViewController, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
         let lectureDetailVC = LecturePredictDetailViewController()

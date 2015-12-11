@@ -20,6 +20,10 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
+        let background = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
+        self.view.backgroundColor = background
+        self.tableView.backgroundColor = background
+        
         initResult = Tool.initNavigationAPI(self,navBarColor: color)
         if initResult{
             self.API.delegate = self
@@ -40,6 +44,7 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func getResult(APIName: String, results: JSON) {
+        self.tableView.hidden = false
         if let resultsData = results["content"].dictionaryObject{
             Tool.showSuccessHUD("获取一卡通信息成功")
             detailArray = resultsData["detial"] as? [NSDictionary]
@@ -67,10 +72,12 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
         let row = indexPath.row
         
         var cell: SeuCardTableViewCell? = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SeuCardTableViewCell
-        if cell == nil{
+        if cell == nil {
             let nibArray:NSArray = NSBundle.mainBundle().loadNibNamed("SeuCardTableViewCell", owner: self, options: nil)
             cell = nibArray.objectAtIndex(0) as? SeuCardTableViewCell
         }
+
+        cell?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         
         if let detailInfoArray = detailArray{
             cell?.cardDateLabel.text = detailInfoArray[row].valueForKey("date") as? String ?? ""

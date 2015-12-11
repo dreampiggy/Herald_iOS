@@ -55,9 +55,9 @@ class UserInfoViewController: XHLoginViewController4,APIGetter {
         self.libraryUserField.resignFirstResponder()
         
         
-        Config.shareInstance().isNetworkRunning = CheckNetwork.doesExistenceNetwork()
+        Config.sharedInstance.isNetworkRunning = CheckNetwork.doesExistenceNetwork()
         
-        if !Config.shareInstance().isNetworkRunning
+        if !Config.sharedInstance.isNetworkRunning
         {
             Tool.showErrorHUD("请检查网络连接")
         }

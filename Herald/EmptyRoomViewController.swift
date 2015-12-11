@@ -57,8 +57,8 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     func searchRoom()
     {
         
-        Config.shareInstance().isNetworkRunning = CheckNetwork.doesExistenceNetwork()
-        if !Config.shareInstance().isNetworkRunning
+        Config.sharedInstance.isNetworkRunning = CheckNetwork.doesExistenceNetwork()
+        if !Config.sharedInstance.isNetworkRunning
         {
             Tool.showErrorHUD("请检查网络连接")
         }
@@ -234,7 +234,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
             cell = nibArray.objectAtIndex(0) as? EmptyRoomTableViewCell
         }
     
-        cell!.selectionStyle = UITableViewCellSelectionStyle.None
+
         cell?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         
         let row = indexPath.row

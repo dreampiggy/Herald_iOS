@@ -19,7 +19,7 @@
                         <rect key="frame" x="20" y="8" width="280" height="62"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXv-BE-MqD">
@@ -29,12 +29,11 @@
                             <constraint firstAttribute="height" constant="30" id="pjo-HK-q2g"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <animations/>
-                <color key="backgroundColor" red="0.70588235294117641" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="bXv-BE-MqD" secondAttribute="bottom" id="Ach-KE-cX4"/>
                     <constraint firstItem="bXv-BE-MqD" firstAttribute="top" secondItem="wro-ei-wXZ" secondAttribute="bottom" constant="1" id="YSy-B8-a7N"/>

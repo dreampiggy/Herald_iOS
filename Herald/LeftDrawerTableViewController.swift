@@ -162,6 +162,8 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         switch indexPath.row
         {
             

@@ -10,6 +10,7 @@ import Foundation
 
 class Tool:NSObject
 {
+    static let sharedInstance = Tool()
     //网络请求的动画控制
     class func dismissHUD()
     {
@@ -35,12 +36,12 @@ class Tool:NSObject
     class func initNavigationAPI(VC:UIViewController,navBarColor:UIColor) -> Bool{
         VC.navigationController?.navigationBar.barTintColor = navBarColor
         
-        Config.shareInstance().isNetworkRunning = CheckNetwork.doesExistenceNetwork()
+        Config.sharedInstance.isNetworkRunning = CheckNetwork.doesExistenceNetwork()
         
         if Config.UUID == nil || Config.UUID!.isEmpty{
             Tool.showSuccessHUD("请在边栏的个人资料中补全您的信息")
         }
-        else if !Config.shareInstance().isNetworkRunning{
+        else if !Config.sharedInstance.isNetworkRunning{
             Tool.showErrorHUD("貌似你没有联网哦")
         }
         else{

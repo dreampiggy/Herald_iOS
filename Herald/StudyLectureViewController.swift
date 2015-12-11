@@ -47,14 +47,19 @@ class StudyLectureViewController: UIViewController {
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
+    //实验讲座查询
     @IBAction func labLectureButton(sender: AnyObject) {
         let labLectureSB = UIStoryboard(name: "LabLectureStoryboard", bundle: nil)
         let labLectureVC = labLectureSB.instantiateViewControllerWithIdentifier("LabLectureTabViewController") as UIViewController
         self.navigationController!.pushViewController(labLectureVC, animated: true)
     }
     
+    //考试查询
     @IBAction func examButton(sender: AnyObject) {
+        let examVC = ExamViewController(nibName: "ExamViewController", bundle: nil)
+        self.navigationController?.pushViewController(examVC, animated: true)
     }
+    
     //GPA成绩查询
     @IBAction func gradesButton(sender: AnyObject)
     {

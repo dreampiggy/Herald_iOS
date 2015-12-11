@@ -1,16 +1,21 @@
 # Herald_iOS
 > 先声iOS客户端
 
+[![travis](https://img.shields.io/travis/HeraldStudio/Herald_iOS.svg)](https://travis-ci.org/HeraldStudio/Herald_iOS)
+[![License](https://img.shields.io/dub/l/vibe-d.svg)](https://opensource.org/licenses/MIT)
+[![Star](https://img.shields.io/github/stars/HeraldStudio/Herald_iOS.svg?style=social&label=Star)](https://github.com/HeraldStudio/Herald_iOS)
+
 ##### 注：
 1. 由于服务器被水表，所以新的API不再用域名，而直接用URL：`115.28.27.150`
-2. 用Swift 2.1语法重写了，在Xcode7.1.1下编译，如果需要历史版本，查看`swift1.2`branch
+2. 推送功能暂时放在另一台服务器上，使用[PyAPNs](https://github.com/djacobs/PyAPNs)
+3. 用Swift 2.1语法重写了，在Xcode7.1.1下编译，如果需要历史版本，查看`swift1.2`branch
 
 # 编译环境
 	OS X 10.11.1
 	Xcode 7.1.1
 
 # 支持平台
-	iOS 7.0 以上
+	iOS 7.1 以上
 	
 # 测试机型
 	iPhone 4S
@@ -31,23 +36,24 @@
 
 1. **Libraries/** 第三方库
 2. **Herald/** 主目录
-	1. **loginControllers/** 信息门户登录和个人资料补全
+	1. **LoginControllers/** 信息门户登录和个人资料补全
 	
-	2. **schoolLifeControllers/** 校园功能：
+	2. **SchoolLifeControllers/** 校园功能：
 		+ **RunningViewController** 跑操查询  
 		+ **EmptyRoomViewController** 空闲教室  
 		+ **CurriculumViewController** 课表查询  
-		+ **GradeViewController** GPA查询  
 		+ **AcademicViewController** 教务查询  
-		+ **SRTPViewController** SRTP查询  
 		+ **NicViewController** 校园网查询  
 		+ **SeuCardViewController** 一卡通查询  
 		+ **SeuCardTableViewController** 一卡通详情查询  
+	3. **StudyLectureControllers** 学习讲座功能：
+		+ **GradeViewController** GPA查询  
+		+ **SRTPViewController** SRTP查询  
+		+ **ExamViewController** 考试查询
 		+ **LabTableViewController** 物理实验查询  
 		+ **LectureViewController** 人文讲座查询  
 		+ **LecturePredictTableViewController** 人文讲座预告
 		+ **LecturePredictDetailViewController** 人文讲座详情
-	  
 	3. **LibraryControllers/** 图书馆功能：  
 		+ **LibNavViewController** 图书馆地图  
 		+ **SearchBookViewController** 图书搜索  
@@ -80,12 +86,27 @@
 
 # 截图
 ![](http://pic4.zhimg.com/61a75b73bb600844c66f7aac893c6e37_b.jpg)
+
 # 目标
-1. UI更新，重新设计 10%
-2. 重构代码，使整体架构可扩展，容错性高，支持热更新 75%
-3. 加入一个简单的首次启动导航页面 0%
+1. UI更新，重新设计 50%
+2. 重构代码，使整体架构可扩展，容错性高，支持热更新 95%
 
 # 更新日志
+
+
+> 3.4.0
+
+1、由于服务器的原因以及各种因素，现在重新修复所有接口  
+2、加入了跑操预测推送的功能，内容同小猴，不过使用推送，无需打开应用即可接收，每天早上6:45发送，大家酌情考虑使用。若无法接收，可以在先声->设置->跑操推送开启  
+3、加入了考试查询功能  
+4、重新布局了一下各个功能的位置  
+5、加入了API更新功能，防止服务器再次更换导致的问题，通过先声->设置->更新API使用  
+6、修复了iOS9上可能存在的无法发送网络请求的问题  
+7、修复了部分潜在Bug和错别字  
+
+> 3.2.0
+
+1、加入了iPhone 6S 和 iPhone 6S Plus的3D Touch支持
 
 > 3.0.0
 

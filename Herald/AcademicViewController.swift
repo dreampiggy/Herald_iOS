@@ -189,6 +189,9 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
 
         }
         
+
+        cell?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
+        
         let row = indexPath.row
         
         
@@ -205,6 +208,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)

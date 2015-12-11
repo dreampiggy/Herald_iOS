@@ -15,15 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeraldLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="P9a-01-PPX">
-                    <rect key="frame" x="0.0" y="64" width="320" height="208"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="208" id="BD2-gy-R3K"/>
-                    </constraints>
-                </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="IHR-35-t6Q">
-                    <rect key="frame" x="0.0" y="280" width="320" height="288"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="IHR-35-t6Q">
+                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                     <animations/>
                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -35,18 +28,12 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="P9a-01-PPX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="19Y-Lq-Fek"/>
-                <constraint firstItem="P9a-01-PPX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="cei-9Y-dTC"/>
-                <constraint firstAttribute="bottom" secondItem="IHR-35-t6Q" secondAttribute="bottom" id="h8e-vn-ju8"/>
-                <constraint firstItem="IHR-35-t6Q" firstAttribute="top" secondItem="P9a-01-PPX" secondAttribute="bottom" constant="8" symbolic="YES" id="iJh-XA-zOZ"/>
-                <constraint firstItem="IHR-35-t6Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iT5-O7-eX1"/>
-                <constraint firstAttribute="trailing" secondItem="P9a-01-PPX" secondAttribute="trailing" id="re7-ch-W8S"/>
-                <constraint firstAttribute="trailing" secondItem="IHR-35-t6Q" secondAttribute="trailing" id="uL9-UA-dmF"/>
+                <constraint firstItem="IHR-35-t6Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="ErY-VX-WxC"/>
+                <constraint firstItem="IHR-35-t6Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JuI-40-jLg"/>
+                <constraint firstAttribute="bottom" secondItem="IHR-35-t6Q" secondAttribute="bottom" id="cOk-TG-gDd"/>
+                <constraint firstAttribute="trailing" secondItem="IHR-35-t6Q" secondAttribute="trailing" id="u4h-hs-yt9"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
-    <resources>
-        <image name="HeraldLogo.png" width="899" height="494"/>
-    </resources>
 </document>

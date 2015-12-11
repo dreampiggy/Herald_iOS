@@ -74,9 +74,9 @@ class NICLoginViewController: XHLoginViewController3 ,APIGetter{
         
         
         
-        Config.shareInstance().isNetworkRunning = CheckNetwork.doesExistenceNetwork()
+        Config.sharedInstance.isNetworkRunning = CheckNetwork.doesExistenceNetwork()
         
-        if !Config.shareInstance().isNetworkRunning
+        if !Config.sharedInstance.isNetworkRunning
         {
             Tool.showErrorHUD("请检查网络连接")
         }

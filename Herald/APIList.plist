@@ -115,6 +115,15 @@
 				<string>uuid</string>
 			</array>
 		</dict>
+		<key>exam</key>
+		<dict>
+			<key>URL</key>
+			<string>http://115.28.27.150/api/exam</string>
+			<key>Param</key>
+			<array>
+				<string>uuid</string>
+			</array>
+		</dict>
 		<key>jwc</key>
 		<dict>
 			<key>URL</key>
@@ -206,6 +215,10 @@
 	<key>UpdateURL</key>
 	<string>http://115.28.27.150/update</string>
 	<key>IndexURL</key>
-	<string>http://115.28.27.150/</string>
+	<string>http://115.28.27.150</string>
+	<key>APNURL</key>
+	<string>http://121.42.203.118</string>
+	<key>Version</key>
+	<string>3.3</string>
 </dict>
 </plist>

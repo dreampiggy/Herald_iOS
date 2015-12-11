@@ -60,13 +60,11 @@ class SchoolLifeViewController: UIViewController {
         self.navigationController!.pushViewController(curriculumVC, animated: true)
     }
     
-    //TODO SEU card
     @IBAction func seuCardButton(sender: AnyObject) {
         let seuCardVC = SeuCardViewController(nibName: "SeuCardViewController", bundle: nil)
         self.navigationController?.pushViewController(seuCardVC, animated: true)
     }
     
-    //TODO NIC
     @IBAction func nicButton(sender: AnyObject) {
         let nicVC = NicViewController(nibName: "NicViewController", bundle: nil)
         self.navigationController?.pushViewController(nicVC, animated: true)

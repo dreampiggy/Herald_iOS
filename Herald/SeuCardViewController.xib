@@ -33,8 +33,8 @@
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="PFs-oA-H7g"/>
                                     <exclude reference="OXn-sY-rFB"/>
+                                    <exclude reference="PFs-oA-H7g"/>
                                 </mask>
                             </variation>
                         </label>

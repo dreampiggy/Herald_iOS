@@ -23,25 +23,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUb-Vm-DPZ">
                     <rect key="frame" x="0.0" y="64" width="320" height="151"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBr-2b-6VT">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qBr-2b-6VT">
                             <rect key="frame" x="17" y="30" width="114" height="113"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="113" id="PXt-Ob-QT8"/>
+                                <constraint firstAttribute="width" constant="114" id="SNU-Lk-lhz"/>
+                            </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="addr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJw-yV-ptO">
-                            <rect key="frame" x="149" y="30" width="165" height="34"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="addr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJw-yV-ptO">
+                            <rect key="frame" x="149" y="30" width="165" height="17"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="lowestPrice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPy-e2-fXa">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lowestPrice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPy-e2-fXa">
                             <rect key="frame" x="149" y="120" width="155" height="31"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMI-Eq-BLn" customClass="MLLinkLabel">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMI-Eq-BLn" customClass="MLLinkLabel">
                             <rect key="frame" x="149" y="57" width="149" height="60"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -53,12 +57,20 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="QMI-Eq-BLn" secondAttribute="trailing" constant="22" id="2Vg-7X-00u"/>
+                        <constraint firstItem="kPy-e2-fXa" firstAttribute="top" secondItem="QMI-Eq-BLn" secondAttribute="bottom" constant="3" id="3Yv-gg-2kp"/>
+                        <constraint firstItem="HJw-yV-ptO" firstAttribute="top" secondItem="SUb-Vm-DPZ" secondAttribute="top" constant="30" id="9DB-dI-vFy"/>
                         <constraint firstAttribute="trailing" secondItem="HJw-yV-ptO" secondAttribute="trailing" constant="6" id="Odk-I6-TVf"/>
+                        <constraint firstItem="QMI-Eq-BLn" firstAttribute="centerY" secondItem="qBr-2b-6VT" secondAttribute="centerY" id="VcV-tW-gai"/>
+                        <constraint firstAttribute="bottom" secondItem="qBr-2b-6VT" secondAttribute="bottom" constant="8" id="Za9-40-ITZ"/>
+                        <constraint firstItem="QMI-Eq-BLn" firstAttribute="top" secondItem="SUb-Vm-DPZ" secondAttribute="top" constant="57" id="d1u-Vx-H4m"/>
+                        <constraint firstItem="qBr-2b-6VT" firstAttribute="top" secondItem="SUb-Vm-DPZ" secondAttribute="top" constant="30" id="etY-jn-4z1"/>
                         <constraint firstItem="QMI-Eq-BLn" firstAttribute="leading" secondItem="qBr-2b-6VT" secondAttribute="trailing" constant="18" id="fha-qv-cwA"/>
                         <constraint firstItem="qBr-2b-6VT" firstAttribute="leading" secondItem="SUb-Vm-DPZ" secondAttribute="leading" constant="17" id="gLV-gU-HKB"/>
+                        <constraint firstAttribute="trailing" secondItem="kPy-e2-fXa" secondAttribute="trailing" constant="16" id="gnO-el-xsp"/>
                         <constraint firstAttribute="height" constant="151" id="k7H-Vb-3b0"/>
                         <constraint firstItem="HJw-yV-ptO" firstAttribute="leading" secondItem="qBr-2b-6VT" secondAttribute="trailing" constant="18" id="nbj-Ec-9Ug"/>
                         <constraint firstItem="kPy-e2-fXa" firstAttribute="leading" secondItem="qBr-2b-6VT" secondAttribute="trailing" constant="18" id="vHd-gc-0sv"/>
+                        <constraint firstAttribute="bottom" secondItem="kPy-e2-fXa" secondAttribute="bottom" id="wX2-HO-zJs"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="uV4-Bm-kzh" customClass="SKSTableView">

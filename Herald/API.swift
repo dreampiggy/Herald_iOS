@@ -14,7 +14,7 @@ protocol APIGetter{
 }
 
 class HeraldAPI{
-    
+    static let sharedInstance = HeraldAPI()
     //先声公开API的appid
     let appid = "9f9ce5c3605178daadc2d85ce9f8e064"
     
@@ -22,7 +22,7 @@ class HeraldAPI{
     var delegate:APIGetter?
     
     //manager是AFNetworking的一个管理者，需要首先初始化一个
-    var manager:AFHTTPRequestOperationManager
+    var manager = AFHTTPRequestOperationManager()
     
     //plist是APIList.plist的根字典
     var plist:NSDictionary?
@@ -31,7 +31,6 @@ class HeraldAPI{
     var apiList:NSDictionary?
     
     init(){
-        manager = AFHTTPRequestOperationManager()
         let bundle = NSBundle.mainBundle()
         let plistPath = bundle.pathForResource("APIList", ofType: "plist") ?? ""
         if let plistContent = NSDictionary(contentsOfFile: plistPath){
