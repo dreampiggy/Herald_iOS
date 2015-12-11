@@ -15,22 +15,20 @@ import UIKit
 class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
         
     @IBOutlet var headView: UIView?
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     var navMainPageViewController : CommonNavViewController?
     var navSchoolLifeViewController: CommonNavViewController?
+    var navStudyLectureViewController: CommonNavViewController?
     var navLibraryViewController: CommonNavViewController?
     var navTakeAwayViewController : CommonNavViewController?
-    var navTreeHoleViewController: CommonNavViewController?
     var navSimSimiViewController : CommonNavViewController?
     var navSettingsViewController: CommonNavViewController?
-    
-    
-    @IBOutlet weak var welcomeLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.alwaysBounceVertical = false
         self.tableView.tableHeaderView = headView
         let color = UIColor(red: 156/255, green: 187/255, blue: 216/255, alpha: 1)
         self.tableView.backgroundColor = color
@@ -88,10 +86,6 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
         self.presentViewController(UserNavVC, animated: true, completion: nil)
     }
     
-    
-    
-    
-    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -103,19 +97,15 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
    
         // Return the number of rows in the section.
-        return 6
+        return 7
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
         
         let cellIdentifier:String = "reuseIdentifier"
    
         var cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
-
-        
-        // Configure the cell...
         
         if cell == nil
         {
@@ -138,30 +128,33 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
             cell!.imageView?.image = UIImage(named: "Side_SchoolLife.png")
             
         case 2:
+            cell!.textLabel?.text = "学习讲座"
+            cell!.textLabel?.textColor = UIColor.whiteColor()
+            cell!.imageView?.image = UIImage(named: "Side_StudyLecture.png")
+            
+        case 3:
             cell!.textLabel?.text = "图书馆"
             cell!.textLabel?.textColor = UIColor.whiteColor()
             cell!.imageView?.image = UIImage(named: "Side_Library.png")
             
-        case 3:
+        case 4:
             cell!.textLabel?.text = "外卖"
             cell!.textLabel?.textColor = UIColor.whiteColor()
             cell!.imageView?.image = UIImage(named: "Side_TakeOut.png")
             
-        case 4:
+        case 5:
             cell!.textLabel?.text = "东大小黄鸡"
             cell!.textLabel?.textColor = UIColor.whiteColor()
             cell!.imageView?.image = UIImage(named: "Side_Simsimi.png")
             
-        case 5:
+        case 6:
             cell!.textLabel?.text = "设置"
             cell!.textLabel?.textColor = UIColor.whiteColor()
             cell!.imageView?.image = UIImage(named: "Side_Settings.png")
-
             
         default:
             break
         }
-        
 
         return cell!
     }
@@ -173,37 +166,42 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
         {
             
         case 0:
-        
             if self.navMainPageViewController == nil
             {
-                let mainPageViewController:CenterViewController = CenterViewController()
-                self.navMainPageViewController = CommonNavViewController(rootViewController: mainPageViewController)
+                let mainPageVC:CenterViewController = CenterViewController()
+                self.navMainPageViewController = CommonNavViewController(rootViewController: mainPageVC)
             }
             
             self.mm_drawerController.setCenterViewController(self.navMainPageViewController, withCloseAnimation: true, completion: nil)
             
-        
         case 1:
-            
             if self.navSchoolLifeViewController == nil
             {
-                let schoolLifeViewController:SchoolLifeViewController = SchoolLifeViewController(nibName: "SchoolLifeViewController", bundle: nil)
-                self.navSchoolLifeViewController = CommonNavViewController(rootViewController: schoolLifeViewController)
+                let schoolLifeVC:SchoolLifeViewController = SchoolLifeViewController(nibName: "SchoolLifeViewController", bundle: nil)
+                self.navSchoolLifeViewController = CommonNavViewController(rootViewController: schoolLifeVC)
             }
             
             self.mm_drawerController.setCenterViewController(self.navSchoolLifeViewController, withCloseAnimation: true, completion: nil)
- 
+            
         case 2:
+            if self.navStudyLectureViewController == nil
+            {
+                let studyLectureVC:StudyLectureViewController = StudyLectureViewController(nibName: "StudyLectureViewController", bundle: nil)
+                self.navStudyLectureViewController = CommonNavViewController(rootViewController: studyLectureVC)
+            }
+            
+            self.mm_drawerController.setCenterViewController(self.navStudyLectureViewController, withCloseAnimation: true, completion: nil)
+            
+        case 3:
             if self.navLibraryViewController == nil
             {
-                let LibraryVC = LibraryViewController(nibName: "LibraryViewController", bundle: nil)
-                self.navLibraryViewController = CommonNavViewController(rootViewController: LibraryVC)
+                let libraryVC = LibraryViewController(nibName: "LibraryViewController", bundle: nil)
+                self.navLibraryViewController = CommonNavViewController(rootViewController: libraryVC)
             }
             
             self.mm_drawerController.setCenterViewController(self.navLibraryViewController, withCloseAnimation: true, completion: nil)
             
-        case 3:
-            
+        case 4:
             if self.navTakeAwayViewController == nil
             {
                 let takeAwayVC = RestaurantViewController(nibName: "RestaurantViewController", bundle: nil)
@@ -213,8 +211,7 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
             
             self.mm_drawerController.setCenterViewController(self.navTakeAwayViewController, withCloseAnimation: true, completion: nil)
             
-        case 4:
-            
+        case 5:
             if self.navSimSimiViewController == nil
             {
                 let simsimiVC = SimSimiViewController(nibName: "SimSimiViewController", bundle: nil)
@@ -223,8 +220,7 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
             
             self.mm_drawerController.setCenterViewController(self.navSimSimiViewController, withCloseAnimation: true, completion: nil)
         
-        case 5 :
-            
+        case 6 :
             if self.navSettingsViewController == nil
             {
                 let settingsVC = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
@@ -232,6 +228,7 @@ class LeftDrawerTableViewController: UITableViewController,LoginProtocol {
             }
             
             self.mm_drawerController.setCenterViewController(self.navSettingsViewController, withCloseAnimation: true, completion: nil)
+            
         default:
             break
             

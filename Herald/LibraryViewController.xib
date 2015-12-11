@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LibraryViewController" customModule="Herald" customModuleProvider="target">
@@ -16,12 +16,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYv-QM-A06">
-                    <rect key="frame" x="0.0" y="64" width="320" height="326"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="324"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Library.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="BY3-Pp-gei">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
+                            <animations/>
                         </imageView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="BY3-Pp-gei" secondAttribute="bottom" id="4mi-jF-VEZ"/>
@@ -31,13 +33,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFN-Kj-cAp">
-                    <rect key="frame" x="0.0" y="390" width="320" height="178"/>
+                    <rect key="frame" x="0.0" y="388" width="320" height="180"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-sr-ZIE">
-                            <rect key="frame" x="0.0" y="0.0" width="160" height="89"/>
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.54509803921568623" green="0.8666666666666667" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="89" id="RS2-ly-gXk"/>
+                                <constraint firstAttribute="height" constant="90" id="RS2-ly-gXk"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,10 +50,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Io-89-cEt">
-                            <rect key="frame" x="160" y="0.0" width="160" height="89"/>
+                            <rect key="frame" x="160" y="0.0" width="160" height="90"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.30980392156862746" green="0.75686274509803919" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="89" id="bor-li-WFx"/>
+                                <constraint firstAttribute="height" constant="90" id="bor-li-WFx"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,10 +64,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzs-LL-4FK">
-                            <rect key="frame" x="0.0" y="89" width="160" height="89"/>
+                            <rect key="frame" x="0.0" y="90" width="160" height="90"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.41176470588235292" green="0.74901960784313726" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="89" id="Kya-S7-hhk"/>
+                                <constraint firstAttribute="height" constant="90" id="Kya-S7-hhk"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,10 +78,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpr-b4-C9Y">
-                            <rect key="frame" x="160" y="89" width="160" height="89"/>
+                            <rect key="frame" x="160" y="90" width="160" height="90"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.21568627450980393" green="0.66666666666666663" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="89" id="wyt-Uw-H5p"/>
+                                <constraint firstAttribute="height" constant="90" id="wyt-Uw-H5p"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,30 +93,35 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本馆导航" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTG-wA-Mgf">
                             <rect key="frame" x="14" y="33" width="76" height="23"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="书籍查询" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q11-HO-42k">
                             <rect key="frame" x="174" y="33" width="76" height="23"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已借书籍" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxc-uQ-Rrs">
                             <rect key="frame" x="14" y="122" width="76" height="23"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="校车查询" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IN-Qg-VTz">
                             <rect key="frame" x="174" y="122" width="76" height="23"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LibNavPic.png" translatesAutoresizingMaskIntoConstraints="NO" id="QPP-08-gH4">
                             <rect key="frame" x="102" y="20" width="50" height="50"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="aKd-Gm-E3B"/>
                                 <constraint firstAttribute="width" constant="50" id="bKD-be-vHJ"/>
@@ -118,6 +129,7 @@
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchBook.png" translatesAutoresizingMaskIntoConstraints="NO" id="1RC-CJ-3zd">
                             <rect key="frame" x="262" y="20" width="50" height="50"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="B5M-8Z-FPS"/>
                                 <constraint firstAttribute="width" constant="50" id="q7J-lM-oyT"/>
@@ -125,6 +137,7 @@
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BorrowedBooks.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nao-FM-ohx">
                             <rect key="frame" x="102" y="109" width="50" height="50"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Mef-g5-4Wp"/>
                                 <constraint firstAttribute="width" constant="50" id="bTg-pT-2vl"/>
@@ -132,19 +145,21 @@
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SchoolBus.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Q7-IR-wYR">
                             <rect key="frame" x="262" y="109" width="50" height="50"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="BcR-VQ-gTu"/>
                                 <constraint firstAttribute="width" constant="50" id="Z1d-EE-pRE"/>
                             </constraints>
                         </imageView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="lpr-b4-C9Y" firstAttribute="top" secondItem="7Io-89-cEt" secondAttribute="bottom" id="1IA-gy-GMs"/>
                         <constraint firstAttribute="bottom" secondItem="Zzs-LL-4FK" secondAttribute="bottom" id="2IZ-Kv-oNi"/>
-                        <constraint firstAttribute="height" constant="178" id="3eo-qu-qhK"/>
+                        <constraint firstAttribute="height" constant="180" id="3eo-qu-qhK"/>
                         <constraint firstItem="lpr-b4-C9Y" firstAttribute="leading" secondItem="0IN-Qg-VTz" secondAttribute="leading" constant="-14" id="6Qf-nW-nsK"/>
-                        <constraint firstItem="lpr-b4-C9Y" firstAttribute="centerY" secondItem="0IN-Qg-VTz" secondAttribute="centerY" id="BQq-kg-ujw"/>
+                        <constraint firstItem="lpr-b4-C9Y" firstAttribute="centerY" secondItem="0IN-Qg-VTz" secondAttribute="centerY" constant="1.5" id="BQq-kg-ujw"/>
                         <constraint firstItem="lpr-b4-C9Y" firstAttribute="width" secondItem="7Io-89-cEt" secondAttribute="width" id="Ejq-nV-BdW"/>
                         <constraint firstItem="1RC-CJ-3zd" firstAttribute="leading" secondItem="q11-HO-42k" secondAttribute="leading" constant="88" id="Ist-Lr-W2Y"/>
                         <constraint firstItem="Zzs-LL-4FK" firstAttribute="top" secondItem="2qz-sr-ZIE" secondAttribute="bottom" id="KhT-Xk-Rbq"/>
@@ -173,11 +188,12 @@
                         <constraint firstItem="lpr-b4-C9Y" firstAttribute="width" secondItem="Zzs-LL-4FK" secondAttribute="width" id="tqK-rC-fn0"/>
                         <constraint firstItem="Zzs-LL-4FK" firstAttribute="leading" secondItem="pxc-uQ-Rrs" secondAttribute="leading" constant="-14" id="urX-Ah-EHg"/>
                         <constraint firstItem="7Io-89-cEt" firstAttribute="leading" secondItem="2qz-sr-ZIE" secondAttribute="trailing" id="vYM-TP-ZQe"/>
-                        <constraint firstItem="Zzs-LL-4FK" firstAttribute="centerY" secondItem="pxc-uQ-Rrs" secondAttribute="centerY" id="wnn-P7-Ona"/>
+                        <constraint firstItem="Zzs-LL-4FK" firstAttribute="centerY" secondItem="pxc-uQ-Rrs" secondAttribute="centerY" constant="1.5" id="wnn-P7-Ona"/>
                         <constraint firstItem="lpr-b4-C9Y" firstAttribute="leading" secondItem="Zzs-LL-4FK" secondAttribute="trailing" id="yQv-0F-C6K"/>
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VFN-Kj-cAp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KPL-8c-7gq"/>
@@ -198,9 +214,4 @@
         <image name="SchoolBus.png" width="100" height="100"/>
         <image name="SearchBook.png" width="100" height="100"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

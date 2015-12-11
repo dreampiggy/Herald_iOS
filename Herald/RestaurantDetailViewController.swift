@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKSTableViewDelegate {
+class RestaurantDetailViewController: UIViewController,MLLinkLabelDelegate,SKSTableViewDelegate {
 
     
     var dataList:NSDictionary!
@@ -17,7 +17,7 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
     
     @IBOutlet var addressLabel: UILabel!
     
-    @IBOutlet var contactLabel: MLEmojiLabel!
+    @IBOutlet var contactLabel: MLLinkLabel!
     
     
     @IBOutlet var lowestPriceLabel: UILabel!
@@ -42,8 +42,8 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
         self.addressLabel.numberOfLines = 0
         self.addressLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
-        self.contactLabel.emojiText = self.dataList.objectForKey("contact") as! NSString as String
-        self.contactLabel.emojiDelegate = self
+        self.contactLabel.text = self.dataList.objectForKey("contact") as! NSString as String
+        self.contactLabel.delegate = self
         self.contactLabel.numberOfLines = 0
         self.contactLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
@@ -58,17 +58,14 @@ class RestaurantDetailViewController: UIViewController,MLEmojiLabelDelegate,SKST
         self.tableView.collapseCurrentlyExpandedIndexPaths()
     }
     
-    func mlEmojiLabel(emojiLabel: MLEmojiLabel!, didSelectLink link: String!, withType type: MLEmojiLabelLinkType) {
-        switch type
-        {
-        case MLEmojiLabelLinkType.PhoneNumber:
-
+    func didClickLink(link: MLLink!, linkText: String!, linkLabel: MLLinkLabel!) {
+        switch link.linkType {
+        case MLLinkType.PhoneNumber:
             var url = "tel://"
-            url += link
+            url += linkText
             UIApplication.sharedApplication().openURL(NSURL(string: url)!)
-            
         default:
-            print("click emojiLabel error")
+            print("click MLLink error")
         }
     }
 

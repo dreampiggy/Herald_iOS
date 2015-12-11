@@ -20,7 +20,7 @@
 #import "APRoundedButton.h"
 #import "btRippleButtton.h"
 #import "ProgressHUD.h"
-#import "MLEmojiLabel.h"
+#import "MLLinkLabel.h"
 #import "SKSTableView.h"
 #import "MCFireworksButton.h"
 

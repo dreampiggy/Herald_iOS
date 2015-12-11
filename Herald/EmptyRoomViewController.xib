@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyRoomViewController" customModule="Herald" customModuleProvider="target">
@@ -17,7 +18,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-jW-gia">
-                    <rect key="frame" x="0.0" y="63" width="320" height="162"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="162"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="m4y-qb-eLL"/>
+                    </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Xsd-cw-RBM"/>
                         <outlet property="delegate" destination="-1" id="3hZ-nY-FDH"/>
@@ -25,31 +30,26 @@
                 </pickerView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cOJ-wR-LhJ">
                     <rect key="frame" x="0.0" y="212" width="320" height="356"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" priority="250" constant="356" id="ocC-k3-0GM"/>
-                    </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="NKe-XE-IYE"/>
                         <outlet property="delegate" destination="-1" id="4GS-er-3yJ"/>
                     </connections>
                 </tableView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="trailing" secondItem="dYD-jW-gia" secondAttribute="trailing" priority="250" id="GXB-8Y-g3d"/>
-                <constraint firstItem="dYD-jW-gia" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="M5E-1N-hkg"/>
+                <constraint firstAttribute="trailing" secondItem="dYD-jW-gia" secondAttribute="trailing" id="BCL-Lx-uH7"/>
+                <constraint firstItem="dYD-jW-gia" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="M5E-1N-hkg"/>
                 <constraint firstAttribute="trailing" secondItem="cOJ-wR-LhJ" secondAttribute="trailing" id="OlJ-6o-kbo"/>
-                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="top" secondItem="dYD-jW-gia" secondAttribute="bottom" priority="250" constant="-13" id="aUE-wg-ZTb"/>
+                <constraint firstItem="dYD-jW-gia" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YZf-Zz-e2R"/>
+                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="top" secondItem="dYD-jW-gia" secondAttribute="bottom" priority="250" constant="-14" id="aUE-wg-ZTb"/>
                 <constraint firstAttribute="bottom" secondItem="cOJ-wR-LhJ" secondAttribute="bottom" id="pwa-KO-eNz"/>
-                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="leading" secondItem="dYD-jW-gia" secondAttribute="leading" priority="250" id="sbe-2e-Aej"/>
+                <constraint firstItem="cOJ-wR-LhJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wrm-Eb-fkR"/>
             </constraints>
             <point key="canvasLocation" x="280" y="312"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

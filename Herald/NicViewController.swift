@@ -9,8 +9,6 @@
 import UIKit
 
 class NicViewController: UIViewController, APIGetter {
-
-    var firstSend = true
     
     struct networkInfo {
         var state:String?
@@ -66,7 +64,6 @@ class NicViewController: UIViewController, APIGetter {
         networkArray.append(brasAStruct)
         networkArray.append(brasBStruct)
         
-        firstSend = false
         nicMoneyLabel.text = leftMoney
         
         drawNetworkInfo(networkSegmentedControl.selectedSegmentIndex)

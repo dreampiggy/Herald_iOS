@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftDrawerTableViewController" customModule="Herald" customModuleProvider="target">
@@ -16,6 +16,7 @@
         <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
@@ -29,18 +30,22 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Side_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5dF-Pj-5an">
                     <rect key="frame" x="0.0" y="0.0" width="260" height="152"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="152" id="h0J-Yw-65r"/>
                     </constraints>
                 </imageView>
                 <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4N-Kk-l0R">
                     <rect key="frame" x="87" y="152" width="1" height="62"/>
+                    <animations/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJH-QR-Zey">
                     <rect key="frame" x="172" y="152" width="1" height="62"/>
+                    <animations/>
                 </view>
                 <button opaque="NO" tag="666" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-r8-0Lp" userLabel="用户认证">
                     <rect key="frame" x="0.0" y="152" width="130" height="62"/>
+                    <animations/>
                     <state key="normal" image="NicButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -50,6 +55,7 @@
                 </button>
                 <button opaque="NO" tag="666" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6v-AA-282" userLabel="个人信息">
                     <rect key="frame" x="130" y="152" width="130" height="62"/>
+                    <animations/>
                     <state key="normal" image="InfoButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -59,8 +65,11 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Side_SchoolBadge.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Yh-ws-e9Y">
                     <rect key="frame" x="16" y="50" width="88" height="88"/>
+                    <animations/>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zm5-5D-agO">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zm5-5D-agO">
+                    <rect key="frame" x="130" y="94" width="0.0" height="100"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="G1I-Mb-C9q"/>
@@ -69,11 +78,13 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请先登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JI9-jm-BQY">
                     <rect key="frame" x="130" y="76" width="96" height="36"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="CLB-r8-0Lp" secondAttribute="bottom" id="Huv-XI-9Ia"/>
@@ -101,9 +112,4 @@
         <image name="Side_SchoolBadge.png" width="1024" height="1024"/>
         <image name="Side_bg.jpg" width="523" height="311"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

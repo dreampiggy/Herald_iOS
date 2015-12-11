@@ -60,16 +60,16 @@ class SchoolLifeViewController: UIViewController {
         self.navigationController!.pushViewController(curriculumVC, animated: true)
     }
     
-    @IBAction func nicSeuButton(sender: AnyObject) {
-        let nicSeuSB = UIStoryboard(name: "NicSeuStoryboard", bundle: nil)
-        let nicSeuVC = nicSeuSB.instantiateViewControllerWithIdentifier("NicSeuTabViewController") as UIViewController
-        self.navigationController!.pushViewController(nicSeuVC, animated: true)
+    //TODO SEU card
+    @IBAction func seuCardButton(sender: AnyObject) {
+        let seuCardVC = SeuCardViewController(nibName: "SeuCardViewController", bundle: nil)
+        self.navigationController?.pushViewController(seuCardVC, animated: true)
     }
     
-    @IBAction func labLectureButton(sender: AnyObject) {
-        let labLectureSB = UIStoryboard(name: "LabLectureStoryboard", bundle: nil)
-        let labLectureVC = labLectureSB.instantiateViewControllerWithIdentifier("LabLectureTabViewController") as UIViewController
-        self.navigationController!.pushViewController(labLectureVC, animated: true)
+    //TODO NIC
+    @IBAction func nicButton(sender: AnyObject) {
+        let nicVC = NicViewController(nibName: "NicViewController", bundle: nil)
+        self.navigationController?.pushViewController(nicVC, animated: true)
     }
     
     @IBAction func academicNewsButton(sender: AnyObject)
@@ -84,20 +84,6 @@ class SchoolLifeViewController: UIViewController {
         
         self.navigationController!.pushViewController(emptyRoomVC, animated: true)
     }
-    
-    @IBAction func gradesButton(sender: AnyObject)
-    {
-        let gradesVC = GradeViewController(nibName: "GradeViewController", bundle: nil)
-        self.navigationController!.pushViewController(gradesVC, animated: true)
-    }
-    
-    
-    @IBAction func srtpButton(sender: AnyObject)
-    {
-        let SRTPVC = SRTPViewController(nibName: "SRTPViewController", bundle: nil)
-        self.navigationController!.pushViewController(SRTPVC, animated: true)
-    }
-    
     /*
     // MARK: - Navigation
 
