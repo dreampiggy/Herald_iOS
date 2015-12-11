@@ -89,7 +89,6 @@
 		32BEC07E1AD3D0370018A78C /* SchoolBusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32BEC07C1AD3D0370018A78C /* SchoolBusTableViewCell.xib */; };
 		32C3D5321AFE4A8200EA41C2 /* NICLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3D5301AFE4A8200EA41C2 /* NICLoginViewController.swift */; };
 		32C3D5331AFE4A8200EA41C2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3D5311AFE4A8200EA41C2 /* UserInfoViewController.swift */; };
-		32CF313219FC91D70081CDC8 /* crt1.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CF313119FC91D70081CDC8 /* crt1.o */; };
 		32DD79501C1A69CC00062473 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD794E1C1A69CC00062473 /* ExamViewController.swift */; };
 		32DD79511C1A69CC00062473 /* ExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DD794F1C1A69CC00062473 /* ExamViewController.xib */; };
 		32DD79541C1A6C9700062473 /* ExamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD79521C1A6C9700062473 /* ExamTableViewCell.swift */; };
@@ -458,7 +457,6 @@
 		32BEC07C1AD3D0370018A78C /* SchoolBusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolBusTableViewCell.xib; sourceTree = "<group>"; };
 		32C3D5301AFE4A8200EA41C2 /* NICLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NICLoginViewController.swift; sourceTree = "<group>"; };
 		32C3D5311AFE4A8200EA41C2 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		32CF313119FC91D70081CDC8 /* crt1.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = crt1.o; path = usr/lib/crt1.o; sourceTree = SDKROOT; };
 		32DD794E1C1A69CC00062473 /* ExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
 		32DD794F1C1A69CC00062473 /* ExamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExamViewController.xib; sourceTree = "<group>"; };
 		32DD79521C1A6C9700062473 /* ExamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamTableViewCell.swift; sourceTree = "<group>"; };
@@ -765,7 +763,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32CF313219FC91D70081CDC8 /* crt1.o in Frameworks */,
 				7B1522C619C28444004D69F0 /* StoreKit.framework in Frameworks */,
 				7B1522C419C2829F004D69F0 /* CoreGraphics.framework in Frameworks */,
 				7B1522C219C28299004D69F0 /* Security.framework in Frameworks */,
@@ -1116,7 +1113,6 @@
 		7B76640E19C1406B00E27153 = {
 			isa = PBXGroup;
 			children = (
-				32CF313119FC91D70081CDC8 /* crt1.o */,
 				7B1522C519C28444004D69F0 /* StoreKit.framework */,
 				7B1522C319C2829F004D69F0 /* CoreGraphics.framework */,
 				7B1522C119C28299004D69F0 /* Security.framework */,
