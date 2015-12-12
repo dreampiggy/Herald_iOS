@@ -14,7 +14,6 @@ protocol APIGetter{
 }
 
 class HeraldAPI{
-    static let sharedInstance = HeraldAPI()
     //先声公开API的appid
     let appid = "9f9ce5c3605178daadc2d85ce9f8e064"
     
@@ -31,8 +30,14 @@ class HeraldAPI{
     var apiList:NSDictionary?
     
     init(){
-        let bundle = NSBundle.mainBundle()
-        let plistPath = bundle.pathForResource("APIList", ofType: "plist") ?? ""
+        let file = NSFileManager.defaultManager()
+        
+        var plistPath = Tool.libraryPath + "APIList.plist"
+        if !file.fileExistsAtPath(plistPath) {
+            let bundle = NSBundle.mainBundle()
+            plistPath = bundle.pathForResource("APIList", ofType: "plist") ?? ""
+        }
+        
         if let plistContent = NSDictionary(contentsOfFile: plistPath){
             plist = plistContent
             apiList = plistContent["API List"] as? NSDictionary

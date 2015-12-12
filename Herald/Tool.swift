@@ -49,4 +49,54 @@ class Tool:NSObject
         }
         return false
     }
+    
+    static func notificationState() -> Bool {
+        if #available(iOS 8.0, *) {
+            if let type = UIApplication.sharedApplication().currentUserNotificationSettings()?.types {
+                if type != UIUserNotificationType.None {
+                    return true
+                }
+            }
+        } else {
+            let type = UIApplication.sharedApplication().enabledRemoteNotificationTypes()
+            if type != UIRemoteNotificationType.None {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    static func registerNotification() {
+        if #available(iOS 8.0, *) {
+            let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        } else {
+            UIApplication.sharedApplication().registerForRemoteNotificationTypes([.Alert, .Badge, .Sound])
+        }
+    }
+    
+    static func unregisterNotifications() {
+        guard let token = Config.token else {
+            return
+        }
+        let API = HeraldAPI()
+        API.sendAPI("removeToken", APIParameter: token)
+        Config.removeToken()
+        UIApplication.sharedApplication().unregisterForRemoteNotifications()
+        Tool.showSuccessHUD("跑操注册已取消")
+    }
+    
+    static func judgeFirstLaunch() -> Bool {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true)[0] + "/"
+    static let libraryPath = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] + "/"
 }

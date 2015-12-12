@@ -15,6 +15,8 @@ class RunningViewController: UIViewController,APIGetter {
     
     var screenSize:CGSize = UIScreen.mainScreen().bounds.size
     
+    var YYLabel:UILabel?
+    
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,7 @@ class RunningViewController: UIViewController,APIGetter {
             Tool.showProgressHUD("正在获取跑操数据")
             self.API.delegate = self
             API.sendAPI("pe")
+            API.sendAPI("running")
         }
         
     }
@@ -45,16 +48,33 @@ class RunningViewController: UIViewController,APIGetter {
     }
     
     func getResult(APIName: String, results: JSON) {
-        let runContent:NSString = results["content"].string ?? "0"
-        if (runContent.integerValue >= 0 && runContent.integerValue <= 100){
-            Tool.showSuccessHUD("更新成功")
-            self.gaugeView?.value = runContent.floatValue
-            self.tickerLabel?.text = runContent as String
+        switch APIName {
+        case "pe":
+            let runContent:NSString = results["content"].string ?? "0"
+            if (runContent.integerValue >= 0 && runContent.integerValue <= 100){
+                Tool.showSuccessHUD("更新成功")
+                self.gaugeView?.value = runContent.floatValue
+                self.tickerLabel?.text = runContent as String
+            }
+        
+        case "running":
+            if let text = results["content"].string {
+                if text == "refreshing" {
+                    return
+                } else {
+                    YYLabel?.text = text
+                }
+            }
+        default: break
         }
     }
     
     func getError(APIName: String, statusCode: Int) {
-        Tool.showErrorHUD("获取数据失败")
+        switch APIName {
+        case "pe":
+            Tool.showErrorHUD("获取数据失败")
+        default: break
+        }
     }
     
     func setupView()
@@ -90,12 +110,14 @@ class RunningViewController: UIViewController,APIGetter {
         YYRippleButton.setRippeEffectEnabled(true)
         YYRippleButton.setRippleEffectWithColor(UIColor(red: 240/255, green:159/255, blue:10/255, alpha:1))
         
-        let YYLabel = UILabel(frame: CGRectMake((self.screenSize.width - 100/2)/2-5, 330, 100, 100))
-        YYLabel.text = "YY一下"
-        YYLabel.textColor = UIColor.whiteColor()
+        YYLabel = UILabel(frame: CGRectMake(0, 340, self.screenSize.width, 100))
+        YYLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        YYLabel!.textAlignment = NSTextAlignment.Center
+        YYLabel!.text = "现在还没有跑操预告哦"
+        YYLabel!.textColor = UIColor.whiteColor()
         
         self.view.addSubview(YYRippleButton)
-        self.view.addSubview(YYLabel)
+        self.view.addSubview(YYLabel!)
     }
     
     func YY()

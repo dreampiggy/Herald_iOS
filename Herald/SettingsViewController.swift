@@ -14,8 +14,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
 
     
     var mailController:MFMailComposeViewController?
-    
-    
+    var APNSwich = UISwitch()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +24,12 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
         if MFMailComposeViewController.canSendMail(){
             mailController = MFMailComposeViewController()
         }
+        if Config.token != nil {
+            APNSwich.setOn(true, animated: false)
+        } else {
+            APNSwich.setOn(false, animated: false)
+        }
+        APNSwich.addTarget(self, action: Selector("changeAPNState"), forControlEvents: .ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,9 +61,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            let a = UIScreen.mainScreen().bounds.size.width * 0.50
-            print(a)
-                        return a
+            return UIScreen.mainScreen().bounds.size.width * 0.50
         }
         else {
             return 44
@@ -114,6 +117,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
             case 1:
                 cell.textLabel?.text = "跑操推送"
                 cell.imageView?.image = UIImage(named: "AboutUs.png")
+                cell.accessoryView = APNSwich
             default: break
             }
         case 2:
@@ -154,8 +158,6 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
             switch indexPath.row {
             case 0:
                 updateAPI()
-            case 1:
-                enableAPN()
             default:
                 return
             }
@@ -215,10 +217,12 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func updateAPI() {
-        let api = HeraldAPI.sharedInstance
-        let plistPath = NSBundle.mainBundle().pathForResource("APIList", ofType: "plist") ?? ""
+        let api = HeraldAPI()
+        let plistPath = Tool.libraryPath + "APIList.plist"
+
         if let currentVersion = api.getValue("Version"), url = api.getValue("UpdateURL") {
-            
+            api.manager.responseSerializer = AFHTTPResponseSerializer()
+            api.manager.requestSerializer.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
             api.manager.GET(url, parameters: ["version": currentVersion], success: {(operation :AFHTTPRequestOperation!,responseObject :AnyObject!) ->Void in
                 if let data = responseObject as? NSData, string = NSString(data: data,encoding: NSUTF8StringEncoding) {
                     do {
@@ -229,9 +233,9 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                     }
                 }
             }, failure: {(operation :AFHTTPRequestOperation?, error :NSError) ->Void in
-                    
+                
                     if let code = operation?.response?.statusCode {
-                        if (code == 303) {
+                        if (code == 304) {
                             Tool.showSuccessHUD("已经是最新的列表")
                             return
                         }
@@ -241,19 +245,16 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
         }
     }
     
-    func enableAPN() {
-        guard let token = Config.token else {
-            Tool.showErrorHUD("请在\"设置\"->\"通知\"->\"先声\"中打开推送通知")
-            return
+    func changeAPNState() {
+        if APNSwich.on {
+            if Tool.notificationState() {
+                Tool.registerNotification()
+            } else {
+                Tool.showErrorHUD("请在\"设置\"->\"通知\"->\"先声\"中打开推送通知并重新打开应用")
+            }
+        } else {
+            Tool.unregisterNotifications()
         }
-        let api = HeraldAPI.sharedInstance
-        guard let url = api.getValue("APNURL") else {
-            Tool.showErrorHUD("获取API列表出错，可能是服务器正忙。请先尝试重新更新API")
-            return
-        }
-        api.postRequest(url, parameter: ["token": token], tag: "token")
-        Tool.showSuccessHUD("远程推送注册成功!")
-        Config.saveToken(token)
     }
     
     func rateUS()

@@ -265,7 +265,6 @@
 		7B76662719C1426400E27153 /* IDCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F019C1426400E27153 /* IDCard.png */; };
 		7B76662819C1426400E27153 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F119C1426400E27153 /* mail.png */; };
 		7B76662919C1426400E27153 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F219C1426400E27153 /* mail@2x.png */; };
-		7B76662A19C1426400E27153 /* running.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F319C1426400E27153 /* running.jpg */; };
 		7B76662B19C1426400E27153 /* password_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F419C1426400E27153 /* password_icon@2x.png */; };
 		7B76662C19C1426400E27153 /* user_name_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F519C1426400E27153 /* user_name_icon@2x.png */; };
 		7B76662D19C1426400E27153 /* leftButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665F619C1426400E27153 /* leftButton.png */; };
@@ -689,7 +688,6 @@
 		7B7665F019C1426400E27153 /* IDCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDCard.png; sourceTree = "<group>"; };
 		7B7665F119C1426400E27153 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
 		7B7665F219C1426400E27153 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail@2x.png"; sourceTree = "<group>"; };
-		7B7665F319C1426400E27153 /* running.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = running.jpg; sourceTree = "<group>"; };
 		7B7665F419C1426400E27153 /* password_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password_icon@2x.png"; sourceTree = "<group>"; };
 		7B7665F519C1426400E27153 /* user_name_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_name_icon@2x.png"; sourceTree = "<group>"; };
 		7B7665F619C1426400E27153 /* leftButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftButton.png; sourceTree = "<group>"; };
@@ -939,7 +937,6 @@
 				327B50271C1B064A00CBCEED /* HeraldLogo@2x.png */,
 				7B7665F119C1426400E27153 /* mail.png */,
 				7B7665F219C1426400E27153 /* mail@2x.png */,
-				7B7665F319C1426400E27153 /* running.jpg */,
 				7B7665F419C1426400E27153 /* password_icon@2x.png */,
 				7B7665F519C1426400E27153 /* user_name_icon@2x.png */,
 				7B7665F619C1426400E27153 /* leftButton.png */,
@@ -1585,6 +1582,11 @@
 					7B76641619C1406B00E27153 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 263A99S975;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					7B76642B19C1406C00E27153 = {
 						CreatedOnToolsVersion = 6.0;
@@ -1762,7 +1764,6 @@
 				7B76654E19C1422F00E27153 /* CommonNavViewController.xib in Resources */,
 				7BBC051119C523CC0014EF44 /* expandableImage.png in Resources */,
 				7B76662B19C1426400E27153 /* password_icon@2x.png in Resources */,
-				7B76662A19C1426400E27153 /* running.jpg in Resources */,
 				7B76662C19C1426400E27153 /* user_name_icon@2x.png in Resources */,
 				32BEC07E1AD3D0370018A78C /* SchoolBusTableViewCell.xib in Resources */,
 				7BBC053619C67C4C0014EF44 /* Pic_dddsf.jpg in Resources */,

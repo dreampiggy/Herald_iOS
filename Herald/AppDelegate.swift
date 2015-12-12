@@ -9,9 +9,6 @@
 import UIKit
 import QuartzCore
 
-
-let kMaximumLeftDrawerWidth:CGFloat = 260.0
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
@@ -32,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationController:CommonNavViewController = CommonNavViewController(rootViewController: centerViewController)
         
+        // 定义左滑抽屉最大宽度
+        let kMaximumLeftDrawerWidth:CGFloat = 260.0
+        
         self.drawerController = MMDrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideDrawerViewController)
         self.drawerController.setMaximumLeftDrawerWidth(kMaximumLeftDrawerWidth, animated:false, completion: nil)
         self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.All
@@ -42,66 +42,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = self.drawerController
         self.window?.makeKeyAndVisible()
         
+        //  收到远程推送通知后
+        if let _ = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] {
+            processPushNotification()
+        }
         
-        //注册APN
-        if Config.token == nil {
-            if #available(iOS 8.0, *) {
-                let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-                UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-                UIApplication.sharedApplication().registerForRemoteNotifications()
-            } else {
-                UIApplication.sharedApplication().registerForRemoteNotificationTypes([.Alert, .Badge, .Sound])
-            }
+        if Tool.judgeFirstLaunch() {
+            Tool.registerNotification()
         }
         
         return true
     }
     
+    //推送注册成功
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>")).stringByReplacingOccurrencesOfString(" ", withString: "")
-        let api = HeraldAPI.sharedInstance
-        guard let url = api.getValue("APNURL") else {
-            return
-        }
-        api.postRequest(url, parameter: ["token": token], tag: "token")
+        let api = HeraldAPI()
+        api.sendAPI("regToken", APIParameter: token)
         Config.saveToken(token)
-        print("远程推送注册成功!\(deviceToken)")
+        Tool.showSuccessHUD("跑操推送注册成功")
         //服务端应将token存储在数据库中改，以备以后重复使用
     }
     
+    //推送注册失败
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("远程推送注册失败!\(error)")
+        Tool.showErrorHUD("跑操推送注册失败")
     }
     
-    //  收到远程推送通知后，这个是普通的推送（不额外发出请求）
+    //  收到远程推送通知后
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        let runningVC = RunningViewController(nibName: "RunningViewController", bundle: nil)
-        
-        self.window?.rootViewController?.navigationController?.pushViewController(runningVC, animated: true)
+        processPushNotification()
     }
     
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    func processPushNotification() {
+        //清除角标
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
+        let navigationController = self.drawerController.centerViewController as? CommonNavViewController
+        //确保当前不是显示的跑操VC
+        guard !(navigationController?.topViewController is RunningViewController) else {
+            return
+        }
+        let runningVC = RunningViewController(nibName: "RunningViewController", bundle: nil)
+        navigationController?.pushViewController(runningVC, animated: true)
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
 
 }
 

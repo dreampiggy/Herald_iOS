@@ -53,34 +53,6 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-//    func didReceiveArrayResults(results: NSArray, tag: String)
-//    {
-//        if tag == "images"
-//        {
-//            var imageArray :[UIImageView!] = [self.imageView1,self.imageView2,self.imageView3,self.imageView4,self.imageView5]
-//            
-//            var count:CGFloat = 0
-//            for i in 0..<5
-//            {
-//                
-//                let xPosition  = self.screenSize.width * count
-//                imageArray[i] = UIImageView(frame: CGRectMake(xPosition, -64, self.screenSize.width, self.scrollView!.frame.height))
-//                
-//                let urlDictionary: NSDictionary = results.objectAtIndex(i) as NSDictionary
-//    
-//                let nsurl = NSURL(string: urlDictionary.objectForKey("url") as String )
-//                
-//                imageArray[i].sd_setImageWithURL(nsurl, placeholderImage: UIImage(named: "HeraldLogo.png"))
-//                
-//                // self.imageCache.storeImage(imageArray[i].image, forKey: String(i), toDisk: true)
-//                
-//                self.scrollView!.addSubview(imageArray[i])
-//                
-//                count = count + 1
-//            }
-//        }
-//    }
-    
     func setupScrollPic()
     {
         let color = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
@@ -122,16 +94,11 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
             count = count + 1
         }
         
-//        var homePageView = UIImageView(frame: CGRectMake(0, 64, self.screenSize.width, self.scrollView!.frame.height))
-//        homePageView.image = UIImage(named: "image1.png")
-//        homePageView.userInteractionEnabled = true
-        
         
         self.imageView = UIImageView(frame: CGRectMake(0, 64 + self.scrollView.frame.height, self.screenSize.width, self.screenSize.height - 64 - self.scrollView.frame.height))
         self.imageView.image = UIImage(named: "MainPagePic.jpg")
         self.imageView.userInteractionEnabled = true
         
-//        self.view.addSubview(homePageView)
         self.view.addSubview(self.scrollView)
         self.view.addSubview(self.pageControl)
         self.view.addSubview(self.imageView)

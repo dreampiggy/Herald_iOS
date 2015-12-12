@@ -151,6 +151,15 @@
 				<string>uuid</string>
 			</array>
 		</dict>
+		<key>running</key>
+		<dict>
+			<key>URL</key>
+			<string>http://115.28.27.150/api/pc</string>
+			<key>Param</key>
+			<array>
+				<string>uuid</string>
+			</array>
+		</dict>
 		<key>emptyRoom</key>
 		<dict>
 			<key>URL</key>
@@ -211,14 +220,30 @@
 				<string>uuid</string>
 			</array>
 		</dict>
+		<key>regToken</key>
+		<dict>
+			<key>URL</key>
+			<string>http://192.168.1.115:8080/apn/reg</string>
+			<key>Param</key>
+			<array>
+				<string>token</string>
+			</array>
+		</dict>
+		<key>removeToken</key>
+		<dict>
+			<key>URL</key>
+			<string>http://192.168.1.115:8080/apn/remove</string>
+			<key>Param</key>
+			<array>
+				<string>token</string>
+			</array>
+		</dict>
 	</dict>
 	<key>UpdateURL</key>
-	<string>http://115.28.27.150/update</string>
+	<string>http://192.168.1.115:8080/update</string>
 	<key>IndexURL</key>
 	<string>http://115.28.27.150</string>
-	<key>APNURL</key>
-	<string>http://121.42.203.118</string>
 	<key>Version</key>
-	<string>3.3</string>
+	<string>3.4</string>
 </dict>
 </plist>
