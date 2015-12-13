@@ -22,8 +22,7 @@ class LecturePredictTableViewController: UIViewController, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "讲座预告"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        initResult = Tool.initNavigationAPI(self)
         if initResult{
             noLectureLabel.hidden = true
             self.API.delegate = self

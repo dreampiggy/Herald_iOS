@@ -29,9 +29,7 @@ class NicViewController: UIViewController, APIGetter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询校园网信息")
             self.API.delegate = self

@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var drawerController:MMDrawerController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
         AFNetworkActivityIndicatorManager.sharedManager().enabled = true
         IQKeyboardManager.sharedManager().enable = true
@@ -42,9 +41,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = self.drawerController
         self.window?.makeKeyAndVisible()
         
-        //  收到远程推送通知后
-        if let _ = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] {
-            processPushNotification()
+        //收到远程推送通知后
+        if #available(iOS 9.0, *) {
+            if let _ = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] {
+                // 清除角标
+                UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+                pushToViewController(RunningViewController.self)
+            } else if let item = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+                // 3D Touch
+                let type = Tool.shortcutToViewController(item.type)
+                pushToViewController(type)
+                return false
+            }
+        } else {
+            if let _ = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] {
+                // 清除角标
+                UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+                pushToViewController(RunningViewController.self)
+            }
         }
         
         if Tool.judgeFirstLaunch() {
@@ -54,38 +68,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    //推送注册成功
+    // 推送注册成功
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>")).stringByReplacingOccurrencesOfString(" ", withString: "")
         let api = HeraldAPI()
         api.sendAPI("regToken", APIParameter: token)
         Config.saveToken(token)
         Tool.showSuccessHUD("跑操推送注册成功")
-        //服务端应将token存储在数据库中改，以备以后重复使用
+        // 服务端应将token存储在数据库中改，以备以后重复使用
     }
     
-    //推送注册失败
+    // 推送注册失败
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         Tool.showErrorHUD("跑操推送注册失败")
     }
     
-    //  收到远程推送通知后
+    // 收到远程推送通知后
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        processPushNotification()
+        // 清除角标
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        pushToViewController(RunningViewController.self)
     }
     
-    func processPushNotification() {
-        //清除角标
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-        
+    func pushToViewController(vc: UIViewController.Type) {
+        print(vc)
         let navigationController = self.drawerController.centerViewController as? CommonNavViewController
-        //确保当前不是显示的跑操VC
-        guard !(navigationController?.topViewController is RunningViewController) else {
+        // 确保要显示的ViewController不是正显示的ViewController
+        if let check = navigationController?.topViewController?.isKindOfClass(vc) {
+            if check { // 检查失败，重复的ViewController，不需要跳转
+                return
+            }
+        } else { // 安全防护，日常情况不可达
             return
         }
-        let runningVC = RunningViewController(nibName: "RunningViewController", bundle: nil)
-        navigationController?.pushViewController(runningVC, animated: true)
+        print(vc.classForCoder())
+        let viewController = vc.init(nibName: "\(vc.classForCoder())", bundle: nil)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
+    // 3D Touch 入口
+    @available(iOS 9.0, *)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let type = Tool.shortcutToViewController(shortcutItem.type)
+        pushToViewController(type)
+    }
+    
 }
-

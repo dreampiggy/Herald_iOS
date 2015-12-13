@@ -34,3 +34,6 @@ Carthage/Build
 
 *.cer
 *.pem
+
+# Doc
+doc

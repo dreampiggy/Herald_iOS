@@ -38,8 +38,7 @@ class EmptyRoomViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "空闲教室查询"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        Tool.initNavigationAPI(self,navBarColor: color)
+        Tool.initNavigationAPI(self)
         
         let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: Selector("searchRoom"))
         self.navigationItem.rightBarButtonItem = searchButton

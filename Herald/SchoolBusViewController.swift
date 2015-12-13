@@ -16,8 +16,7 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询校车信息")
             self.API.delegate = self
@@ -33,10 +32,10 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     func getResult(APIName: String, results: JSON) {
         Tool.showSuccessHUD("获取数据成功")
         //这是我暂时想到的相对简单的写法……
-        let weekendIn = results["content"]["weekend"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
-        let weekendOut = results["content"]["weekend"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
-        let weekdayIn = results["content"]["weekday"]["进九龙湖"].array?.map(){["place":"进九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
-        let weekdayOut = results["content"]["weekday"]["出九龙湖"].array?.map(){["place":"出九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekendIn = results["content"]["weekend"]["返回九龙湖"].array?.map(){["place":"返回九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekendOut = results["content"]["weekend"]["前往地铁站"].array?.map(){["place":"前往地铁站", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekdayIn = results["content"]["weekday"]["返回九龙湖"].array?.map(){["place":"返回九龙湖", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
+        let weekdayOut = results["content"]["weekday"]["前往地铁站"].array?.map(){["place":"前往地铁站", "bus":$0["bus"].string,"time":$0["time"].string]} ?? []
         
         weekendInfo += weekendIn
         weekendInfo += weekendOut
@@ -56,6 +55,13 @@ class SchoolBusViewController: UIViewController,UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 255/255, green: 194/255, blue: 133/255, alpha: 1)
+        let header:UITableViewHeaderFooterView? = view as? UITableViewHeaderFooterView
+        header?.textLabel?.textColor = UIColor.whiteColor()
+        
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

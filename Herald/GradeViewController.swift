@@ -30,15 +30,11 @@ class GradeViewController: UIViewController ,UITableViewDataSource,UITableViewDe
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "成绩详情"
-    
-
-            
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         self.API.delegate = self
         
         if let cacheGPA = Config.GPA{

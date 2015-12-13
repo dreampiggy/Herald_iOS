@@ -30,7 +30,6 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         super.viewDidLoad()
         
         self.navigationItem.title = "教务信息"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
         self.view.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         self.tableView.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
@@ -44,7 +43,7 @@ class AcademicViewController: UIViewController,UITableViewDataSource,UITableView
         
         //设置表格刷新
         self.tableView.addFooterWithTarget(self, action: Selector("footerRefreshing"))
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询教务信息")
             self.API.delegate = self

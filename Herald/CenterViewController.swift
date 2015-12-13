@@ -107,9 +107,17 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
         schoolLifeButton.addTarget(self, action: Selector("schoolLifeClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.imageView.addSubview(schoolLifeButton)
         
+        let studyLecture = UIButton(frame: CGRectMake(0, self.imageView.frame.width / 2, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
+        studyLecture.addTarget(self, action: Selector("studyLectureClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.imageView.addSubview(studyLecture)
+        
         let libraryButton = UIButton(frame: CGRectMake(self.imageView.frame.width / 2, 0, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
         libraryButton.addTarget(self, action: Selector("libraryClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.imageView.addSubview(libraryButton)
+        
+        let simSimiButton = UIButton(frame: CGRectMake(self.imageView.frame.width / 2, self.imageView.frame.width / 2, self.imageView.frame.width / 2, self.imageView.frame.height / 2))
+        simSimiButton.addTarget(self, action: Selector("simsimiClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.imageView.addSubview(simSimiButton)
 
         
     }
@@ -152,6 +160,33 @@ class CenterViewController: UIViewController ,UIScrollViewDelegate{
             }
         })
     }
+    
+    func studyLectureClicked() {
+        let mydrawerController = self.mm_drawerController
+        let studyLectureViewController:StudyLectureViewController = StudyLectureViewController(nibName: "StudyLectureViewController", bundle: nil)
+        let navStudyLectureViewController = CommonNavViewController(rootViewController: studyLectureViewController)
+        
+        self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion:{(complete) in
+            if complete{
+                mydrawerController.setCenterViewController(navStudyLectureViewController, withCloseAnimation: true, completion: nil)
+                mydrawerController.closeDrawerAnimated(true, completion:nil)
+            }
+        })
+    }
+    
+    func simsimiClicked() {
+        let mydrawerController = self.mm_drawerController
+        let simsimiViewController:SimSimiViewController = SimSimiViewController(nibName: "SimSimiViewController", bundle: nil)
+        let navSimSimiViewController = CommonNavViewController(rootViewController: simsimiViewController)
+        
+        self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion:{(complete) in
+            if complete{
+                mydrawerController.setCenterViewController(navSimSimiViewController, withCloseAnimation: true, completion: nil)
+                mydrawerController.closeDrawerAnimated(true, completion:nil)
+            }
+        })
+    }
+
     /*
     // MARK: - Navigation
 

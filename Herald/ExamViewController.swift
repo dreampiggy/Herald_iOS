@@ -18,15 +18,14 @@ class ExamViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "考试查询"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        
+
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         let background = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         self.view.backgroundColor = background
         self.tableView.backgroundColor = background
         
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询考试信息")
             self.API.delegate = self

@@ -16,7 +16,7 @@ class SchoolLifeViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.navigationItem.title = "校园生活"
-        let color = UIColor(red: 73/255, green: 185/255, blue: 161/255, alpha: 1)
+        let color = UIColor(red: 119/255, green: 202/255, blue: 184/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         self.setupLeftMenuButton()

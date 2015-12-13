@@ -16,7 +16,7 @@ class StudyLectureViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.navigationItem.title = "学习讲座"
-        let color = UIColor(red: 73/255, green: 185/255, blue: 161/255, alpha: 1)
+        let color = UIColor(red: 152/255, green: 160/255, blue: 146/255, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = color
         
         self.setupLeftMenuButton()

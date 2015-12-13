@@ -27,12 +27,11 @@ class SRTPViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "SRTP详情"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询SRTP信息")
             self.API.delegate = self

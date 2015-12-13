@@ -29,8 +29,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = "课表查询"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
-        
+
         let refreshButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshCurriculum"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
@@ -40,7 +39,7 @@ class CurriculumViewController: UIViewController,UITableViewDelegate,UITableView
         self.daySegmentControl.addTarget(self, action: Selector("daySegmentedControlPressed"), forControlEvents: UIControlEvents.ValueChanged)
         self.daySegmentControl.selectedSegmentIndex = 0
         
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         self.API.delegate = self
         if let cacheResult = Config.curriculum{
             totalCurriculum = cacheResult

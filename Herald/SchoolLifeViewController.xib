@@ -177,7 +177,7 @@
                                 <constraint firstAttribute="width" constant="50" id="uha-lV-bPl"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NicSeu.png" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-Vs-3xh">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SeuCard.png" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-Vs-3xh">
                             <rect key="frame" x="102" y="95" width="50" height="50"/>
                             <animations/>
                             <constraints>
@@ -185,7 +185,7 @@
                                 <constraint firstAttribute="width" constant="50" id="jpe-zs-Kao"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LabLecture.png" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-eF-4vX">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SchoolNetwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-eF-4vX">
                             <rect key="frame" x="262" y="96" width="50" height="50"/>
                             <animations/>
                             <constraints>
@@ -284,9 +284,9 @@
         <image name="AcademicNews.png" width="100" height="100"/>
         <image name="Curriculum.png" width="100" height="100"/>
         <image name="EmptyRooms.png" width="100" height="100"/>
-        <image name="LabLecture.png" width="100" height="100"/>
-        <image name="NicSeu.png" width="100" height="100"/>
         <image name="Running.png" width="100" height="100"/>
         <image name="SchoolLife_bg.png" width="640" height="352"/>
+        <image name="SchoolNetwork.png" width="100" height="100"/>
+        <image name="SeuCard.png" width="100" height="100"/>
     </resources>
 </document>

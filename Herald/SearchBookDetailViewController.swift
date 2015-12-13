@@ -29,11 +29,10 @@ class SearchBookDetailViewController: UIViewController,UITableViewDataSource,UIT
         
         self.navigationItem.title = "查询结果"
         
-        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
-        initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        initResult = Tool.initNavigationAPI(self)
         if initResult{
             self.API.delegate = self
             API.sendAPI("searchBook",APIParameter: searchText as? String ?? "")

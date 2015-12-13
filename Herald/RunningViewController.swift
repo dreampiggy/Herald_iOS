@@ -22,7 +22,6 @@ class RunningViewController: UIViewController,APIGetter {
         super.viewDidLoad()
         
         self.navigationItem.title = "跑操查询"
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
         
@@ -32,7 +31,7 @@ class RunningViewController: UIViewController,APIGetter {
         self.view.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         self.gaugeView?.backgroundColor = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在获取跑操数据")
             self.API.delegate = self
@@ -114,6 +113,7 @@ class RunningViewController: UIViewController,APIGetter {
         YYLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
         YYLabel!.textAlignment = NSTextAlignment.Center
         YYLabel!.text = "现在还没有跑操预告哦"
+        YYLabel?.font = UIFont.boldSystemFontOfSize(20)
         YYLabel!.textColor = UIColor.whiteColor()
         
         self.view.addSubview(YYRippleButton)

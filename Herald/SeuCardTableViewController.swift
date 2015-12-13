@@ -19,12 +19,11 @@ class SeuCardTableViewController: UIViewController, UITableViewDataSource, UITab
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         let background = UIColor(red: 180/255, green: 230/255, blue: 230/255, alpha: 1)
         self.view.backgroundColor = background
         self.tableView.backgroundColor = background
         
-        initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        initResult = Tool.initNavigationAPI(self)
         if initResult{
             self.API.delegate = self
             API.sendAPI("cardDetail",APIParameter: "30")

@@ -16,7 +16,6 @@
 		320C09DF1AFE583B00A7A4A5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 320C09D61AFE583B00A7A4A5 /* UIRefreshControl+AFNetworking.m */; };
 		320C09E01AFE583B00A7A4A5 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 320C09D81AFE583B00A7A4A5 /* UIWebView+AFNetworking.m */; };
 		320C09E81AFE59C500A7A4A5 /* WMGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 320C09E71AFE59C500A7A4A5 /* WMGaugeView.m */; };
-		321902451C1A5D1A00BE5F5A /* Side_StudyLecture.png in Resources */ = {isa = PBXBuildFile; fileRef = 321902441C1A5D1A00BE5F5A /* Side_StudyLecture.png */; };
 		321AB0601AC65797006727FC /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 321AB0591AC65797006727FC /* AESCrypt.m */; };
 		321AB0611AC65797006727FC /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 321AB05B1AC65797006727FC /* NSData+Base64.m */; };
 		321AB0621AC65797006727FC /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 321AB05D1AC65797006727FC /* NSData+CommonCrypto.m */; };
@@ -72,7 +71,6 @@
 		32880B711AD9476B00D988DB /* SeuTabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B691AD9476B00D988DB /* SeuTabBar.png */; };
 		32880B721AD9476B00D988DB /* SeuTabBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B6A1AD9476B00D988DB /* SeuTabBar@2x.png */; };
 		32880B751AD94C2D00D988DB /* LabLecture.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B731AD94C2D00D988DB /* LabLecture.png */; };
-		32880B761AD94C2D00D988DB /* NicSeu.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B741AD94C2D00D988DB /* NicSeu.png */; };
 		32880B7C1AD956F500D988DB /* Side_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32880B7B1AD956F500D988DB /* Side_bg.jpg */; };
 		32880B871AD9663200D988DB /* InfoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B851AD9663200D988DB /* InfoButton.png */; };
 		32880B881AD9663200D988DB /* NicButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B861AD9663200D988DB /* NicButton.png */; };
@@ -82,6 +80,12 @@
 		32880B9E1AD96DAA00D988DB /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B991AD96DAA00D988DB /* image4.png */; };
 		32880B9F1AD96DAA00D988DB /* image5.png in Resources */ = {isa = PBXBuildFile; fileRef = 32880B9A1AD96DAA00D988DB /* image5.png */; };
 		328B66AF1B00D4F400D33231 /* APIList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 328B66AE1B00D4F400D33231 /* APIList.plist */; };
+		328CB9671C1D2DF300BC40A5 /* SchoolNetwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 328CB9661C1D2DF300BC40A5 /* SchoolNetwork.png */; };
+		328CB9691C1D2E0600BC40A5 /* SeuCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 328CB9681C1D2E0600BC40A5 /* SeuCard.png */; };
+		328CB96F1C1D307D00BC40A5 /* Side_StudyLecture.png in Resources */ = {isa = PBXBuildFile; fileRef = 328CB96E1C1D307D00BC40A5 /* Side_StudyLecture.png */; };
+		328CB9711C1D310E00BC40A5 /* UpdateAPI.png in Resources */ = {isa = PBXBuildFile; fileRef = 328CB9701C1D310E00BC40A5 /* UpdateAPI.png */; };
+		328CB9731C1D31B700BC40A5 /* RunningNotification.png in Resources */ = {isa = PBXBuildFile; fileRef = 328CB9721C1D31B700BC40A5 /* RunningNotification.png */; };
+		328CB9751C1D33D200BC40A5 /* StudyLecture_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 328CB9741C1D33D200BC40A5 /* StudyLecture_bg.jpg */; };
 		329A97481AFE4E1400F18BFB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329A97471AFE4E1400F18BFB /* API.swift */; };
 		32A488911ACB16C1006BAA63 /* SchoolLife_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A488901ACB16C1006BAA63 /* SchoolLife_bg.png */; };
 		32B6E94F1AD37288009D3556 /* LectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6E94E1AD37288009D3556 /* LectureTableViewCell.swift */; };
@@ -237,7 +241,6 @@
 		7B7665FC19C1426400E27153 /* Side_Simsimi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665C519C1426400E27153 /* Side_Simsimi.png */; };
 		7B7665FD19C1426400E27153 /* Side_TakeOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665C619C1426400E27153 /* Side_TakeOut.png */; };
 		7B7665FE19C1426400E27153 /* Side_SchoolBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665C719C1426400E27153 /* Side_SchoolBadge.png */; };
-		7B76660919C1426400E27153 /* SchoolLife_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665D219C1426400E27153 /* SchoolLife_bg.jpg */; };
 		7B76660B19C1426400E27153 /* RunningShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665D419C1426400E27153 /* RunningShare.png */; };
 		7B76660C19C1426400E27153 /* RunningYY.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665D519C1426400E27153 /* RunningYY.png */; };
 		7B76660D19C1426400E27153 /* SRTP_header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B7665D619C1426400E27153 /* SRTP_header.jpg */; };
@@ -358,7 +361,6 @@
 		320C09D81AFE583B00A7A4A5 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		320C09E61AFE59C500A7A4A5 /* WMGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGaugeView.h; sourceTree = "<group>"; };
 		320C09E71AFE59C500A7A4A5 /* WMGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMGaugeView.m; sourceTree = "<group>"; };
-		321902441C1A5D1A00BE5F5A /* Side_StudyLecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Side_StudyLecture.png; sourceTree = "<group>"; };
 		321AB0581AC65797006727FC /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
 		321AB0591AC65797006727FC /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
 		321AB05A1AC65797006727FC /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -439,7 +441,6 @@
 		32880B691AD9476B00D988DB /* SeuTabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeuTabBar.png; sourceTree = "<group>"; };
 		32880B6A1AD9476B00D988DB /* SeuTabBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SeuTabBar@2x.png"; sourceTree = "<group>"; };
 		32880B731AD94C2D00D988DB /* LabLecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LabLecture.png; sourceTree = "<group>"; };
-		32880B741AD94C2D00D988DB /* NicSeu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NicSeu.png; sourceTree = "<group>"; };
 		32880B7B1AD956F500D988DB /* Side_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Side_bg.jpg; sourceTree = "<group>"; };
 		32880B851AD9663200D988DB /* InfoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoButton.png; sourceTree = "<group>"; };
 		32880B861AD9663200D988DB /* NicButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NicButton.png; sourceTree = "<group>"; };
@@ -449,6 +450,12 @@
 		32880B991AD96DAA00D988DB /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
 		32880B9A1AD96DAA00D988DB /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
 		328B66AE1B00D4F400D33231 /* APIList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIList.plist; sourceTree = "<group>"; };
+		328CB9661C1D2DF300BC40A5 /* SchoolNetwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SchoolNetwork.png; sourceTree = "<group>"; };
+		328CB9681C1D2E0600BC40A5 /* SeuCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeuCard.png; sourceTree = "<group>"; };
+		328CB96E1C1D307D00BC40A5 /* Side_StudyLecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Side_StudyLecture.png; sourceTree = "<group>"; };
+		328CB9701C1D310E00BC40A5 /* UpdateAPI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpdateAPI.png; sourceTree = "<group>"; };
+		328CB9721C1D31B700BC40A5 /* RunningNotification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningNotification.png; sourceTree = "<group>"; };
+		328CB9741C1D33D200BC40A5 /* StudyLecture_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = StudyLecture_bg.jpg; sourceTree = "<group>"; };
 		329A97471AFE4E1400F18BFB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		32A488901ACB16C1006BAA63 /* SchoolLife_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SchoolLife_bg.png; sourceTree = "<group>"; };
 		32B6E94E1AD37288009D3556 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewCell.swift; sourceTree = "<group>"; };
@@ -660,7 +667,6 @@
 		7B7665C519C1426400E27153 /* Side_Simsimi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Side_Simsimi.png; sourceTree = "<group>"; };
 		7B7665C619C1426400E27153 /* Side_TakeOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Side_TakeOut.png; sourceTree = "<group>"; };
 		7B7665C719C1426400E27153 /* Side_SchoolBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Side_SchoolBadge.png; sourceTree = "<group>"; };
-		7B7665D219C1426400E27153 /* SchoolLife_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SchoolLife_bg.jpg; sourceTree = "<group>"; };
 		7B7665D419C1426400E27153 /* RunningShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningShare.png; sourceTree = "<group>"; };
 		7B7665D519C1426400E27153 /* RunningYY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningYY.png; sourceTree = "<group>"; };
 		7B7665D619C1426400E27153 /* SRTP_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SRTP_header.jpg; sourceTree = "<group>"; };
@@ -962,6 +968,8 @@
 			isa = PBXGroup;
 			children = (
 				7B1522CE19C288A3004D69F0 /* AboutUs.png */,
+				328CB9701C1D310E00BC40A5 /* UpdateAPI.png */,
+				328CB9721C1D31B700BC40A5 /* RunningNotification.png */,
 				7B1522CF19C288A3004D69F0 /* ContactMe.png */,
 				7B1522D019C288A3004D69F0 /* RateUs.png */,
 			);
@@ -999,15 +1007,16 @@
 			isa = PBXGroup;
 			children = (
 				32A488901ACB16C1006BAA63 /* SchoolLife_bg.png */,
+				328CB9741C1D33D200BC40A5 /* StudyLecture_bg.jpg */,
 				7B1522A719C1C31B004D69F0 /* AcademicNews.png */,
 				32880B731AD94C2D00D988DB /* LabLecture.png */,
-				32880B741AD94C2D00D988DB /* NicSeu.png */,
 				7B1522A819C1C31B004D69F0 /* Curriculum.png */,
+				328CB9681C1D2E0600BC40A5 /* SeuCard.png */,
+				328CB9661C1D2DF300BC40A5 /* SchoolNetwork.png */,
 				7B1522A919C1C31B004D69F0 /* EmptyRooms.png */,
 				7B1522AA19C1C31B004D69F0 /* Grades.png */,
 				7B1522AB19C1C31B004D69F0 /* Running.png */,
 				7B1522AC19C1C31B004D69F0 /* SRTP.png */,
-				7B7665D219C1426400E27153 /* SchoolLife_bg.jpg */,
 				7B7665D419C1426400E27153 /* RunningShare.png */,
 				7B7665D519C1426400E27153 /* RunningYY.png */,
 				7B7665D619C1426400E27153 /* SRTP_header.jpg */,
@@ -1494,7 +1503,7 @@
 				7B7665C019C1426400E27153 /* Side_Library.png */,
 				7B7665C119C1426400E27153 /* Side_MainPage.png */,
 				7B7665C219C1426400E27153 /* Side_SchoolLife.png */,
-				321902441C1A5D1A00BE5F5A /* Side_StudyLecture.png */,
+				328CB96E1C1D307D00BC40A5 /* Side_StudyLecture.png */,
 				7B7665C419C1426400E27153 /* Side_Settings.png */,
 				7B7665C519C1426400E27153 /* Side_Simsimi.png */,
 				7B7665C619C1426400E27153 /* Side_TakeOut.png */,
@@ -1627,6 +1636,7 @@
 				32880B9B1AD96DAA00D988DB /* image1.png in Resources */,
 				7B76662819C1426400E27153 /* mail.png in Resources */,
 				7B76661719C1426400E27153 /* splLib1_740_820.jpg in Resources */,
+				328CB96F1C1D307D00BC40A5 /* Side_StudyLecture.png in Resources */,
 				32880B521AD9412F00D988DB /* SchoolBus.png in Resources */,
 				7BBC056C19C691B30014EF44 /* Pic_gzycs_150.jpg in Resources */,
 				7B76660B19C1426400E27153 /* RunningShare.png in Resources */,
@@ -1641,7 +1651,6 @@
 				32DD79551C1A6C9700062473 /* ExamTableViewCell.xib in Resources */,
 				7B1522E319C2D36D004D69F0 /* LaunchImage_1242_2208.png in Resources */,
 				7B1522A319C1BFE8004D69F0 /* Appointment.png in Resources */,
-				32880B761AD94C2D00D988DB /* NicSeu.png in Resources */,
 				7BBC057919C691B30014EF44 /* Pic_ttcy_150.jpg in Resources */,
 				7B76654C19C1422F00E27153 /* LeftDrawerTableViewController.xib in Resources */,
 				7BBC051219C523CC0014EF44 /* expandableImage@2x.png in Resources */,
@@ -1730,11 +1739,11 @@
 				32880B711AD9476B00D988DB /* SeuTabBar.png in Resources */,
 				7B76661319C1426400E27153 /* jlhLib2_733_600.jpg in Resources */,
 				7BBC056E19C691B30014EF44 /* Pic_hxyzskr_150.jpg in Resources */,
-				321902451C1A5D1A00BE5F5A /* Side_StudyLecture.png in Resources */,
 				7BBC053F19C67C4C0014EF44 /* Pic_md.jpg in Resources */,
 				7BBC054A19C67C4C0014EF44 /* Pic_yxjd.jpg in Resources */,
 				7B7665FC19C1426400E27153 /* Side_Simsimi.png in Resources */,
 				32880B6D1AD9476B00D988DB /* NicTabBar.png in Resources */,
+				328CB9711C1D310E00BC40A5 /* UpdateAPI.png in Resources */,
 				7B7665FB19C1426400E27153 /* Side_Settings.png in Resources */,
 				7B76660D19C1426400E27153 /* SRTP_header.jpg in Resources */,
 				7BBC051919C672D10014EF44 /* MainPagePic.jpg in Resources */,
@@ -1746,6 +1755,7 @@
 				7B7665F819C1426400E27153 /* Side_MainPage.png in Resources */,
 				7B7665A719C1424800E27153 /* LibNavViewController.xib in Resources */,
 				7BBC053919C67C4C0014EF44 /* Pic_gzycs.jpg in Resources */,
+				328CB9731C1D31B700BC40A5 /* RunningNotification.png in Resources */,
 				7BBC057519C691B30014EF44 /* Pic_sxxc_150.jpg in Resources */,
 				7B7F297D19C918DE000C3263 /* Sparkle.png in Resources */,
 				32880B6B1AD9476B00D988DB /* LectureTabBar.png in Resources */,
@@ -1759,7 +1769,6 @@
 				32EBFA401ACB014900330C85 /* SchoolBusViewController.xib in Resources */,
 				7B1522E419C2D36D004D69F0 /* LaunchImage_2208_1242.png in Resources */,
 				7B76662D19C1426400E27153 /* leftButton.png in Resources */,
-				7B76660919C1426400E27153 /* SchoolLife_bg.jpg in Resources */,
 				7BBC057819C691B30014EF44 /* Pic_tcgzz_150.jpg in Resources */,
 				7B76654E19C1422F00E27153 /* CommonNavViewController.xib in Resources */,
 				7BBC051119C523CC0014EF44 /* expandableImage.png in Resources */,
@@ -1768,10 +1777,12 @@
 				32BEC07E1AD3D0370018A78C /* SchoolBusTableViewCell.xib in Resources */,
 				7BBC053619C67C4C0014EF44 /* Pic_dddsf.jpg in Resources */,
 				32880B9C1AD96DAA00D988DB /* image2.png in Resources */,
+				328CB9691C1D2E0600BC40A5 /* SeuCard.png in Resources */,
 				7BBC056A19C691B30014EF44 /* Pic_dddsf_150.jpg in Resources */,
 				32880B871AD9663200D988DB /* InfoButton.png in Resources */,
 				7BBC053C19C67C4C0014EF44 /* Pic_lcd.jpg in Resources */,
 				7BBC057719C691B30014EF44 /* Pic_szfd_150.jpg in Resources */,
+				328CB9751C1D33D200BC40A5 /* StudyLecture_bg.jpg in Resources */,
 				7B76662319C1426400E27153 /* chatto_bg_normal.png in Resources */,
 				32DD79511C1A69CC00062473 /* ExamViewController.xib in Resources */,
 				7B76642719C1406C00E27153 /* LaunchScreen.xib in Resources */,
@@ -1784,6 +1795,7 @@
 				7B7665BF19C1424800E27153 /* SimSimiViewController.xib in Resources */,
 				32880B9D1AD96DAA00D988DB /* image3.png in Resources */,
 				324176631AD0545800121CEF /* SeuCardTableViewCell.xib in Resources */,
+				328CB9671C1D2DF300BC40A5 /* SchoolNetwork.png in Resources */,
 				7B1522A419C1BFE8004D69F0 /* BorrowedBooks.png in Resources */,
 				7BBC057C19C691B30014EF44 /* Pic_yxjd_150.jpg in Resources */,
 				32880B751AD94C2D00D988DB /* LabLecture.png in Resources */,

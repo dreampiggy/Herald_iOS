@@ -21,7 +21,7 @@
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2U-7p-Rsu">
                             <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.1215686275" green="0.71764705880000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.56862745098039214" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="gT5-OG-GuB"/>
                             </constraints>
@@ -35,7 +35,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y99-M2-UPu">
                             <rect key="frame" x="160" y="0.0" width="160" height="90"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.0039215686269999999" green="0.63137254899999995" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.50980392156862742" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="zRA-xk-nqR"/>
                             </constraints>
@@ -49,7 +49,7 @@
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhc-S6-2Vq">
                             <rect key="frame" x="0.0" y="90" width="160" height="90"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.0078431372550000003" green="0.56862745100000001" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.54117647058823526" green="0.58039215686274503" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="4Mh-Wl-AiC"/>
                             </constraints>
@@ -63,7 +63,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bm4-1H-GSa">
                             <rect key="frame" x="160" y="90" width="160" height="90"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.01176470588" green="0.49803921569999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.46274509803921571" green="0.50196078431372548" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="1la-5P-fsU"/>
                             </constraints>
@@ -172,7 +172,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMS-8N-oD3">
                     <rect key="frame" x="0.0" y="64" width="320" height="324"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SchoolLife_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="cje-ba-9o8">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StudyLecture_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cje-ba-9o8">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
                             <animations/>
                         </imageView>
@@ -206,6 +206,6 @@
         <image name="Grades.png" width="100" height="100"/>
         <image name="LabLecture.png" width="100" height="100"/>
         <image name="SRTP.png" width="100" height="100"/>
-        <image name="SchoolLife_bg.png" width="640" height="352"/>
+        <image name="StudyLecture_bg.jpg" width="700" height="525"/>
     </resources>
 </document>

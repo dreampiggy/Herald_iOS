@@ -24,11 +24,10 @@ class SeuCardViewController: UIViewController, APIGetter {
     var API = HeraldAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let color = UIColor(red: 153/255, green: 204/255, blue: 204/255, alpha: 1)
         let detailButton = UIBarButtonItem(title: "消费详情", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("detailInfo"))
         self.navigationItem.rightBarButtonItem = detailButton
 
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询一卡通信息")
             self.API.delegate = self

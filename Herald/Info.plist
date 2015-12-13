@@ -34,10 +34,47 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-		<key>NSAppTransportSecurity</key>
+	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>pe</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>跑操</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<string>pe</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>curriculum</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>课表</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<string>curriculum</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>card</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>一卡通</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<string>card</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>nic</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>校园网</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<string>nic</string>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -22,8 +22,7 @@ class BorrowedBooksViewController: UIViewController,UITableViewDataSource,UITabl
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: Selector("refreshData"))
         self.navigationItem.rightBarButtonItem = refreshButton
-        let color = UIColor(red: 96/255, green: 199/255, blue: 222/255, alpha: 1)
-        let initResult = Tool.initNavigationAPI(self,navBarColor: color)
+        let initResult = Tool.initNavigationAPI(self)
         if initResult{
             Tool.showProgressHUD("正在查询图书借阅情况")
             self.API.delegate = self

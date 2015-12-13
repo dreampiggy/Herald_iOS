@@ -223,7 +223,7 @@
 		<key>regToken</key>
 		<dict>
 			<key>URL</key>
-			<string>http://192.168.1.115:8080/apn/reg</string>
+			<string>http://121.42.203.118:8080/apn/reg</string>
 			<key>Param</key>
 			<array>
 				<string>token</string>
@@ -232,7 +232,7 @@
 		<key>removeToken</key>
 		<dict>
 			<key>URL</key>
-			<string>http://192.168.1.115:8080/apn/remove</string>
+			<string>http://121.42.203.118:8080/apn/remove</string>
 			<key>Param</key>
 			<array>
 				<string>token</string>
@@ -240,7 +240,7 @@
 		</dict>
 	</dict>
 	<key>UpdateURL</key>
-	<string>http://192.168.1.115:8080/update</string>
+	<string>http://121.42.203.118:8080/update</string>
 	<key>IndexURL</key>
 	<string>http://115.28.27.150</string>
 	<key>Version</key>

@@ -113,10 +113,10 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "更新API"
-                cell.imageView?.image = UIImage(named: "AboutUs.png")
+                cell.imageView?.image = UIImage(named: "UpdateAPI.png")
             case 1:
                 cell.textLabel?.text = "跑操推送"
-                cell.imageView?.image = UIImage(named: "AboutUs.png")
+                cell.imageView?.image = UIImage(named: "RunningNotification")
                 cell.accessoryView = APNSwich
             default: break
             }
